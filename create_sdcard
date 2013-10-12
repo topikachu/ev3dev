@@ -1,0 +1,86 @@
+#! /bin/dash
+# ------------------------------------------------------------------------------
+# create_sdcard.sh - repartitions and formats an SD card for use with the
+#                    LEGO MINDSTORMS EV3
+#
+# Requires a udev rule that creates a device symlink at /dev/ev3dev
+#
+# Repartitions the SD card witha 50 MB FAT32 partition to hold the u-boot
+# compatible uImage file, a 768MB partition for the root filesystem, and
+# the rest for /home
+#
+# However the first cut at this script will be 50 MB FAT32 and the rest for
+# the root filesystem
+#
+# Here's a link to a page that describes the optimal alignment issue:
+#
+# http://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
+# http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&lc=en&dlc=en&docname=c03479326#
+# For my 4GB SD cards:
+# ------------------------------------------------------------------------------
+
+error_out () {
+    echo "$1"
+    exit 1
+}
+
+device=$(readlink /dev/ev3dev)
+sector_size=$(cat /sys/block/${device}/queue/physical_block_size)
+sectors=$(cat /sys/block/${device}/size)
+
+part1_start=$((1))
+part1_end=$((((48 * 1024 * 1024) / ${sector_size}) - 1 ))
+part2_start=$((((48 * 1024 * 1024) / ${sector_size})     ))
+part2_end=$((((${sectors}-1 ))))
+
+if [ "$(whoami)" != "root" ]; then
+	error_out "Sorry, you are not root."
+fi
+
+if [ ! -e /dev/ev3dev ]; then
+    error_out "Error - /dev/ev3dev does not exist - have you set up the udev rules to create it?\n"
+fi
+
+echo "-------------------------------------------------------------------------------"
+echo "WARNING - If you type \"Yes\" to the prompt, this script"
+echo "          will DELETE everything on the /dev/ev3dev card!!!"
+echo "-------------------------------------------------------------------------------"
+echo
+
+echo -n "   Type \"Yes\" to continue ... "
+read YesNo
+
+if [ ! "${YesNo}" = "Yes" ]; then
+    error_out "\n    .. aborting, you typed \"${YesNo}\""
+fi
+
+# ------------------------------------------------------------------------------
+# Repartition /dev/ev3dev
+
+echo -n "   Creating new disk label for /dev/ev3dev ..."
+parted -s --align minimal /dev/ev3dev mklabel msdos                                      \
+                                      mkpart primary fat32 ${part1_start}s ${part1_end}s \
+                                      mkpart primary ext3  ${part2_start}s ${part2_end}s
+echo " done."
+
+echo -n "   Retriggering usev rules for /dev/ev3dev ..."
+udevadm trigger --action=add --sysname-match=${device}*
+sleep 1
+echo " done."
+
+echo "   Displaying new partition table for /dev/ev3dev ...\n"
+parted /dev/${device} print
+
+echo -n "   Creating FAT32 filesystem on /dev/ev3dev_1 ..."
+mkfs.msdos -n LMS2012 /dev/ev3dev_1
+
+echo -n "   Creating ext3 filesystem on /dev/ev3dev_2 ..."
+mkfs.ext3 -L LMS2012_EXT /dev/ev3dev_2 > /dev/null
+
+echo -n "   Retriggering usev rules for /dev/ev3dev ..."
+udevadm trigger --action=add --sysname-match=${device}*
+sleep 1
+echo " done."
+
+echo "-------------------------------------------------------------------------------"
+exit

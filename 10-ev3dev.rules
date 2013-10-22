@@ -1,0 +1,46 @@
+# This is the USB to serial converter that plugs into Sensor
+# Port 1 of the EV3
+
+ACTION=="add", ATTRS{idVendor}=="10c4"           \
+             , ATTRS{idProduct}=="ea60"          \
+             , SYMLINK+="ttyev3"                 \
+             , GROUP="plugdev" , MODE="0666"
+
+# This is one of the 4GB MicroSD cards I use for EV3 development - the
+# first partition is FAT and holds the bootable Linux image, the second
+# partition is the root file system. Add other partitions if needed for
+# home, etc 
+#
+# Add an fstab entry for each partition you'd like to mount, then
+# configure the file manager (if using GUI) to automount. Otherwise
+# you'll need to do "mount -a" to mount the drive
+#
+# Add another section just like this for each MicroSD card that you
+# want to make sure has a known /dev entry
+
+ACTION=="add", KERNEL=="sd?"                                    \
+             , SUBSYSTEMS=="usb", ATTRS{idVendor}=="05e3"       \
+                                , ATTRS{idProduct}=="0727"      \
+                                , ATTRS{serial}=="000000000206" \
+             , SYMLINK+="ev3dev"                                \
+             , GROUP="plugdev"                                  \
+             , MODE="0666"                                      \
+             , OPTIONS+="last_rule"
+
+ACTION=="add", KERNEL=="sd?1"                                   \
+             , SUBSYSTEMS=="usb",  ATTRS{idVendor}=="05e3"      \
+                                , ATTRS{idProduct}=="0727"      \
+                                , ATTRS{serial}=="000000000206" \
+             , SYMLINK+="ev3dev_1"                              \
+             , GROUP="plugdev"                                  \
+             , MODE="0666"                                      \
+             , OPTIONS+="last_rule"
+
+ACTION=="add", KERNEL=="sd?2"                                   \
+             , SUBSYSTEMS=="usb",  ATTRS{idVendor}=="05e3"      \
+                                , ATTRS{idProduct}=="0727"      \
+                                , ATTRS{serial}=="000000000206" \
+             , SYMLINK+="ev3dev_2"                              \
+             , GROUP="plugdev"                                  \
+             , MODE="0666"                                      \
+             , OPTIONS+="last_rule"

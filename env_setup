@@ -4,7 +4,7 @@
 #******************************************************************************************************************
 # as normal user on linux pc terminal:
 
-export AM1808_COMPILER="${HOME}/projects/bin/arm-2011.03/bin"
+export AM1808_COMPILER="../bin/arm-2011.03/bin"
 
 export LEGO_AM1808_DISTRO=lego-DaVinci-PSP-SDK-03.20.00.13
 export LEGO_AM1808_DISTRO=lego-DaVinci-PSP-SDK-03.20.00.13
@@ -14,8 +14,8 @@ export LEGO_AM1808_ABI=arm-none-eabi-
 
 export LEGO_AM1808_KERNEL=/opt/${LEGO_AM1808_DISTRO}/src/kernel/${LEGO_AM1808_LINUX}
 
-export EV3DEV_AM1808_ROOT="${HOME}/projects"
-export EV3DEV_AM1808_DISTRO=ev3dev
+export EV3DEV_AM1808_ROOT="${project}"
+export EV3DEV_AM1808_DISTRO=".."
 export EV3DEV_AM1808_LINUX=ev3dev-kernel
 # export EV3DEV_AM1808_UBOOT=uboot-03.22.00.02
 export EV3DEV_AM1808_ABI=arm-none-eabi-

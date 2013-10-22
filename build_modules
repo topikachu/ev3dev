@@ -24,8 +24,8 @@ PATH=${AM1808_COMPILER}:$PATH
 
 echo ${PATH}
 
-#for module in "d_ui" "d_pwm" 
-for module in "d_pwm" 
+for module in "d_ui" "d_pwm" 
+# for module in "d_pwm" 
 do 
     cd ../ev3dev-modules/lms2012/${module}/Linuxmod_AM1808
     echo "Now we're in $(pwd)"

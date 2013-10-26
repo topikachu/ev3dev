@@ -67,14 +67,16 @@ if [ -d "./LMS2012_EXT" ]; then
     sleep 2
     echo    " done."
 
-#   echo -n "    Deleting everything on LMS2012_EXT ... "
-#   rm -rf  ./LMS2012_EXT/*
-#   echo    " done."
-
     echo -n "    copying target_rootfs to LMS2012_EXT ... "
-    cp -vpR "../ev3dev-rootfs/ev3-rootfs/." ./LMS2012_EXT/
+    cp -pR "../ev3dev-rootfs/ev3-rootfs/." ./LMS2012_EXT/
     echo    " done."
 fi 
+
+echo "-------------------------------------------------------------------------------"
+echo " Even though the copy command completes - the OS will continue writing"
+echo " buffered data to the SD Card. Try to umount /dev/ev3dev_2 and when that"
+echo " command completes, you know the write has completed"
+
 
 echo "-------------------------------------------------------------------------------"
 exit

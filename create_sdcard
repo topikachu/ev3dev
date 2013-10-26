@@ -5,14 +5,17 @@
 #
 # Requires a udev rule that creates a device symlink at /dev/ev3dev
 #
-# Repartitions the SD card witha 50 MB FAT32 partition to hold the u-boot
+# Repartitions the SD card with a 50 MB FAT32 partition to hold the u-boot
 # compatible uImage file, and the rest for the root filesystem
-#
 #
 # Here's a link to a page that describes the optimal alignment issue:
 #
 # http://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
 # http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&lc=en&dlc=en&docname=c03479326#
+#
+# Added a feature to completely zero out the SD Card - useful for when you
+# want to build an image file that's not pulluted by all kinds of cruft
+# left over from when the card was in your phone or camera :-)
 # ------------------------------------------------------------------------------
 
 error_out () {
@@ -76,6 +79,30 @@ echo -n "   Retriggering usev rules for /dev/ev3dev ..."
 udevadm trigger --action=add --sysname-match=${device}*
 sleep 1
 echo " done."
+
+# ------------------------------------------------------------------------------
+# Completely erase (fill with 0's) the SD Card
+
+echo    "   Displaying new partition table for /dev/ev3dev ...\n"
+parted /dev/${device} print
+
+echo    "   Filling the first partition with 0's, should take a few seconds..."
+
+dd bs=4M if=/dev/zero of=/dev/ev3dev_1
+
+echo    "   Filling the second partition with 0's, should take about 5 minutes..."
+
+dd bs=4M if=/dev/zero of=/dev/ev3dev_2
+
+echo    "   done"
+
+echo -n "   Retriggering usev rules for /dev/ev3dev ..."
+udevadm trigger --action=add --sysname-match=${device}*
+sleep 1
+echo " done."
+
+# ------------------------------------------------------------------------------
+# Now build up the file systems
 
 echo "   Displaying new partition table for /dev/ev3dev ...\n"
 parted /dev/${device} print

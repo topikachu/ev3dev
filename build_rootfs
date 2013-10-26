@@ -109,7 +109,7 @@ cd ../ev3dev-rootfs
     if [ "${YesNo}" = "Yes" ]; then
 
        echo -n "    Setting the root password ... "
-#       chroot ev3-rootfs passwd 
+       chroot ev3-rootfs passwd 
 
        echo -n "    Adding the ev3dev user ... "
        chroot ${TARGET_ROOTFS_DIR} useradd -m -G sudo,plugdev ev3dev
@@ -119,8 +119,27 @@ cd ../ev3dev-rootfs
        # ,netdev,audio,video,ssh
 
        echo -n "    Setting the ev3dev password ... "
-#      chroot ev3-rootfs passwd ev3dev
+       chroot ev3-rootfs passwd ev3dev
     fi
+
+cd ${OLDPWD}
+
+# ------------------------------------------------------------------------------
+# Clean out the apt-cache -no sense keeping it around if we've already
+# installed the files!
+
+cd ../ev3dev-rootfs
+
+    echo    "-------------------------------------------------------------------------------"
+    echo    " Purging unneeded files from the apt-cache..."
+
+    chroot ev3-rootfs apt-get purge
+    chroot ev3-rootfs apt-get clean
+
+    chroot ev3-rootfs rm -r    /var/lib/apt/lists
+    chroot ev3-rootfs mkdir -p /var/lib/apt/lists/partial
+
+    echo    " done"
 
 cd ${OLDPWD}
 

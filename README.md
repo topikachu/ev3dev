@@ -9,7 +9,6 @@ ev3dev Repositories
 
 
 # 1. Introduction
----------------
 
 This is part of a group of 4 repositories that make up the ev3dev Linux distribution for the LEGO MINDSTORMS EV3. Each of the repositories has the same README.md file so you can read this one and not miss anything :-)
 

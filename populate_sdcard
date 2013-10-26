@@ -55,9 +55,8 @@ if [ -d "./LMS2012" ]; then
     echo    " done."
 
     echo -n "    copying uImage to LMS2012 ... "
-    cp      "../ev3dev-rootfs/uImage" ./LMS2012
+    cp      "./uImage" ./LMS2012
     echo    " done."
-
 fi 
 
 if [ -d "./LMS2012_EXT" ]; then
@@ -68,9 +67,9 @@ if [ -d "./LMS2012_EXT" ]; then
     sleep 2
     echo    " done."
 
-    echo -n "    Deleting everything on LMS2012_EXT ... "
-    rm -rf  ./LMS2012_EXT/*
-    echo    " done."
+#   echo -n "    Deleting everything on LMS2012_EXT ... "
+#   rm -rf  ./LMS2012_EXT/*
+#   echo    " done."
 
     echo -n "    copying target_rootfs to LMS2012_EXT ... "
     cp -vpR "../ev3dev-rootfs/ev3-rootfs/." ./LMS2012_EXT/

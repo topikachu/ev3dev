@@ -18,12 +18,26 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 export LC_ALL=C LANGUAGE=C LANG=C
 
+TARGET_ROOTFS_DIR="ev3-rootfs"
+
+# ------------------------------------------------------------------------------
+# Make sure were running at the same level as a directory called ev3dev so
+# that our directory structure is maintained!
+
+if [ ! -d ../ev3dev ]; then
+	error_out "Not running at same directory level as ev3dev"
+fi
+
+if [ ! -d ../ev3dev-rootfs ]; then
+	error_out "You need to create or clone ../ev3dev-rootfs first"
+fi
+
 # ------------------------------------------------------------------------------
 # Download the bare ev3-rootfs directory if we don't already have it
 
-cd ../emdebian
+cd ../ev3dev-rootfs
 
-if [ ! -d ev3-rootfs ]; then
+if [ ! -d ${TARGET_ROOTFS_DIR} ]; then
     echo    "-------------------------------------------------------------------------------"
     echo    " Downloading a complete grip rootfs from emDebian - this might take a while"
     echo    " so you might want to tail the multistrap.log file from another shell to keep"
@@ -33,9 +47,8 @@ if [ ! -d ev3-rootfs ]; then
     read YesNo
 
     if [ "${YesNo}" = "Yes" ]; then
-    
 #       multistrap -f multistrap.conf > multistrap.log 2>&1
-        multistrap -f multistrap.conf 
+        multistrap -f ../ev3dev/multistrap.conf 
 
         echo    "Done"
         echo    "-------------------------------------------------------------------------------"
@@ -49,7 +62,7 @@ cd ${OLDPWD}
 # ------------------------------------------------------------------------------
 # Configuring the rootfs
 
-cd ../emdebian
+cd ../ev3dev-rootfs
 
     echo    "-------------------------------------------------------------------------------"
     echo    " This step will configure the rootfs - it will take a while and overwrite"
@@ -61,18 +74,18 @@ cd ../emdebian
 
     if [ "${YesNo}" = "Yes" ]; then
 
-        if [ ! -e ev3-rootfs/usr/bin/qemu-arm-static ]; then
+        if [ ! -e ${TARGET_ROOTFS_DIR}/usr/bin/qemu-arm-static ]; then
             echo -n "    Copying qemu-arm-static to ev3-rootfs/usr/bin ... "
-            cp /usr/bin/qemu-arm-static ev3-rootfs/usr/bin 
+            cp /usr/bin/qemu-arm-static ${TARGET_ROOTFS_DIR}/usr/bin 
             echo    " Done"
         fi
 
         echo -n "    Running the dash.preinst file in ev3-rootfs ... "
-        chroot ev3-rootfs var/lib/dpkg/info/dash.preinst install > /dev/null
+        chroot ${TARGET_ROOTFS_DIR} var/lib/dpkg/info/dash.preinst install > /dev/null
         echo "Done"
     
         echo    "    Configuring packages in ev3-rootfs - this will take a while!"
-        chroot ev3-rootfs dpkg --configure -a
+        chroot ${TARGET_ROOTFS_DIR} dpkg --configure -a
 
         # mount proc -t proc /proc
         # dpkg --configure -a
@@ -83,7 +96,7 @@ cd ${OLDPWD}
 # ------------------------------------------------------------------------------
 # Set root password and add users
 
-cd ../emdebian
+cd ../ev3dev-rootfs
 
     echo    "-------------------------------------------------------------------------------"
     echo    " This step will set the root password and add the default ev3dev user to the"
@@ -99,8 +112,8 @@ cd ../emdebian
 #       chroot ev3-rootfs passwd 
 
        echo -n "    Adding the ev3dev user ... "
-       chroot ev3-rootfs useradd -m -G sudo,plugdev ev3dev
-       chroot ev3-rootfs usermod -s /bin/bash       ev3dev
+       chroot ${TARGET_ROOTFS_DIR} useradd -m -G sudo,plugdev ev3dev
+       chroot ${TARGET_ROOTFS_DIR} usermod -s /bin/bash       ev3dev
 
        # Additional groups we'll add later...
        # ,netdev,audio,video,ssh
@@ -114,9 +127,7 @@ cd ${OLDPWD}
 # ------------------------------------------------------------------------------
 # Customizing the rootfs
 
-cd ../emdebian
-
-TARGET_ROOTFS_DIR="ev3-rootfs"
+cd ../ev3dev-rootfs
 
 #Directories used to mount microSD partitions 
 for media_dir in "mmc_p1" "data"
@@ -219,19 +230,19 @@ cd ${OLDPWD}
 # ------------------------------------------------------------------------------
 # Create the custom issue
 
-cd ../emdebian
+cd ../ev3dev-rootfs
 
 filename="${TARGET_ROOTFS_DIR}/etc/issue"
 
         echo -n "    Creating "${filename}" ... "
 
-        echo "             _____     _"                            > "${filename}"
-        echo "   _____   _|___ /  __| | _____   __"               >> "${filename}"
-        echo "  / _ \\\\\\ \\\\\\ / / |_ \\\\\\ / _\` |/ _ \\\\\\ \\\\\\ / /"          >> "${filename}"
-        echo " |  __/\\\\\\ V / ___) | (_| |  __/\\\\\\ V / "             >> "${filename}"
-        echo "  \\\\\\___| \\\\\\_/ |____/ \\\\\\__,_|\\\\\\___| \\\\\\_/  "          >> "${filename}"
-        echo ""                                                   >> "${filename}"
-        echo "Debian GNU/Linux 7 on LEGO MINDSTORMS EV3! \\\\n \\\\l" >> "${filename}"
+        echo "             _____     _"                                        > "${filename}"
+        echo "   _____   _|___ /  __| | _____   __"                           >> "${filename}"
+        echo "  / _ \\\\\\ \\\\\\ / / |_ \\\\\\ / _\` |/ _ \\\\\\ \\\\\\ / /" >> "${filename}"
+        echo " |  __/\\\\\\ V / ___) | (_| |  __/\\\\\\ V / "                 >> "${filename}"
+        echo "  \\\\\\___| \\\\\\_/ |____/ \\\\\\__,_|\\\\\\___| \\\\\\_/  "  >> "${filename}"
+        echo ""                                                               >> "${filename}"
+        echo "Debian GNU/Linux 7 on LEGO MINDSTORMS EV3! \\\\n \\\\l"         >> "${filename}"
 
         echo    "done"
 exit

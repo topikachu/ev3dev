@@ -1,6 +1,6 @@
 #! /bin/dash
 # ------------------------------------------------------------------------------
-# apt-get-rootfs - Add apps to rootfs ad needed
+# apt-get-rootfs - Add apps to rootfs as needed
 #
 # Must be run as root (use sudo of course!)
 # ------------------------------------------------------------------------------

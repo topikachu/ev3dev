@@ -16,7 +16,7 @@ The ev3dev distribution is a full Debian 7 (wheezy) Linux distribution running o
 
 The boot screen you'll be greeted with is you use the special serial port debugger is:
 
-''''
+````
              _____     _
    _____   _|___ /  __| | _____   __
   / _ \ \ / / |_ \ / _` |/ _ \ \ / /
@@ -24,7 +24,7 @@ The boot screen you'll be greeted with is you use the special serial port debugg
   \___| \_/ |____/ \__,_|\___| \_/  
 
 Debian GNU/Linux 7 on LEGO MINDSTORMS EV3!
-''''
+````
 
 How neat is that?!!!
 
@@ -88,26 +88,26 @@ After we get things going, we can mount this directory on the EV3 - which means 
 
 Create your new directory, navigate to it and then run the following commands:
 
-''''
+````
 mkdir -p ~/nfs/ev3
 cd       ~/nfs/ev3
 
 git clone git@github.com:mindboards/ev3dev.git
 git clone git@github.com:mindboards/ev3dev-rootfs.git
-''''
+````
 
 Now that you have the script directory and the rootfs directory, it's a simple matter to set up the SD Card and write the new image to it, like this:
 
-''''
+````
 sudo ./write_sdcard_img
-''''
+````
 
 4.2 Customizing Your ev3dev-rootfs
 ----------------------------------
 
 OK, at this point you should be able to mount your SD card on your PC, and if you want to have the EV3 to connect to your wifi network, then you'll need to customize two files. To get the mount points to work you'll need to update the file 10-ev3dev.rules and copy it to your /etc/udev/rules.d directory.
 
-''''
+````
 # If you go through building the rootfs from scratch then the mount points
 # are automatically created, but let's create them manually here anyways...
 
@@ -123,11 +123,11 @@ sudo mount /dev/ev3dev_2 LMS2012_EXT
 # When you're done, remember to unmount the card like this
 
 sudo umount /dev/ev3dev_2
-''''
+````
 
 The file you want to customize with the SSID and WPA Password of your wifi network is:
 
-''''
+````
 LMS2012_EXT/etc/network/interfaces
 
 # Here is the block to add to that file:
@@ -148,7 +148,7 @@ iface wlan0 inet dhcp
 #
 # If you don't want your cleartext passphrase in the file, you can
 # use Google to change it to the hex code
-''''
+````
 
 4.3 First Boot
 --------------
@@ -159,7 +159,7 @@ watch the text go by on the serial console, if you have one.
 
 Depending on your DHCP setup, you'll be able to ssh in to your EV3 like so:
 
-''''
+````
 # The default passwords are
 # 
 # User: ev3dev Password: 3v3d3v
@@ -168,14 +168,14 @@ Depending on your DHCP setup, you'll be able to ssh in to your EV3 like so:
 ssh ev3dev@192.168.x.x
 
 # Now you have a complete Debian 7 EV3!
-''''
+````
 
 4.3 Building The rootfs From Scratch
 ------------------------------------
 
 If you're really abitious, you can build the rootfs from scratch, all the required scripts are in the ev3dev folder. Here are the exact steps I use on a clean, fresh, minimal Ubuntu or Debian machine. I'll leave it to you to get access to such a machine somehow.
 
-''''
+````
 # ------------------------------------------------------------------------------
 # First we need to get all the additional apps that are not typically on a
 # clean Linux machine using:
@@ -196,7 +196,7 @@ sudo ./build_rootfs
 sudo ./create_sdcard
 sudo ./populate_sdcard
 sudo ./read_sdcard_img
-''''
+````
 
 5. How You Can Help
 -------------------

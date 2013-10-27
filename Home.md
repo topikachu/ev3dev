@@ -1,1 +1,1 @@
-Welcome to the ev3dev wiki!
+Watch this space for more detailed instructions than those in the individual README.md files in the repository.

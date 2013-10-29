@@ -1,6 +1,6 @@
 ## How To Do It
 
-In many cases, you can just plug in your USB wifi dongle and it will "Just Work (tm)" - but sometimes, it just won't. Here's how to get that off brand dongle you bough on DealExtreme to work.
+In many cases, you can just plug in your USB wifi dongle and it will "Just Work (tm)" - but sometimes, it just won't. Here's how to get that off brand dongle you bought on DealExtreme to work.
 
 ### Figure out the USB pid/vid
 

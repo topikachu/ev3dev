@@ -14,7 +14,7 @@ It's dead easy, all you have to do is modify one file on the EV3 and one on your
 
 On your Linux box, you'll need to edit a file called `/etc/exports`. If you don't have this file, then you need to install `nfs-common` or a similar package. Update the file to look like this:
 
-````
+```
 # /etc/exports: the access control list for filesystems which may be exported
 #		to NFS clients.  See exports(5).
 #
@@ -31,7 +31,7 @@ On your Linux box, you'll need to edit a file called `/etc/exports`. If you don'
 # constant IP address to the EV3, then replace the * with the specific address...
 #
 /home/youruserid/nfs/ev3dev   192.168.254.*(rw,sync,no_subtree_check,root_squash)
-````
+```
 
 There may be more lines, of course. All you need to do is tell nfs which directory
 you want to share (`/home/youruserid/nfs/ev3dev`) and who you want to share it with (`192.168.254.*`).
@@ -80,5 +80,5 @@ And then you should be able to see the files on your PC!
 
 ## References
 
-The [Linux `exports`](http://linux.die.net/man/5/exports) manpage
-The [Linux `exportfs`](http://linux.die.net/man/8/exportfs) manpage
+- The [Linux `exports`](http://linux.die.net/man/5/exports) manpage
+- The [Linux `exportfs`](http://linux.die.net/man/8/exportfs) manpage

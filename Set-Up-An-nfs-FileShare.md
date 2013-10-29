@@ -1,6 +1,6 @@
 ## Why Do It?
 
-The nfs protocol is the standard Linux way to share files between computers, and since you're running Linux on the EV3, and there's nfs support built-in, you can share files between your computer and the EV3 without having to pull the card all the time.
+The nfs protocol is the standard Linux way to share files between computers, and since you're running Linux on the EV3, and there's nfs support built-in, you can share files between your computer and the EV3.
 
 Using a file share method like nfs makes it easier for folks like me to load and unload modules that are under development. That saves time and is less error prone than swapping SD Cards and rebooting all the time.
 

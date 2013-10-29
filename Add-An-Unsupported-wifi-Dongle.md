@@ -6,10 +6,10 @@ In many cases, you can just plug in your USB wifi dongle and it will "Just Work 
 
 Use the 'lsusb' command to dump the current USB device list. For my TPLINK TL-WN725N device, it looks like this:
 
-'''
+```
 Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
 Bus 001 Device 005: ID 0bda:8179 Realtek Semiconductor Corp.
-'''
+```
 
 So, good news, the TL-WN725N uses a Realtek chipset, but which one?
 

@@ -6,7 +6,6 @@ Thanks to [Xander](http://botbench.com/) for setting me straight on the right wa
 
 Edit /etc/network/interfaces to look like this:
 
-`
 > root@ev3dev:~# cat /etc/network/interfaces
 > auto lo
 > iface lo inet loopback
@@ -14,11 +13,9 @@ Edit /etc/network/interfaces to look like this:
 > auto wlan0
 > iface wlan0 inet dhcp
 >     wpa-conf /etc/wpa_supplicant.conf
-`
 
 And /etc/wpa-supplicant.conf to look like this:
 
-`
 > root@ev3dev:~# cat /etc/wpa_supplicant.conf
 > ctrl_interface=/var/run/wpa_supplicant
 > network={
@@ -30,7 +27,6 @@ And /etc/wpa-supplicant.conf to look like this:
 >        group=CCMP TKIP
 >        psk="Your text key here"
 > }
-`
 
 Just add another copy of the "network" section for every new network, and fill int the SSID and psk details.
 

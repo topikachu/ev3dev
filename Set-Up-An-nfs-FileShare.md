@@ -45,7 +45,13 @@ The options, enclosed in parenthesis, tell nfs to:
 
 So update the file on your host machine, then run `sudo exportfs -rv` which will update the directories that nfs exports. On to the EV3..
 
-## How To Do It - Windows/Mac
+## How To Do It - Windows
+
+We're in luck! You can download [haneWin NFS](http://www.hanewin.net/nfs-e.htm) which is an nfs server that works on Windows 200x/XP/Vista/7 - hopefully on Windows 8. I have it running on Windows 7 and it's great. The haneWin server has built-in help for setting up the Windows side of the share, and if you get stuck there are other users on the net that have it working. 
+
+One thing to note is that it's Shareware - after 30 days you'll need to pay 19 Euros for non-commercial use. I have tried FreeNFS and WinNFSd but neither one works.
+
+## How To Do It - Mac
 
 No clue yet - if someone is kind enough to donate an x86 based Mac, or instructions for setting up nfs shares then I'll be happy to add them here.
 

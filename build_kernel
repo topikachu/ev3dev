@@ -28,6 +28,8 @@ cd ${AM1808_KERNEL}
 
 echo "Now we're in $(pwd)"
 
+arm-none-eabi-gcc -v
+
 if [ "$1" = "clean" ]
 then
   make distclean ARCH=arm CROSS_COMPILE=${AM1808_ABI}

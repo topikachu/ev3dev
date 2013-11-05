@@ -77,6 +77,7 @@ Here is the documentation for the d_ui.ko driver, straight from the code. Note w
  * Long story short 0x3?0x?? is used for standard LEGO flash patterns
  * The extended patterns are two bytes wide as described above
  */
+```
 
 ## Reading the Switches
 

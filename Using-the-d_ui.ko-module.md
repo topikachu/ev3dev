@@ -7,7 +7,7 @@ Want to set the LEDs to flash a certain way, just write raw data to `/proc/ev3de
 `echo -n -e \\x10\\x66 > /proc/ev3dev_ui` Flashes both LEDs read and green alternately
 `echo -n -e \\x00\\x00 > /proc/ev3dev_ui` Turns off the annoying flashing LEDs!
 
-I'm sure you can figure out how to turn on the LEDs in any of the built in languages on the EV3, including bash/dash, awk, guile, lua, and python
+I'm sure you can figure out how to turn on the LEDs in any of the built in languages on the EV3, including bash/dash, awk, guile, lua, perl, and even python!
 
 Here is the documentation for the d_ui.ko driver, straight from the code. Note well that the LEFT button does not work in this driver! For some unknown reason it always returns 1, and as soon as I fix it I will remove this comment.
 

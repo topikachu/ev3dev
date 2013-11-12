@@ -114,7 +114,7 @@ sudo ./write_sdcard_img
 4.2 Customizing Your ev3dev-rootfs
 ----------------------------------
 
-OK, at this point you should be able to mount your SD card on your PC, and if you want to have the EV3 to connect to your wifi network, then you'll need to customize two files. To get the mount points to work you'll need to update the file 10-ev3dev.rules and copy it to your /etc/udev/rules.d directory.
+OK, at this point you should be able to mount your SD card on your PC, and if you want to have the EV3 to connect to your wifi network, then you'll need to customize two files.
 
 ````
 # If you go through building the rootfs from scratch then the mount points

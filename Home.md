@@ -11,7 +11,7 @@ Let's get started - every new article gets added to the top of this list - when 
 
 ### Documentation on Individual Loadable EV3 Drivers
 
-- [Using the d_ui.ko Module](https://github.com/mindboards/ev3dev/wiki/Using-the-d_ui.ko-module)
+- [Using the ev3dev_ui.ko Module](https://github.com/mindboards/ev3dev/wiki/Using-the-ev3dev_ui.ko-module)
 
 ### AM1808 Reference Docs
 

@@ -8,8 +8,8 @@ Here is the sample code to make the left and right LEDs flash alternately:
 
 `echo 1 > /sys/devices/platform/ev3dev/ui/ledleft0`   Make the left LED green when the pattern is 0
 `echo 0 > /sys/devices/platform/ev3dev/ui/ledleft1`   Make the left LED off when the pattern is 1
-`echo 2 > /sys/devices/platform/ev3dev/ui/ledright0`  Make the right LED red when the pattern is 0
-`echo 0 > /sys/devices/platform/ev3dev/ui/ledright1`  Make the right LED off when the pattern is 1
+`echo 0 > /sys/devices/platform/ev3dev/ui/ledright0`  Make the right LED off when the pattern is 0
+`echo 2 > /sys/devices/platform/ev3dev/ui/ledright1`  Make the right LED red when the pattern is 1
 
 And finally, set the pattern to 100ms '0' and 100ms '1'
 
@@ -25,7 +25,7 @@ Here is the documentation for the ev3dev_ui.ko driver, straight from the code.
 
 ```
 /*
- *  LED DRIVER OPEATION
+ *  LED DRIVER OPERATION
  *  -------------------
  *
  *  The following files control the operation of the ev3dev_ui LED driver
@@ -71,7 +71,7 @@ Here is the documentation for the ev3dev_ui.ko driver, straight from the code.
  *  
  *  That's all there is to the ev3dev_ui LED driver!
  *  
- *  BUTTON DRIVER OPEATION
+ *  BUTTON DRIVER OPERATION
  *  -----------------------
  *
  *  The following files control the operation of the ev3dev_ui Button driver

@@ -96,7 +96,16 @@ git clone git@github.com:mindboards/ev3dev.git
 git clone git@github.com:mindboards/ev3dev-rootfs.git
 ````
 
-Now that you have the script directory and the rootfs directory, it's a simple matter to set up the SD Card and write the new image to it, like this:
+Next, you need to setup some udev rules to create an alias for your microSD card.
+````
+cd ev3dev
+sudo cp 10-ev3dev.rules /etc/udev/rules.d/
+sudo vi /etc/udev/rules.d/10-ev3dev.rules
+# change the vendor id, product id and serial number to match your SD card
+````
+See [this post](see http://hempeldesigngroup.com/embedded/2013/09/27/mistake-proofing-your-sd-card-mounts/) for more info, like how to find the product id, etc.
+
+Now that you have the script directory and the rootfs directory and the udev rules setup, it's a simple matter to set up the SD Card and write the new image to it, like this:
 
 ````
 sudo ./write_sdcard_img
@@ -105,7 +114,7 @@ sudo ./write_sdcard_img
 4.2 Customizing Your ev3dev-rootfs
 ----------------------------------
 
-OK, at this point you should be able to mount your SD card on your PC, and if you want to have the EV3 to connect to your wifi network, then you'll need to customize two files. To get the mount points to work you'll need to update the file 10-ev3dev.rules and copy it to your /etc/udev/rules.d directory.
+OK, at this point you should be able to mount your SD card on your PC, and if you want to have the EV3 to connect to your wifi network, then you'll need to customize two files.
 
 ````
 # If you go through building the rootfs from scratch then the mount points

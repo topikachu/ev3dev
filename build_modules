@@ -28,15 +28,15 @@ if [ ! -e modules ]; then
   mkdir -p ./modules
 fi
 
-for module in "d_ui" 
-# for module in "d_ui" "d_pwm" 
-# for module in "d_pwm" 
+for module in "ev3dev" "ui" "pwm"
+# for module in "ev3dev" "ui"
+# for module in "pwm" 
 do 
-    cd ../ev3dev-modules/lms2012/${module}/Linuxmod_AM1808
+    cd ../ev3dev-modules/lms2012/d_${module}/Linuxmod_AM1808
     echo "Now we're in $(pwd)"
-    make -C ${AM1808_KERNEL} M=`pwd` ARCH=arm CROSS_COMPILE=${AM1808_ABI} modules
+    make -C ${AM1808_KERNEL} M=`pwd` MOD=${module} ARCH=arm CROSS_COMPILE=${AM1808_ABI} modules
     cd ${project}
-    cp ../ev3dev-modules/lms2012/${module}/Linuxmod_AM1808/*.ko ./modules
+    cp ../ev3dev-modules/lms2012/d_${module}/Linuxmod_AM1808/*.ko ./modules
 done
 
 #    make -C ${AM1808_KERNEL} MOD=${module} M=`pwd` ARCH=arm CROSS_COMPILE=${AM1808_ABI} modules

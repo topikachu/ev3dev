@@ -92,8 +92,8 @@ Create your new directory, navigate to it and then run the following commands:
 mkdir -p ~/nfs/ev3
 cd       ~/nfs/ev3
 
-git clone git@github.com:mindboards/ev3dev.git
-git clone git@github.com:mindboards/ev3dev-rootfs.git
+git clone git://github.com/mindboards/ev3dev.git
+git clone git://github.com/mindboards/ev3dev-rootfs.git
 ````
 
 Next, you need to setup some udev rules to create an alias for your microSD card.

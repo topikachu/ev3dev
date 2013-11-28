@@ -1,4 +1,4 @@
-#! /bin/dash
+#!/bin/sh
 #******************************************************************************************************************
 #     COMPILE KERNEL
 #******************************************************************************************************************
@@ -28,11 +28,24 @@ cd ${AM1808_KERNEL}
 
 echo "Now we're in $(pwd)"
 
-arm-none-eabi-gcc -v
+# arm-none-eabi-gcc -v
 
 if [ "$1" = "clean" ]
 then
   make distclean ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+fi
+
+if [ "$1" = "modules" ]
+then
+  make modules ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+  exit
+fi
+
+if [ "$1" = "install" ]
+then
+  mkdir -p ${project}/modules/lib/modules/3.3.0
+  cp --parents `find . -name "*.ko"` ${project}/modules/lib/modules/3.3.0
+exit
 fi
 
 cp ${project}/ev3dev.config ${AM1808_KERNEL}/.config

@@ -1,4 +1,4 @@
-#! /bin/dash
+#!/bin/sh
 # ------------------------------------------------------------------------------
 # read_sdcard_img - reads the raw SD Card data, puts it in a .img file and
 #                   then compresses it into a img.gz file
@@ -49,7 +49,7 @@ cd ../ev3dev-rootfs
 
 echo    "   Reading the raw SD Card image - should take about 5 minutes..."
 
-dd bs=4M if=/dev/ev3dev of=ev3dev.img
+dd bs=32K if=/dev/ev3dev of=ev3dev.img
 
 if [ $? -gt 0 ]; then
     error_out "   SD Card image read failed"

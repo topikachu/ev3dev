@@ -1,0 +1,69 @@
+#!/bin/sh
+#*******************************************************************************
+#     COMPILE MONGOSE
+#
+#*******************************************************************************
+# as normal user on linux pc terminal:
+
+echo
+echo -------------------------------------------------------------------------------
+echo BUILDING MONGOOSE
+echo -------------------------------------------------------------------------------
+echo
+sleep 1
+
+project=`pwd`
+
+echo ${project}
+
+. ./env_setup
+
+echo ${AM1808_COMPILER}
+
+PATH=${AM1808_COMPILER}:$PATH
+
+echo ${PATH}
+ 
+cd ../mongoose-master
+
+echo "Now we're in $(pwd)"
+
+# make ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+
+# -nostdlib \
+arm-none-eabi-gcc -v     \
+                      -I${project}/../developer-files/usr/include \
+                      -I${project}/../developer-files/usr/include/arm-linux-gnueabi \
+                      -I${project}/../ev3dev-kernel/include                         \
+                      -I${project}/../ev3dev-kernel/arch/arm/include                \
+                      -I${project}/../ev3dev-kernel/arch/arm/include/generated      \
+             mongoose.c \
+                      -L${project}/../bin/arm-2011.03/lib/gcc/arm-none-eabi/4.5.2    \
+                      -L${project}/../ev3dev-rootfs/ev3-rootfs/lib/arm-linux-gnueabi \
+                      -l :libgcc.a \
+                      -l :libm.so.6 \
+                      -l :libc.so.6 \
+                      -l :libdl.so.2 \
+                      -l :libpthread.so.0 \
+# arm-none-eabi-gcc -v
+# 
+# if [ "$1" = "clean" ]
+# then
+#   make distclean ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# fi
+# 
+# cp ${project}/ev3dev.config ${AM1808_KERNEL}/.config
+# 
+# echo "CROSS COMPILING KERNEL"
+# 
+# make ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# 
+# echo "BUILDING BOOTABLE IMAGE"
+# 
+# make -j4 uImage ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# 
+# echo "COPYING BOOTABLE IMAGE TO LOCAL DIRECTORY"
+# 
+# cp ${AM1808_KERNEL}/arch/arm/boot/uImage ${project}/uImage
+# 
+

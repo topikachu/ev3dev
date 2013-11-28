@@ -1,4 +1,4 @@
-#! /bin/dash
+#!/bin/sh
 # ------------------------------------------------------------------------------
 # write_sdcard_img - uncompresses the img.gz file to a .img file and then
 #                    writes the raw SD Card data
@@ -31,7 +31,7 @@ sleep 1
 
 echo "-------------------------------------------------------------------------------"
 echo "WARNING - If you type \"Yes\" to the prompt, this script"
-echo "          will OVERWRITE the existing ev3dev.img file on the hard drive and"
+echo "          may  OVERWRITE the existing ev3dev.img file on the hard drive and"
 echo "          will OVERWRITE any data on the /dev/ev3dev SD Card"
 echo "-------------------------------------------------------------------------------"
 echo
@@ -48,15 +48,20 @@ fi
 
 cd ../ev3dev-rootfs
 
-echo -n "   gunzipping the raw SD Card image - should take about 2 minutes..."
+echo    "   gunzipping the raw SD Card image - should take about 2 minutes..."
 
-gunzip -k ev3dev.img.gz
+echo -n "   Type \"Yes\" to gunzip, anything else skips! ..."
+read YesNo
+
+if [ "${YesNo}" = "Yes" ]; then
+    gunzip -k ev3dev.img.gz
+fi
 
 echo " done."
 
 echo    "   Writing the raw SD Card image - should take about 5 minutes..."
 
-dd bs=4M if=ev3dev.img of=/dev/ev3dev
+dd bs=1M if=ev3dev.img of=/dev/ev3dev
 
 if [ $? -gt 0 ]; then
     error_out "   SD Card image write failed"

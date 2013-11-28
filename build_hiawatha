@@ -1,0 +1,84 @@
+#!/bin/sh
+#*******************************************************************************
+#     COMPILE HIAWATA
+#
+# References:
+#
+# How to compile and install Hiawatha from source:
+# 
+# <http://www.hiawatha-webserver.org/howto/compilation_and_installation>
+#
+# CMake Cross Compile Wiki Page
+#
+# <http://www.cmake.org/Wiki/CMake_Cross_Compiling>
+#
+# Great reference on cross-compiling using cmake is here:
+#
+# <http://blog.beuc.net/posts/Cross-compiling_with_CMake/>
+#
+#*******************************************************************************
+# as normal user on linux pc terminal:
+
+echo
+echo -------------------------------------------------------------------------------
+echo BUILDING HIAWATHA
+echo -------------------------------------------------------------------------------
+echo
+sleep 1
+
+project=`pwd`
+
+echo ${project}
+
+. ./env_setup
+
+echo ${AM1808_COMPILER}
+
+PATH=${AM1808_COMPILER}:$PATH
+
+echo ${PATH}
+ 
+cd ../hiawatha-9.3
+
+echo "Now we're in $(pwd)"
+
+# No need to set up PATH here, the env_setup script does that for us
+# PATH=/usr/src/ndk-standalone-9/bin:$PATH
+
+# No need to cd to the build directory, we just did that!
+# cd /usr/src/freeglut-3.0.0/
+
+mkdir -p cross-ev3/ && cd cross-ev3/
+cmake \
+  -D CMAKE_TOOLCHAIN_FILE=${project}/../ev3dev/ev3dev_toolchain.cmake \
+  -D ENABLE_DEBUG=on                                \
+  -D ENABLE_IPV6=off                                \
+  -D ENABLE_SSL=off                                 \
+  -D ENABLE_XSLT=off                                \
+  ..
+make
+#  make install DESTDIR=$(pwd)
+
+
+# arm-none-eabi-gcc -v
+# 
+# if [ "$1" = "clean" ]
+# then
+#   make distclean ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# fi
+# 
+# cp ${project}/ev3dev.config ${AM1808_KERNEL}/.config
+# 
+# echo "CROSS COMPILING KERNEL"
+# 
+# make ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# 
+# echo "BUILDING BOOTABLE IMAGE"
+# 
+# make -j4 uImage ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+# 
+# echo "COPYING BOOTABLE IMAGE TO LOCAL DIRECTORY"
+# 
+# cp ${AM1808_KERNEL}/arch/arm/boot/uImage ${project}/uImage
+# 
+

@@ -7,6 +7,6 @@ However, these modes require special hardware in the case of a serial driver, or
 
 On Windows, that means RNDIS networking, and it's actually pretty easy to set up.
 
-[[images/WindowsRNDIS/DeviceManager.png]]
+![DeviceManager](images/WindowsRNDIS/DeviceManager.png)
 
 Adding pictures here for now, add text later

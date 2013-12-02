@@ -28,11 +28,13 @@ cd ${AM1808_KERNEL}
 
 echo "Now we're in $(pwd)"
 
+
 # arm-none-eabi-gcc -v
 
 if [ "$1" = "clean" ]
 then
   make distclean ARCH=arm CROSS_COMPILE=${AM1808_ABI}
+  cp ${project}/ev3dev.config ${AM1808_KERNEL}/.config
 fi
 
 if [ "$1" = "modules" ]
@@ -41,10 +43,14 @@ then
   exit
 fi
 
-if [ "$1" = "install" ]
+if [ "$1" = "modules_install" ]
 then
-  mkdir -p ${project}/modules/lib/modules/3.3.0
-  cp --parents `find . -name "*.ko"` ${project}/modules/lib/modules/3.3.0
+  make modules_install ARCH=arm CROSS_COMPILE=${AM1808_ABI} INSTALL_MOD_PATH=${project}/modules
+  rm ${project}/modules/lib/modules/3.3.0/build
+  rm ${project}/modules/lib/modules/3.3.0/source
+
+# mkdir -p ${project}/modules/lib/modules/3.3.0
+# cp --parents `find . -name "*.ko"` ${project}/modules/lib/modules/3.3.0
 exit
 fi
 

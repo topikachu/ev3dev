@@ -1,6 +1,3 @@
-Writing A microSD Card
-======================
-
 1. Introduction
 2. Download the Latest `ev3dev.img.gz`
 3. Extract `ev3dev.img` From `ev3dev.img.gz`

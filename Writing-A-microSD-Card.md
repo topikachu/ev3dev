@@ -61,6 +61,7 @@ And uncomment (remove the `#`) for the line appropriate to your host computer. W
 
 Unmount (or eject) your microSD card from the host computer, then remove the card and plug it into the EV3. Press the center switch and watch the blinkenlights! Here's a video of the boot process:
 
-<iframe width="640" height="360" src="//www.youtube.com/embed/rrNaLfE9PWA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="360" src="//www.youtube.com/embed/rrNaLfE9PWA?feature=player_detailpage" frameborder="0" allowfullscreen>
+</iframe>
 
 Eventually, you'll see the `ev3dev` signon screen on the LCD. If not, go back to step 4 or write up an [Issue](https://github.com/mindboards/ev3dev/issues).

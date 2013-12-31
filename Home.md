@@ -6,7 +6,6 @@ Let's get started - every new article gets added to the top of this list - when 
 
 - [Writing A microSD Card](https://github.com/mindboards/ev3dev/wiki/Writing-A-microSD-Card)
 - [Setting Up Linux USB Ethernet Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-Linux-USB-Ethernet-Networking)
-
 - [Setting Up wifi Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-wifi-Networking)
 - [Set Up An nfs FileShare](https://github.com/mindboards/ev3dev/wiki/Set-Up-An-nfs-FileShare)
 - [Add An Unsupported wifi Dongle](https://github.com/mindboards/ev3dev/wiki/Add-An-Unsupported-wifi-Dongle)

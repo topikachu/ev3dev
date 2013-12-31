@@ -2,19 +2,19 @@ The easiest way to get started with `ev3dev` hacking is to use USB/Ethernet netw
 
 We're assuming that you've got:
 
-1. A microSD card with the `ev3dev` [image loaded](https://github.com/mindboards/ev3dev/wiki/Writing-A-microSD-Card)
+1. A [microSD card with the `ev3dev` image loaded](https://github.com/mindboards/ev3dev/wiki/Writing-A-microSD-Card)
 2. The USB cable that comes with the EV3
-3. A Linux/OSX/Windows host machine with a free host USB port
+3. A Linux host machine with a free host USB port
 4. The `ev3dev.rc.local` file on the FAT32 partition of the microSD card configured for your host machine.
 
-Connect the USB-mini end of the cable to the EV3, and the HOST-A end of the cable to your computer. Then boot the EV3. When you see the `ev3dev` signon logo on the LCD, you know that the EV3 is ready to communicate with your host machine.
+Connect the USB-mini end of the cable to the EV3, and leave the host end disconnected from your computer for now. Then boot the EV3. When you see the `ev3dev` signon logo on the LCD, you know that the EV3 is ready to communicate with your host machine.
 
 ## <a name="ConnectingToLinuxHost"/> Connecting to a Linux Host
 
 Before doing anything, check to see what the existing network devices are on your Linux host:
 
 ```
-user@machine:~$ ls /sys/class/net
+user\@machine:~$ ls /sys/class/net
 eth0  lo  wlan0
 ```
 

@@ -19,8 +19,7 @@ Connect the USB-mini end of the cable to the EV3, and leave the host end disconn
 
 - [Setting Up Linux USB Ethernet Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-Linux-USB-Ethernet-Networking)
 - [Setting Up Windows Ethernet Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-Windows-USB-Ethernet-Networking)
-
-Setting up OSX Ethernet Networking should be here later this afternoon!
+- [Setting Up OSX Ethernet Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-OSX-USB-Ethernet-Networking)
 
 ### Next Steps
 

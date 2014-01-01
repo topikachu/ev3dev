@@ -1,14 +1,3 @@
-The easiest way to get started with `ev3dev` hacking is to use USB/Ethernet networking so that you can `ssh` directly to the brick without the need for a wifi conenction.
-
-We're assuming that you've got:
-
-1. A [microSD card with the `ev3dev` image](https://github.com/mindboards/ev3dev/wiki/Writing-A-microSD-Card) loaded
-2. The USB cable that comes with the EV3
-3. A Linux host machine with a free host USB port
-4. The `ev3dev.rc.local` file on the FAT32 partition of the microSD card configured for your host machine.
-
-Connect the USB-mini end of the cable to the EV3, and leave the host end disconnected from your computer for now. Then boot the EV3. When you see the `ev3dev` signon logo on the LCD, you know that the EV3 is ready to communicate with your host machine.
-
 ## <a name="ConnectingToLinuxHost"/> Connecting to a Linux Host
 
 Before doing anything, check to see what the existing network devices are on your Linux host:
@@ -37,7 +26,7 @@ Great, we got a new device at `usb0`, as expected. If you did NOT see the device
 [ 3402.974822] cdc_eem 2-1.2.3:1.0: usb0: register 'cdc_eem' at usb-0000:00:1d.0-1.2.3, CDC EEM Device, 2a:7a:91:09:c5:b6
 ```
 
-Maybe double check to make sure you updated the `ev3dev.rc.local` file on the FAT32 partioin of the microSD card.
+Maybe double check to make sure you updated the `ev3dev.rc.local` file on the FAT32 partioin of the microSD card. Also check to see if you have the `cdc_eem` and `cdc_subset` modules available for your host machine.
 
 Now it's a simple matter to configure an IP address for the Host end of the connection. I'm assuming you left the default value of the EV3 IP address at `192.168.2.100` in the `ev3dev.rc.local` file. just do something like:
 
@@ -85,7 +74,18 @@ permitted by applicable law.
 Last login: Sat Jan  1 00:04:26 2000
 root@ev3dev:~# 
 ```
- 
+
+Once you have confirmed that this all works, you can automagically set the IP address of your host computer when a USB Ethernet connection. Just edit `/etc/network/interfaces` and add this stanza to the file:
+
+```clean
+allow-hotplug usb0
+auto usb0
+iface usb0 inet static
+         address 192.168.2.1
+         netmask 255.255.255.0
+```
+
+That's all there is to it for now. Later on we'll discuss two alternatives for getting your EV3 connected to the Internet - sharing the host connection, and wifi.
 
 
 

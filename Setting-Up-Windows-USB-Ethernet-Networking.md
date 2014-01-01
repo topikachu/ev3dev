@@ -40,7 +40,7 @@ On my machine, it's "Local Area Connection 2". Click on that connection, then cl
 
 ![WindowsRNDISIPv4Address](images/WindowsRNDIS/WindowsRNDISIPv4Address.png)
 
-Double click the "Internet Protocol Version 4" setting line, and set the host address of the connection. In this example, I'm using `192.168.2.1" which is my host address, NOT the target address of the EV3 running `ev3dev`.
+Double click the "Internet Protocol Version 4" setting line, and set the host address of the connection. In this example, I'm using `192.168.2.1` which is my host address, NOT the target address of the EV3 running `ev3dev`.
 
 ![WindowsRNDISAddressSet](images/WindowsRNDIS/WindowsRNDISAddressSet.png)
 

@@ -85,7 +85,25 @@ iface usb0 inet static
          netmask 255.255.255.0
 ```
 
-That's all there is to it for now. Later on we'll discuss two alternatives for getting your EV3 connected to the Internet - sharing the host connection, and wifi.
+That's all for now. If you want to share the Internet connection from your host PC with the EV3 via USB, enable forwarding on your host PC:
+```
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -A POSTROUTING -t nat -j MASQUERADE -s 192.168.2.0/24
+```
+And use your router as the name server on the EV3:
+```
+echo "nameserver 192.168.0.1" >> /etc/resolv.conf
+```
+Then you can test the Internet connection on the EV3:
+```
+ping google.com
+```
+Forwarding the Internet connection can also be deactivated on your host PC: 
+```
+echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
+sudo iptables -t nat -F POSTROUTING
+```
+The description for forwarding the Internet connection is based on the article from [[https://developer.ridgerun.com/wiki/index.php/How_to_use_USB_device_networking#Bridging_host_PC_to_allow_device_to_reach_the_Internet]].
 
-
-
+Later on we'll discuss getting your EV3 connected to the Internet via wifi.

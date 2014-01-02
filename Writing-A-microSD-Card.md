@@ -23,7 +23,7 @@ Go to the [Releases](https://github.com/mindboards/ev3dev/releases) section of t
 
 ## 3. Extract `ev3dev.img` From `ev3dev.img.gz`
 
-On Linux and Mac it's as easy as `gunzip ev3dev.img.gz` on your terminal. On Windows, you'll need to use something like 7-zip to extract the image file, like this:
+On Linux and Mac it's as easy as `tar -xf ev3dev.img.gz` on your terminal. On Windows, you'll need to use something like 7-zip to extract the image file, like this:
 
 ## 4. Write the `ev3dev.img` File To Your microSD Card
 

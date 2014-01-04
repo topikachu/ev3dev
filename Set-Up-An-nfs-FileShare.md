@@ -16,7 +16,9 @@ For general users, it makes it easy to upgrade their SD Cards with known good mo
 
 _Note to self: Add a picture here so it's clear what's being shared where!_
 
-It's dead easy, all you have to do is modify one file on the EV3 and one on your host computer. Let's start with getting the computer set up. 
+It's relatively easy, you just need to keep the addresses and filenames straight. All you have to do is modify one file on the EV3 and one on your host computer. Let's start with getting the computer set up.
+
+The instructions here are for all three platforms Linux, Windows, and OSX - just pick the one you need 
 
 ## <a name="nfsLinuxHowTo"/> How To Do It - Linux
 
@@ -41,12 +43,9 @@ On your Linux box, you'll need to edit a file called `/etc/exports`. If you don'
 /home/youruserid/nfs/ev3dev   192.168.254.*(rw,sync,no_subtree_check,root_squash)
 ```
 
-There may be more lines, of course. All you need to do is tell nfs which directory
-you want to share (`/home/youruserid/nfs/ev3dev`) and who you want to share it with (`192.168.254.*`). 
+There may be more lines, of course. All you need to do is tell nfs which directory you want to share (`/home/youruserid/nfs/ev3dev`) and who you want to share it with (`192.168.254.*`). 
 
-Note that `192.168.254.*` is my personal wifi subnet. For those of you that are
-trying to set up nfs over USB Ethernet, the default subnet that `ev3dev` expects
-is `192.168.2.*`.
+Note that `192.168.254.*` is my personal wifi subnet. For those of you that are trying to set up nfs over USB Ethernet, the default subnet that `ev3dev` expects is `192.168.2.*`.
 
 The options, enclosed in parenthesis, tell nfs to:
 
@@ -57,11 +56,27 @@ The options, enclosed in parenthesis, tell nfs to:
 
 So update the file on your host machine, then run `sudo exportfs -rv` which will update the directories that nfs exports.
 
+Now [update the fstab on the EV3](#nfsEV3HowTo). 
+
 ## <a name="nfsWindowsHowTo"/> How To Do It - Windows
 
-We're in luck! You can download [haneWin NFS](http://www.hanewin.net/nfs-e.htm) which is an nfs server that works on Windows 200x/XP/Vista/7 - hopefully on Windows 8. I have it running on Windows 7 and it's great. The haneWin server has built-in help for setting up the Windows side of the share, and if you get stuck there are other users on the net that have it working. 
+We're in luck! You can download [haneWin NFS](http://www.hanewin.net/nfs-e.htm) which is an nfs server that works on Windows 200x/XP/Vista/7 - hopefully on Windows 8. I have it running on Windows 7 and it's great. The haneWin server has built-in help for setting up the Windows side of the share, and if you get stuck there are [other users on the net that have it working][stmlabshanewin]. 
 
-One thing to note is that it's Shareware - after 30 days you'll need to pay 19 Euros for non-commercial use. I have tried FreeNFS and WinNFSd but neither one works.
+Run the installer and he process monitor as administrator (Right click and choose run as admin). Here is the contents of my `exports` file:
+
+```clean
+# exports example
+
+# C:\ftp -range 192.168.1.1 192.168.1.10
+# c:\public -public -readonly
+# c:\tools -readonly 192.168.1.4
+
+C:\Users\youruserid\Documents\ev3 -public -name:ev3
+```
+
+One thing to note is that it's Shareware - after 30 days you'll need to pay 19 Euros for non-commercial use. I have tried FreeNFS and WinNFSd but neither one works for me. If you get either of them working, please let me know!
+
+Now [update the fstab on the EV3](#nfsEV3HowTo). 
 
 ## <a name="nfsOSXHowTo"/> How To Do It - OS X
 
@@ -96,26 +111,33 @@ Exports list on localhost:
 /Users/youruserid/Public                     192.168.2.0
 ```
 
-If you make changes to `/etc/exports`, activate them with `nfsd update`. 
+If you make changes to `/etc/exports`, activate them with `nfsd update`.
+
+Now [update the fstab on the EV3](#nfsEV3HowTo).  
 
 ## <a name="nfsEV3HowTo"/> How To Do It - EV3
 
-On the EV3, you'll need to update a file (as root) called `/etc/fstab`. It's much easier to do this either via a serial console, or if you have wifi working, then `ssh` to the EV3 and run an editor like `vi` or `nano` to edit the file. Here's the line you want to add to `/etc/fstab` - DO NOT TOUCH ANYTHING ELSE IN THERE!
+On the EV3, you'll need to update a file (as root) called `/etc/fstab`. You should have already set up USB Networking, so `ssh` to the EV3 and run an editor like `vi` or `nano` to edit the file. Here's the line you want to add to `/etc/fstab` - DO NOT TOUCH ANYTHING ELSE IN THERE!
 
-```
+```clean
 /dev/mmcblk0p1 /media/mmc_p1 vfat noatime  0 0
 /dev/mmcblk0p2 /             ext3 noatime  0 0
 proc           /proc         proc defaults 0 0
 
-# Here's the line that says where to find the share, and where to mount it locally!
-#
-192.168.2.1:/home/hostuserid/nfs/ev3dev /home/ev3userid/nfs/ev3dev nfs users,noauto,rw,vers=3  0 0
+# NOTE - the following examples all use the same IP address for the host, in practice, there would
+#        be separate addresses for each host!
 
-# For the OSX Example, it would look like:
-192.168.2.1:/Users/youruserid/Public    /home/ev3userid/nfs/ev3dev nfs users,noauto,rw,vers=3  0 0
+# For the Linux example, it would look like:
+192.168.2.1:/home/hostuserid/nfs/ev3dev /home/ev3userid/nfs/linux   nfs users,noauto,rw,vers=3  0 0
+
+# For the Windows Hanewin example, it would look like:
+192.168.2.1:/ev3                        /home/ev3userid/nfs/windows nfs users,noauto,rw,vers=3  0 0
+
+# For the OSX example, it would look like:
+192.168.2.1:/Users/youruserid/Public    /home/ev3userid/nfs/osx     nfs users,noauto,rw,vers=3  0 0
 ```
 
-It's not too hard to figure out what's going on here. The host machine with the nfs mount is at `192.168.2.1` and we added `/home/hostuserid/nfs/ev3dev` to the `/etc/exports` file on that machine. The next section of the line says we want to mount it locally at `/home/ev3userid/nfs/ev3dev`.
+It's not too hard to figure out what's going on here. The host machine with the nfs mount is at `192.168.2.1` and we added `/home/hostuserid/nfs/ev3dev` (or whatever the host is exporting the directory as) to the `/etc/exports` file on that machine. The next section of the line says we want to mount it locally at `/home/ev3userid/nfs/linux`, or whatever directory you choose.
 
 The options tell `mount` that:
 
@@ -125,9 +147,15 @@ The options tell `mount` that:
 - we want read/write access
 - we are using nfs V3 on the host
 
-Once you've updated the `/etc/fstab` file, all you need to do is mount the share, like this:
+Once you've updated the `/etc/fstab` file, you will need to create the mount points. Since I test `ev3dev` o n all three major platforms, I have separate directories for each nfs host. You probably only need to create one of these, but this script creates all three for me:
 
-`mount /home/ev3userid/nfs/ev3dev`
+```clean
+mkdir -p /home/ev3userid/nfs/linux
+mkdir -p /home/ev3userid/nfs/windows
+mkdir -p /home/ev3userid/nfs/osx
+```
+
+Then all you need to do is mount the share, like this: `mount /home/ev3userid/nfs/linux`, or whichever of the above three directories you want to mount.
 
 And then you should be able to see the files on your host computer when you do `ls /home/ev3userid/nfs/ev3dev`!
 
@@ -138,6 +166,9 @@ And then you should be able to see the files on your host computer when you do `
 - The [OS X `exports`][OSXexports5] manpage
 - The [OS X `nfsd`][OSXnfsd] manpage
 - The [OS X `showmount`][OSXshowmount] manpage
+
+
+[stmlabshanewin]: [http://forum.stmlabs.com/showthread.php?tid=6285
 
 [OSXServerNFSExport]: http://support.apple.com/kb/HT4695
 [BarryODonavanNFS]: http://www.barryodonovan.com/index.php/2012/12/12/apple-os-x-as-an-nfs-server-with-linux-clients

@@ -21,3 +21,29 @@ Of course `driver.ko` should be replaced with the actual driver name!
 ## Where to Find Driver Modules
 
 The [ev3dev repository](https://github.com/mindboards/ev3dev) has a directory named `modules` that has all the currently available driver modules.
+
+## Automatically Load EV3DEV Driver at Boot Time
+
+Boot the EV3 from the SD card and open an SSH connection with the EV3 via USB or WiFi using root credentials. At first you have to update the dependency files with
+```
+depmod
+```
+which updates the files in the folder ```/lib/modules/3.3.0/```. Then the EV3DEV kernel modules can be configured to start at boot time with 
+```
+echo ev3dev >> /etc/modules
+echo ev3dev_ui >> /etc/modules
+echo ev3dev_pwm >> /etc/modules
+```
+Restart the EV3
+```
+shutdown -r now
+```
+and verify with
+```
+lsmod
+```
+that the configured kernel modules
+* ev3dev,
+* ev3dev_ui for LEDs, and
+* ev3dev_pwm for motors
+are loaded. Then the folder /sys/devices/platform/ev3dev/ should be visible.

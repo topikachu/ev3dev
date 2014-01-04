@@ -46,4 +46,6 @@ that the configured kernel modules
 * ev3dev,
 * ev3dev_ui for LEDs, and
 * ev3dev_pwm for motors
-are loaded. Then the folder /sys/devices/platform/ev3dev/ should be visible.
+are loaded.
+
+Then the folder ```/sys/devices/platform/ev3dev/``` should be available. See [Examples Using EV3DEV](https://github.com/mindboards/ev3dev/wiki/Examples-Using-EV3DEV).

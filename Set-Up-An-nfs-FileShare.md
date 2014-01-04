@@ -53,7 +53,16 @@ One thing to note is that it's Shareware - after 30 days you'll need to pay 19 E
 
 ## How To Do It - Mac
 
-No clue yet - if someone is kind enough to donate an x86 based Mac, or instructions for setting up nfs shares then I'll be happy to add them here.
+Setting up an NFS share on a Mac running 10.5 (Leopard) or later is very similar to setting it up in Linux. Simply edit (or create) the `/etc/exports` file (as root), adding a line for each path you wish to share. The format is given in the [exports(5)](https://developer.apple.com/library/mac/documentation/Darwin/Reference/Manpages/man5/exports.5.html) man page, and since OS X is based on BSD, it's a bit different than the Linux file format. Here's a simple example:
+```
+#/etc/exports
+/path/to/shared/folder -network 192.168.0.0 -mask 255.255.0.0
+/path/to/read_only/shared/folder -ro -network 192.168.0.0 -mask 255.255.0.0
+/path/to/shared/tree -alldirs -network 192.168.0.0 -mask 255.255.0.0
+```
+The `-network` and `-mask` options limit access to the shared directory to those on the 192.168 subnet. The `-ro` option limits access to read-only, while the `-alldirs` option provides access to all subdirectories of the specified path. 
+
+After creating the file, the `nfsd` daemon should automatically start up (see [http://support.apple.com/kb/HT4695](http://support.apple.com/kb/HT4695)). If necessary it can be enabled permanently using `nfsd enable`. You can check to see if it's working with `showmount -e`, which will give you a list of the active NFS shares. If changes are made to `/etc/exports`, activate them with `nfsd update`. 
 
 ## How To Do It - EV3
 
@@ -88,3 +97,6 @@ And then you should be able to see the files on your PC!
 
 - The [Linux `exports`](http://linux.die.net/man/5/exports) manpage
 - The [Linux `exportfs`](http://linux.die.net/man/8/exportfs) manpage
+- The [OS X `exports`](https://developer.apple.com/library/mac/documentation/Darwin/Reference/Manpages/man5/exports.5.html) manpage
+- The [OS X `nfsd`](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man8/nfsd.8.html) manpage
+- The [OS X `showmount`](https://developer.apple.com/library/mac/documentation/Darwin/Reference/Manpages/man8/showmount.8.html) manage

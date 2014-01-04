@@ -1,4 +1,4 @@
-Here you can find examples, how to use the EV3DEV kernel drivers. The examples are using only ```echo``` and ```cat``` from the command line. Before you can start, boot from SD card, open an SSH connection, and login. If you do not have an SSH connection already, go back to [Home](Home) how to do this. 
+Here you can find examples, how to use the EV3DEV kernel drivers. The examples are using only `echo` and `cat` from the command line, but it is possible to write and read the same files with other programming languages. Before you can start, boot from SD card, open an SSH connection, and login. If you do not have an SSH connection already, go back to [Home](Home) how to do this. 
 
 ## Turning On LEDs
 The following example shows, how to turn on the right green LED. In the same way you can use all LEDs (left green, right green, left red, right red). You can see an orange LED, if the red and green LED has been turned on at the same side.

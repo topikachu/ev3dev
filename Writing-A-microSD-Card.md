@@ -5,9 +5,7 @@
 5. Update the `ev3dev.rc.local` File
 6. PowerUp!
 
-
 ## 1. Introduction
-
 
 This tutorial covers downloading the latest ev3dev.img.gz realease file and then writing it to a microSD Card. 
 

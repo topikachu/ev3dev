@@ -3,7 +3,6 @@ Watch this space for more detailed instructions than those in the individual REA
 [Getting Started](#GettingStarted) - Do this stuff first to establish a known-good platform
 [Next Steps](#NextSteps)
 
-
 ### <a name="GettingStarted"/> Getting Started
 
 - [Writing A microSD Card](https://github.com/mindboards/ev3dev/wiki/Writing-A-microSD-Card)

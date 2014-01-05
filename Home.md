@@ -30,7 +30,7 @@ Just copy the files from your shared directory on the host to the EV3!
 
 After completing these steps, you'll be ready to move on - here's what you've got working so far!
 
-![nfs_on_ev3dev](docs/nfs_on_ev3dev.png)
+![nfs_on_ev3dev](wiki/docs/nfs_on_ev3dev.png)
 
 ### <a name="NextSteps"/> Next Steps
 

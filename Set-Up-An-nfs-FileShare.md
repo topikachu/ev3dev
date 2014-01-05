@@ -14,7 +14,7 @@ Using a file share method like nfs makes it easier for folks like me to load and
 
 For general users, it makes it easy to upgrade their SD Cards with known good modules, new kernel `uImage` files, and other updates to config files. It also makes it easier to backup your SD card. Finally, it allows you to edit files on your host machine, then run them on the EV3 without having to actually copy files anywhere!
 
-_Note to self: Add a picture here so it's clear what's being shared where!_
+![nfs_on_ev3dev](docs/nfs_on_ev3dev.png)
 
 It's relatively easy, you just need to keep the addresses and filenames straight. All you have to do is modify one file on the EV3 and one on your host computer. Let's start with getting the computer set up.
 

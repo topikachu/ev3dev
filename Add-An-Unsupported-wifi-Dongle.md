@@ -8,7 +8,7 @@ Note: From time to time we release incremental updates for specific modules that
 
 Use the 'lsusb' command to dump the current USB device list. For my TPLINK TL-WN725N device, it looks like this:
 
-```
+```clean
 Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
 Bus 001 Device 005: ID 0bda:8179 Realtek Semiconductor Corp.
 ```
@@ -29,7 +29,7 @@ Note, higher versioned `ev3dev-rootfs` and `ev3dev-modules` bundles will have th
 
 Using your [mad nfs skilz][SetUpAnNfsFileShare] as root, unzip the `rtl8188ue` tar file like this:
 
-```
+```clean
 # cd / 
 # tar -pxvf /nfs/path/to/your/downloads/rtl8188eu.tar.gz 
 # depmod -a
@@ -39,17 +39,17 @@ That command is running as `root` so be careful. Basically, it changes the curre
 
 If you're paying attention, we did not even copy the `rtl8188eu.tar.gz` file to the EV3 first, we left it on the host machine!
 
-Of course, you need to run `depmod` so that the module loader knows where to find the new module(s).
+Of course, you need to run `depmod -a` so that the module loader knows where to find the new module(s).
 
 After that, it's just [setting up your wifi][SetUpWifiNetworking] configuration to work with this dongle!
 
 ## <a name="References"/> References
 
-[ev3dev][ev3dev]
-[ev3dev-wiki][ev3dev-wiki]
-[ev3dev-releases][ev3dev-releases]
-[ev3dev-GettingStarted][ev3dev-GettingStarted]
-[Larry Finger's rtl8188eu repo][LarryFingers-rtl8188eu]
+- [ev3dev][ev3dev]
+- [ev3dev-wiki][ev3dev-wiki]
+- [ev3dev-releases][ev3dev-releases]
+- [ev3dev-GettingStarted][ev3dev-GettingStarted]
+- [Larry Finger's rtl8188eu repo][LarryFingers-rtl8188eu]
 
 [ev3dev]: https://github.com/mindboards/ev3dev
 [ev3dev-wiki]: https://github.com/mindboards/ev3dev/wiki

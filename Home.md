@@ -1,7 +1,16 @@
 Watch this space for more detailed instructions than those in the individual README.md files in the repository.
 
-[Getting Started](#GettingStarted) - Do this stuff first to establish a known-good platform
-[Next Steps](#NextSteps)
+- [Default `root` password](#DefaultRootPassword) - First time login to `root`
+- [Getting Started](#GettingStarted) - Do this stuff first to establish a known-good platform
+- [Next Steps](#NextSteps) - Update the kernel, add modules, configure Wifi
+
+### <a name="DefaultRootPassword"/> Default `root` Password
+
+Thanks to a couple of adventurous early adopters, it has been made clear that the default `root` password is a little hard to find, so I'm putting it up here in the wiki home page where it cannot be missed:
+
+>*The default `root` password is `r00tme` - those are zeros, not "Ohs"*
+
+OK, let's really get started.
 
 ### <a name="GettingStarted"/> Getting Started
 

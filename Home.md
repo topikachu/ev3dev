@@ -32,11 +32,7 @@ Connect the USB-mini end of the cable to the EV3, and leave the host end disconn
 
 - [Using the ev3dev_ui.ko Module](https://github.com/mindboards/ev3dev/wiki/Using-the-ev3dev_ui.ko-module)
 
-### AM1808 Reference Docs
 
-- [AM1808 ARM® Microprocessor](http://www.ti.com/lit/ds/sprs653d/sprs653d.pdf)
-- [AM1808 Technical Reference Manual](http://www.ti.com/lit/ug/spruh82a/spruh82a.pdf)
-- [AM1808 Pinmux Utility (Windows only)](http://www.ti.com/lit/an/spraba2a/spraba2a.pdf)
 
 ### LCD Module Reference Docs
 

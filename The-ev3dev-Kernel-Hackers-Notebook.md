@@ -19,12 +19,12 @@ This is a technical reference about the things we have learned from working ev3d
 * Motor Driver: [Sanyo/ON Semiconductor LB1836M](EV3 Motor Driver)
 * Bluetooth: [Panasonic PAN1325A-HCI-85](EV3 Bluetooth)
     * [Texas Instruments CC2560A](EV3 Bluetooth)
-* 
 
 ## Software
 ### Operating System
 * [Linux-Davinci Kernel 3.3](ev3dev Linux Kernel)
 * [Debian 7 Wheezy](ev3dev Debian Distro)
+
 ### Applications
 * [fbcat (screen capture)](fbcat)
 

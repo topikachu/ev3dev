@@ -13,7 +13,7 @@
 * [Datasheet (pdf)](http://ww1.microchip.com/downloads/en/DeviceDoc/21191s.pdf)
 
 ##IMPORTANT NOTE!!!!
-The data read from this EEPROM will be corrupt (first byte &= 0x42) unless the on-board bluetooth has been properly initalized! The on-board bluetooth shares the same i2c bus.
+The data read from this EEPROM will be corrupt (first byte &= 0x42) unless the on-board bluetooth has been properly initialized! The on-board bluetooth shares the same i2c bus. GPIO 5,7 is connected to the SCL line and is used by the bluetooth driver to monitor if the I2C bus is busy. If this GPIO is not set to input, then it will hold the clock line high or low.
 
 ##sysfs
 ###Nodes

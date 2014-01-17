@@ -18,3 +18,11 @@ This Linux kernel has an existing GPIO i2c driver, but in order to get the perfo
 
 ## Sensor Addressing
 The I2C bus uses a 7-bit addressing scheme (there is also 10-bit addressing but we are not using it). When sending an address over the bus, the address is shifted to the left 1 bit and the LSB is used to indicate read or write. It is important to know this because LEGO and other 3rd-party sensor manufacturer use the shifted value as the address whereas the linux kernel uses the unshifted value as the address.
+
+### Know Sensors and Addresses
+<table border="1">
+<tr><th colspan="2">Address<th rowspan="2">Sensor<th rowspan="2">Notes
+<tr><th>Shifted<th>Unshifted
+<tr><td>0x02<td>0x01<td>LEGO NXT Ultrasonic sensor<td>This address is illegal according to the I2C spec, so we had to patch the kernel driver to make it work.
+<tr><td>0x14<td>0x0A<td>Mindsensors Light Sensor Array<td>The address can be changed programatically
+</table>

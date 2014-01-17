@@ -63,6 +63,5 @@ $ tree -P "*legoev3*|ev3_*|nxt_*|ms_*|st7586*" -I "*.o|*.ko|*.mod.c|ms_mg.*|conf
 └── sound
     └── pwm
         ├── legoev3.c
-        ├── legoev3.c.orig
         └── legoev3.h
 ````

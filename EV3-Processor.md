@@ -25,6 +25,7 @@
 
 #### Not used by EV3
 * LCD Controller (EV3 uses an [external controller](EV3 LCD Display))
+* 1 - Host Port Interface (HPI)
 * 1 - Multichannel Audio Serial Port (EV3 uses [PWM for sound](EV3 PWM))
 * 2 - Multichannel Buffered Serial Ports
 * 10/100 Mbps Ethernet MAC (EMAC)
@@ -34,7 +35,6 @@
 
 #### Not sure yet
 * Enhanced Direct Memory Access Controller 3 (EDMA3)
-* 1 - Host Port Interface (HPI) (might be used for bluetooth)
 * 3 - 64-bit General-Purpose Timers
 
 ### Pin Assignments

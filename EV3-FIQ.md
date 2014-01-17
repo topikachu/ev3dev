@@ -6,7 +6,7 @@ ARM processors have a feature called Fast Interrupts (FIQs). These work mostly l
 [This article](http://free-electrons.com/blog/fiq-handlers-in-the-arm-linux-kernel/) does a good job explaining _why_ we need to use FIQs and has some nice pictures so you can see the difference of using a FIQ vs. a regular IRQ.
 
 ##Debugging
-You read the required reading right? So you understand that the Linux kernel has no idea that FIQ routines are running, right? And that if you tried to do something like call ```printk``` in a FIQ service routine your EV3 might explode? (OK, the explosion is an exaggeration, but you get the point.)
+You read the required reading, right? So you understand that the Linux kernel has no idea that FIQ routines are running, right? And that if you tried to do something like call ```printk``` in a FIQ service routine your EV3 might explode? (OK, the explosion is an exaggeration, but you get the point.)
 
 To debug the code in the FIQ service routines, we need to change them to regular interrupts. On the AM1808 processor, interrupt channels 0 an 1 are reserved for the FIQs. The rest of the channels are for regular interrupts.
 

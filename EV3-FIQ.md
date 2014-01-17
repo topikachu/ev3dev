@@ -1,7 +1,7 @@
 ARM processors have a feature called Fast Interrupts (FIQs). These work mostly like regular interrupts, except that they can actually interrupt regular hardware interrupts (IRQs). The linux kernel is not designed to handle this, so we have to be very careful when using them.
 
 ##Required Reading
-[This article](http://warmcat.com/embedded%20linux/2007/09/17/at91rm9200-fiq-faq-and-simple-example-code-patch.html) is by the author of the patch that our implementation (and in lms2012) is based on. The links to the patch in the article are broken, but it can be found [here](http://svn.openmoko.org/branches/src/target/kernel/2.6.24.x/patches/introduce-fiq-basis.patch). A patch that is more like what was included in lms2012 is found [here](https://dev.openwrt.org/browser/trunk/target/linux/s3c24xx/patches-2.6.31/005-fiq_c_handler.patch?rev=17665).
+[This article](http://warmcat.com/embedded%20linux/2007/09/17/at91rm9200-fiq-faq-and-simple-example-code-patch.html) is by the author of the patch that our implementation (and in lms2012) is based on. The link to the patch in the article is broken, but it can be found [here](http://svn.openmoko.org/branches/src/target/kernel/2.6.24.x/patches/introduce-fiq-basis.patch). A patch that is more like what was included in lms2012 is found [here](https://dev.openwrt.org/browser/trunk/target/linux/s3c24xx/patches-2.6.31/005-fiq_c_handler.patch?rev=17665).
 
 [This article](http://free-electrons.com/blog/fiq-handlers-in-the-arm-linux-kernel/) does a good job explaining _why_ we need to use FIQs and has some nice pictures so you can see the difference of using a FIQ vs. a regular IRQ.
 

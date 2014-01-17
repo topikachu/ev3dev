@@ -32,3 +32,6 @@ Connect the USB-mini end of the cable to the EV3, and leave the host end disconn
 
 - [Using the ev3dev_ui.ko Module](https://github.com/mindboards/ev3dev/wiki/Using-the-ev3dev_ui.ko-module)
 
+###Hacking
+
+Want to contribute to the ev3dev kernel? Or just learn more about how things work at a low level? Check out the [Kernel Hackers Notebook](ev3dev Kernel Hackers Notebook).

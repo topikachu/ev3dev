@@ -38,7 +38,7 @@
 * 3 - 64-bit General-Purpose Timers
 
 ### Pin Assignments
-There are 400 pins on the chip. The pins are multiplexed so that each pin can perform multiple functions. This is what the EV3 uses each pin for. See section 10.4.9 in the technical reference manual to see where this came from.
+There are 400 pins on the chip. The pins are multiplexed so that each pin can perform multiple functions. This is how the EV3 uses each pin. See section 10.4.9 in the technical reference manual to see where this came from.
 
 Most of the "?" pins are probably not connected to anything. We will find out for sure if/when LEGO releases schematics.
 

@@ -6,7 +6,7 @@ Note: CS stands for Chip Select, which allows more than one device to be connect
 __SPI0__:
 
 * __CS0__: NAND Flash (Not implemented in ev3dev)
-* __CS3__: [Analog/Digital converter](EV3 A/D Converter)
+* __CS3__: [Analog/Digital converter](EV3 A\D Converter)
 
 __SPI1__: (chip select not used)
 

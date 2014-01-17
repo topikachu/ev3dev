@@ -15,7 +15,7 @@ This is a technical reference about the things we have learned from working ev3d
 * EEPROM: [Microchip 24FC128](EV3 EEPROM)
 * Display: [178x128 monochrome LCD](EV3 LCD)
     * [Sitronix ST7586 Controller/Driver](EV3 LCD)
-* Analog/Digital Converter: [Texas Instruments ADS7857](EV3 A/D Converter)
+* Analog/Digital Converter: [Texas Instruments ADS7957](EV3 A\D Converter)
 * Motor Driver: [Sanyo/ON Semiconductor LB1836M](EV3 Motor Driver)
 * Bluetooth: [Panasonic PAN1325A-HCI-85](EV3 Bluetooth)
     * [Texas Instruments CC2560A](EV3 Bluetooth)

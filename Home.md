@@ -34,4 +34,4 @@ Connect the USB-mini end of the cable to the EV3, and leave the host end disconn
 
 ###Hacking
 
-Want to contribute to the ev3dev kernel? Or just learn more about how things work at a low level? Check out the [Kernel Hackers Notebook](ev3dev-Kernel-Hackers-Notebook).
+Want to contribute to the ev3dev kernel? Or just learn more about how things work at a low level? Check out the [Kernel Hackers Notebook](ev3dev Kernel Hackers Notebook).

@@ -6,6 +6,8 @@ The bleeding edge upstream development for linux-davinci is hosted at [gitorious
 #Kernel Drivers
 Most, if not all, of the customization of the ev3dev kernel is the addition and patching of hardware drivers for the EV3 specific hardware. TODO: add more about the ev3dev device driver philosophy - particularly in regard to attributes.
 
+Be sure to check out the [hardware](ev3dev-kernel-hackers-notebook#hardware) pages for specifics on how the drivers interface with the hardware.
+
 ##LMS2012 sources
 Most of the EV3 specific drivers are based on the source code for the official LEGO firmware (aka LMS2012). The following table shows the relation of ev3dev drivers to LMS2012 drivers. 
 

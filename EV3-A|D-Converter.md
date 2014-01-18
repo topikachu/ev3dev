@@ -1,4 +1,10 @@
-The EV3 uses a Texas Instruments ADS7957 16 channel 10-bit analog digital converter chip. It is connected to the CPU via [SPI](EV3 SPI). We are using the 5V input mode (i.e. 1024 == 5.00V).
+The EV3 uses a Texas Instruments ADS7957 chip. It is connected to the CPU via [SPI](EV3 SPI). 
+
+##Essentials
+* 16 channels
+* 10-bit resolution
+* 20kHz max clock rate
+* Using the 5V input mode (i.e. 1024 == 5.00V)
 
 ##Documentation
 * [Datasheet (pdf)](http://www.ti.com/lit/ds/symlink/ads7957.pdf)
@@ -25,4 +31,5 @@ The EV3 uses a Texas Instruments ADS7957 16 channel 10-bit analog digital conver
 </table>
 
 ##Notes
-In lsm2012, you will see scaling of the value read from the ADC by 4096 (12-bits) instead of by 1024 (10-bits). This is because they are not shifting the value read to the right 2 bits. Since this is a 10-bit chip, the 2 least significant bits read will always be 0.
+* In lsm2012, you will see scaling of the value read from the ADC by 4096 (12-bits) instead of by 1024 (10-bits). This is because they are not shifting the value read to the right 2 bits. Since this is a 10-bit chip, the 2 least significant bits read will always be 0.
+* A TI employee wrote a [hwmon](https://www.kernel.org/doc/Documentation/hwmon/) driver for the ADS7957 ([source](https://github.com/nmenon/linux-2.6-playground/blob/devel/beaglebone/base/drivers/hwmon/ads79xx.c)) which is used by [lm-sensors](http://www.lm-sensors.org/). This interface is generally for low-speed (on the order of 1Hz) polling of fan speeds, temperatures, voltages, etc. This does not really fit our needs for ev3dev, so we borrowed some code and wrote our own driver.

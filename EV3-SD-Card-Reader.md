@@ -10,4 +10,4 @@ __MMCSD1__: Not used/connected
 
     The lsm2012 code shows WP as GPIO 4,1 which is also used for "bluetooth shutdown" and CD as GPIO 4,2 which is muxed for MMCSD0 DAT3. 
 
-* In the lsm2012 code, it appears that in the development stages LEGO tried using a combination wifi/bluetooth controller that uses a MMC/SD interface, but this was not included in the production hardware.
+* In the lsm2012 code, it appears that in the development stages LEGO tried using a combination wifi/bluetooth controller that uses the MMCSD1 interface, but this was not included in the production hardware.

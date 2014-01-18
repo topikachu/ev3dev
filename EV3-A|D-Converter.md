@@ -10,7 +10,7 @@ The EV3 uses a Texas Instruments ADS7957 chip. It is connected to the CPU via an
 * [Datasheet (pdf)](http://www.ti.com/lit/ds/symlink/ads7957.pdf)
 
 ##Channel Usage
-<table border="1">
+<table>
 <tr><th>Ch.<th>Connection<th>Notes
 <tr><td>0<td>Output port B pin 5<td>
 <tr><td>1<td>Output port A pin 5<td>

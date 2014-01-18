@@ -1,4 +1,4 @@
-The EV3 uses a Texas Instruments ADS7957 chip. It is connected to the CPU via [SPI](EV3 SPI). 
+The EV3 uses a Texas Instruments ADS7957 chip. It is connected to the CPU via an [SPI](EV3 SPI). 
 
 ##Essentials
 * 16 channels

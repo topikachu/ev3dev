@@ -4,16 +4,13 @@ Modulators (eHRPWMs) and 3 Enhanced Capture Modules (eCAPs) that can be configur
 The EHRPWMs actually have 2 PWM outputs (A/B) per device for a total of 4 PWMs.
 
 ##Usage
-__EHRPWM0A__: Not used/connected
-
-__EHROWM0B__: Drives the EV3 [speaker](EV3 Sound) to produce sound
-
-__EHRPWM1A__: Output port B motor driver
-
-__EHRPWM1B__: Output port A motor driver
-
-__ECAP0__: Output port D motor driver
-
-__ECAP1__: Output port C motor driver
-
-__ECAP2__: Bluetooth "slow clock" @ 32.767kHz
+<table>
+<tr><th>Device<th>Connection
+<tr><td>EHRPWM0A<td>Not used/connected
+<tr><td>EHROWM0B<td>Drives the EV3 [speaker](EV3 Sound) to produce sound
+<tr><td>EHRPWM1A<td>Output port B motor driver
+<tr><td>EHRPWM1B<td>Output port A motor driver
+<tr><td>ECAP0<td>Output port D motor driver
+<tr><td>ECAP1<td>Output port C motor driver
+<tr><td>ECAP2<td>Bluetooth "slow clock" @ 32.767kHz
+</table>

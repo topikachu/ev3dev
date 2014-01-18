@@ -1,10 +1,5 @@
 This is a technical reference about the things we have learned from working ev3dev kernel. It is mostly information about the hardware and device drivers.
 
-__Contents:__
-* [EV3 Programmable Brick](ev3dev Kernel Hackers Notebook#EV3 Programmable Brick)
-* [Sensors](ev3dev Kernel Hackers Notebook#sensors-input-devices)
-* [Motors](ev3dev Kernel Hackers Notebook#motors-output-devices)
-
 # EV3 Programmable Brick
 ## Hardware
 * Processor/System on Chip(SoC): [Texas Instruments AM1808](EV3 Processor)

@@ -2,6 +2,7 @@
 * Texas Instruments AM1808 ARM Microporcessor
 * 32-bit
 * ARM9
+* All internal pullup/pulldown resistors are disabled
 
 ### Documentation
 * [Official Website](http://www.ti.com/product/am1808)

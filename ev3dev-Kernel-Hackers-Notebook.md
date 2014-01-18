@@ -19,6 +19,10 @@ This is a technical reference about the things we have learned from working ev3d
 * Motor Driver: [Sanyo/ON Semiconductor LB1836M](EV3 Motor Driver)
 * Bluetooth: [Panasonic PAN1325A-HCI-85](EV3 Bluetooth)
     * [Texas Instruments CC2560A](EV3 Bluetooth)
+* Other:
+    * [Buttons](EV3 Buttons)
+    * [LEDs](EV3 LEDs)
+    * [Speaker](EV3 Sound)
 
 ## Software
 ### Operating System

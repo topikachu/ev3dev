@@ -6,7 +6,7 @@ The EHRPWMs actually have 2 PWM outputs (A/B) per device for a total of 4 PWMs.
 ##Usage
 __EHRPWM0A__: Not used/connected
 
-__EHROWM0B__: Drives the EV3 speaker to produce sound
+__EHROWM0B__: Drives the EV3 [speaker](EV3 Sound) to produce sound
 
 __EHRPWM1A__: Output port B motor driver
 

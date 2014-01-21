@@ -13,7 +13,7 @@
 <tr><td>NXT IRSeeker V2<td><td><td>
 <tr><td>NXT Magnetic Sensor<td><td><td>
 <tr><td>NXT PIR Sensor (Passive Infrared)<td><td><td>
-<tr><td rowspan="11">LEGO<td>EV3 Color Sensor<td>Experimental<td>
+<tr><td rowspan="11">LEGO<td>EV3 Color Sensor<td>UART<td>Experimental<td>
 <tr><td>EV3 Gyro Sensor<td>UART<td><td>
 <tr><td>EV3 Infrared Sensor<td>UART<td>Experimental<td>
 <tr><td>EV3 Touch Sensor<td>Analog<td>Experimental<td>
@@ -24,7 +24,7 @@
 <tr><td>NXT Temperature Sensor<td>I2C<td><td>
 <tr><td>NXT Touch Sensor<td>Analog<td>Experimental<td>
 <tr><td>NXT Ultrasonic Sensor<td>I2C<td>Experimental<td>
-<tr><td rowspan="17">Mindsensors<td>Compass<td><td>
+<tr><td rowspan="17">Mindsensors<td>Compass<td><td><td>
 <tr><td>CurrentMeter<td><td><td>
 <tr><td>Digital Pneumatic Pressure Sensor<td><td><td>
 <tr><td>Dual Range, Triple Zone IR Obstacle Detector<td><td><td>

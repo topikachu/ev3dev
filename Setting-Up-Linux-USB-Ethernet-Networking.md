@@ -85,7 +85,11 @@ iface usb0 inet static
          netmask 255.255.255.0
 ```
 
-That's all for now. If you want to share the Internet connection from your host PC with the EV3 via USB, enable forwarding on your host PC:
+That's all for now.
+
+## <a name="ShareInternetConnectionFromLinuxHost"/> Share Internet Connection from Linux Host
+
+If you want to share the Internet connection from your host PC with the EV3 via USB, enable forwarding on your host PC:
 ```
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward > /dev/null
 sudo iptables -P FORWARD ACCEPT

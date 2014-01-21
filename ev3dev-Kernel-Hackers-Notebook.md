@@ -1,5 +1,7 @@
 This is a technical reference about the things we have learned from working ev3dev kernel. It is mostly information about the hardware and device drivers.
 
+Sorry, many code links are broken until [ev3dev-kerenel/#12](https://github.com/mindboards/ev3dev-kernel/pull/12) is merged.
+
 # EV3 Programmable Brick
 ## Hardware
 * Processor/System on Chip(SoC): [Texas Instruments AM1808](EV3 Processor)

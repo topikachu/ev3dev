@@ -4,6 +4,8 @@ Watch this space for more detailed instructions than those in the individual REA
 - [Getting Started](#GettingStarted) - Do this stuff first to establish a known-good platform
 - [Next Steps](#NextSteps) - Update the kernel, add modules, configure Wifi
 
+For the kernel hackers among you, please have a look at the [ev3dev Kernel Hacker's Notebook][KernelHackersNotebook] that @dlech was good enough to merge into this repository. This kind of co-operation is what makes Open Source awesome!
+
 ### <a name="DefaultRootPassword"/> Default `root` Password
 
 Thanks to a couple of adventurous early adopters, it has been made clear that the default `root` password is a little hard to find, so I'm putting it up here in the wiki home page where it cannot be missed:
@@ -64,4 +66,5 @@ Wherever possible, we'll provide links to other tutorials on the net for details
 [Google]: http://www.google.com
 [StackOverflow]: http://www.stackoverflow.com
 [DebianWiki]: http://wiki.debian.org
+[KernelHackersNotebook]: https://github.com/mindboards/ev3dev/wiki/ev3dev-Kernel-Hackers-Notebook
 

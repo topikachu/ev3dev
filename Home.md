@@ -51,7 +51,6 @@ Now we're going to do some other basic things, like updating the kernel, loading
 
 Wherever possible, we'll provide links to other tutorials on the net for details. We simply don't have the time or resources to teach you how to run a text editor, or drive PuTTY on your Windows host. While [Google][Google] is  a fantastic resources, for programming questions, I find [StackOverflow][StackOverflow] much better for answering many general Linux and networking issues. The [DebianWiki][DebianWiki], while not the prettiest website is full of good information too.
 
-- [[Using UART Sensors]]
 - [[Updating the Kernel]]
 - [[Add An Unsupported wifi Dongle]]
 - [[Setting Up wifi Networking]]
@@ -59,6 +58,19 @@ Wherever possible, we'll provide links to other tutorials on the net for details
 ### Below this point is still under development
 - [[ev3dev Kernel Hackers Notebook]]
 - [Loading A Driver Module](https://github.com/mindboards/ev3dev/wiki/Loading-A-Driver-Module)
+
+### Using the ev3dev Device Drivers
+This is the documentation on using the drivers in the upcoming [00.02.00 release](issues/milestones).
+
+- [[Using UART Sensors]]
+- [[Using I2C Sensors]]
+- [[Using Analog Sensors]]
+- [[Using Motors]]
+- [[Using Sound]]
+- [[Using the LCD]]
+- [[Using the Buttons]]
+- [[Using the LEDs]]
+- [[Using Bluetooth]]
 
 ### Documentation on Individual Loadable EV3 Drivers
 

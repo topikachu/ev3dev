@@ -1,4 +1,4 @@
-@dlech has been working on UART sensor support. It is now ready for testing. Please see mindboards/ev3dev-kernel#15 for the steps required to install the kernel and packages. Report any issues or suggestions there as well.
+@dlech has been working on UART sensor support. It is now ready for testing. Please see [mindboards/ev3dev-kernel issue #15](https://github.com/mindboards/ev3dev-kernel/pull/15) for the steps required to install the kernel and packages. Report any issues or suggestions there as well.
 
 Known issues:
 - Input port 1 is disabled. You will see an error (-22) in ```dmesg```.

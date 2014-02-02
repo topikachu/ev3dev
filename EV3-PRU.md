@@ -3,6 +3,7 @@ Unit](http://processors.wiki.ti.com/index.php/Programmable_Realtime_Unit_Subsyst
 
 ## Usage
 __PRU0__: Used to provide software UART for input ports 3 and 4.
+
 __PRU1__: Not used.
 
 ## Documentation

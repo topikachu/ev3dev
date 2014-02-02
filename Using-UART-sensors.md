@@ -135,3 +135,9 @@ You can also write data to the sensor, but I don't know of any need for this at 
 ```sh
 $ echo -e -n "\021" > bin_data
 ```
+
+## Sensors
+- [[EV3 Color Sensor|Using the EV3 Color Sensor]]
+- [[EV3 Infrared Sensor|Using the EV3 Infrared Sensor]]
+- [[EV3 Gyro Sensor|Using the EV3 Gyro Sensor]]
+- [[EV3 Ultrasonic Sensor|Using the EV3 Ultrasonic Sensor]]

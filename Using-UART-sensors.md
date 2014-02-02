@@ -1,7 +1,11 @@
 @dlech has been working on UART sensor support. It is now ready for testing. Please see [mindboards/ev3dev-kernel issue #15](https://github.com/mindboards/ev3dev-kernel/pull/15) for the steps required to install the kernel and packages. Report any issues or suggestions there as well.
 
 Known issues:
-- Input port 1 is disabled. You will see an error (-22) in ```dmesg```.
+- Input port 1 is disabled. You will see this error in ```dmesg```:
+
+    ```
+    ev3-input-port: probe of in1 failed with error -22
+    ```
 
 # Overview
 When you plug in a UART sensor, it will appear in ```/sys/bus/legoev3/devices/``` as ```ttySX:ev3-uart-sensor```.

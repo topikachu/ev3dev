@@ -57,7 +57,7 @@ $ cat si_max
 
 The values measured by the sensor are read through the ```valueX``` attributes. The ```num_values``` attributes will tell you how many values there are. Values with an index >= num_values will return an error.
 
-```cd
+```sh
 $ cat num_values
 1
 $ cat value*
@@ -95,7 +95,7 @@ $ cat type_id
 The values use a fixed point decimal notation. The number of decimal places is returned by the ```dp``` attribute. The color sensor returns ```0``` in all modes, so I don't have a real-life example, but if ```dp``` was ```1``` and ```value0``` was ```123```, then the actual value would be ```12.3```.
 
 ```sh
-cat dp
+$ cat dp
 0
 ```
 

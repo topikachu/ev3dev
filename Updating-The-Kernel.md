@@ -1,8 +1,8 @@
 ## Quick Links
 
-[Why Do It?](#WhyDoIt)
-[How To Do It?](#HowToDoIt)
-[References](#References) 
+- [Why Do It?](#WhyDoIt)
+- [How To Do It?](#HowToDoIt)
+- [References](#References) 
 
 ## <a name="WhyDoIt"/> Why Do It?
 
@@ -55,10 +55,10 @@ Congratulations, you have just updated the kernel on your EV3 running [`ev3dev`]
 
 ## <a name="References"/> References
 
-[ev3dev][ev3dev]
-[ev3dev-wiki][ev3dev-wiki]
-[ev3dev-releases][ev3dev-releases]
-[ev3dev-GettingStarted][ev3dev-GettingStarted]
+- [ev3dev][ev3dev]
+- [ev3dev-wiki][ev3dev-wiki]
+- [ev3dev-releases][ev3dev-releases]
+- [ev3dev-GettingStarted][ev3dev-GettingStarted]
 
 [ev3dev]: https://github.com/mindboards/ev3dev
 [ev3dev-wiki]: https://github.com/mindboards/ev3dev/wiki

@@ -9,7 +9,9 @@ If you want your program to be event driven, you can read the ```/dev/input/by-p
 Here is an example. It prints out 2 lines each time you press a button on the EV3 and 2 more lines each time you release a button. And of course, press CTRL+C to end.
 
 ```sh
-root@ev3dev:/sys/class/leds# hexdump -e '"timestamp:%d.%6d""\t""" 1/2 "type:%i""\t"""  1/2 "code:%3i""\t"""  "value:%d\n"' < /dev/input/by-path/platform-gpio-keys.0-event 
+root@ev3dev:/sys/class/leds# hexdump -e \
+'"timestamp:%d.%6d""\t""" 1/2 "type:%i""\t"""  1/2 "code:%3i""\t"""  "value:%d\n"' \
+< /dev/input/by-path/platform-gpio-keys.0-event 
 timestamp:1391366282.119886	type:1	code:  1	value:0
 timestamp:1391366282.120100	type:0	code:  0	value:0
 timestamp:1391366282.829942	type:1	code:  1	value:1

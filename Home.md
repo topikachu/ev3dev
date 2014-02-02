@@ -51,9 +51,10 @@ Now we're going to do some other basic things, like updating the kernel, loading
 
 Wherever possible, we'll provide links to other tutorials on the net for details. We simply don't have the time or resources to teach you how to run a text editor, or drive PuTTY on your Windows host. While [Google][Google] is  a fantastic resources, for programming questions, I find [StackOverflow][StackOverflow] much better for answering many general Linux and networking issues. The [DebianWiki][DebianWiki], while not the prettiest website is full of good information too.
 
-- [Updating the Kernel](https://github.com/mindboards/ev3dev/wiki/Updating-The-Kernel)
-- [Add An Unsupported wifi Dongle](https://github.com/mindboards/ev3dev/wiki/Add-An-Unsupported-wifi-Dongle)
-- [Setting Up wifi Networking](https://github.com/mindboards/ev3dev/wiki/Setting-Up-wifi-Networking)
+- [[Using UART Sensors]]
+- [[Updating the Kernel]]
+- [[Add An Unsupported wifi Dongle]]
+- [[Setting Up wifi Networking]]
 
 ### Below this point is still under development
 - [[ev3dev Kernel Hackers Notebook]]

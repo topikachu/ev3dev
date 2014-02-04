@@ -43,7 +43,7 @@
 - Number of measured values: 2
 - Value 0: Reflected/Ambient light intensity???
 - Value 1: Reflected/Ambient light intensity???
-- Units: none
+- Units: _none_
 - Min: 0 (???)
 - Max: 1020 (???)
 - LED state: Red LED on
@@ -54,7 +54,7 @@
 - Value 0: Reflected red light intensity???
 - Value 1: Reflected green light intensity???
 - Value 2: Reflected blue light intensity???
-- Units: none
+- Units: _none_
 - Min: 0 (???)
 - Max: 1020 (???)
 - LED state: LED state: Rapidly cycles red green and blue. Appears white or "rainbow".
@@ -66,7 +66,7 @@
 - Value 1: ???
 - Value 2: ???
 - Value 3: ???
-- Units: none
+- Units: _none_
 - Min: 0 (???)
 - Max: 65535 (???)
 - LED state: LED state: Rapidly cycles red green and blue. Appears white or "rainbow".

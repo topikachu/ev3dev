@@ -12,6 +12,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0 cm)
 - Max: 255 (255 cm)
 - Decimals: 0
+- LED state: On, steady
 
 ### Mode 1
 - Name: US-DIST-IN
@@ -21,14 +22,16 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 in)
 - Max: 1000 (100.0 in)
 - Decimals: 1
+- LED state: On, steady
 
 ### Mode 2
 - Name: US-LISTEN
 - Number of measured values: 1
 - Value 0: Presence of another ultrasonic sensor???
-- Units: <none>
+- Units: _none_
 - Min: 0 (no other sensors detected???)
 - Max: 1 (another ultrasonic sensor was detected???)
+- LED state: On, blinking
 
 ### Mode 3
 - Name: US-SI-CM
@@ -38,6 +41,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 cm)
 - Max: 2550 (255.0 cm)
 - Decimals: 1
+- LED state: On, steady
 
 ### Mode 4
 - Name: US-SI-IN
@@ -47,6 +51,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 in)
 - Max: 1000 (100.0 in)
 - Decimals: 1
+- LED state: On, steady
 
 ### Mode 5
 - Name: US-DC-CM
@@ -56,6 +61,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 cm)
 - Max: 2550 (255.0 cm)
 - Decimals: 1
+- LED state: On, steady
 
 ### Mode 6
 - Name: US-DC-IN
@@ -65,3 +71,4 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 in)
 - Max: 1000 (100.0 in)
 - Decimals: 1
+- LED state: On, steady

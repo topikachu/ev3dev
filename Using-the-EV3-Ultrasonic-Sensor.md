@@ -9,9 +9,9 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Number of measured values: 1
 - Value 0: Distance
 - Units: cm (centimeters)
-- Min: 0 (0.0 cm)
-- Max: 2550 (255.0 cm)
-- Decimals: 1
+- Min: 0 (0 cm)
+- Max: 255 (255 cm)
+- Decimals: 0
 
 ### Mode 1
 - Name: US-DIST-IN
@@ -25,10 +25,10 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 ### Mode 2
 - Name: US-LISTEN
 - Number of measured values: 1
-- Value 0: Sound present
+- Value 0: Presence of another ultrasonic sensor???
 - Units: <none>
-- Min: 0 (no sound???)
-- Max: 1 (sound present???)
+- Min: 0 (no other sensors detected???)
+- Max: 1 (another ultrasonic sensor was detected???)
 
 ### Mode 3
 - Name: US-SI-CM

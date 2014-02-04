@@ -24,7 +24,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Name: GYRO-FAS
 - Number of measured values: 1
 - Value 0: ???
-- Units: <none>
+- Units: _none_
 - Min: -2000
 - Max: 2000
 
@@ -33,7 +33,7 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Number of measured values: 2
 - Value 0: ???
 - Value 1: ???
-- Units: none
+- Units: _none_
 - Min: -180
 - Max: 180
 
@@ -44,6 +44,6 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Value 1: ???
 - Value 2: ???
 - Value 3: ???
-- Units: <none>
+- Units: _none_
 - Min: 0
 - Max: 65535

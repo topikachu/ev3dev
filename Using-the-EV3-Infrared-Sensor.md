@@ -58,27 +58,27 @@ Notes on Mode 2: Pressing more that 2 buttons at one time is not supported. It w
 - Name: IR-REM-A
 - Number of measured values: 1
 - Value 0: Channel 1
-    <table>
-    <tr><th>Value<th>Blue<br>Down<th>Blue<br>Up<th>Red<br>Down<th>Red<br>Up
-    <tr><td>262/384<td><td><td><td>
-    <tr><td>287<td><td><td><td>X
-    <tr><td>300<td><td><td>X<td>
-    <tr><td>309<td><td><td>X<td>X
-    <tr><td>330<td><td>X<td><td>
-    <tr><td>339<td><td>X<td><td>X
-    <tr><td>352<td><td>X<td>X<td>
-    <tr><td>377<td><td>X<td>X<td>X
-    <tr><td>390<td>X<td><td><td>
-    <tr><td>415<td>X<td><td><td>X
-    <tr><td>428<td>X<td><td>X<td>
-    <tr><td>437<td>X<td><td>X<td>X
-    <tr><td>458<td>X<td>X<td><td>
-    <tr><td>467<td>X<td>X<td><td>X
-    <tr><td>480<td>X<td>X<td>X<td>
-    <tr><td>505<td>X<td>X<td>X<td>X
 
-    </table>
-- Units: <none>
+    | Value   | Blue Down | Blue Up | Red Down | Red Up |
+    |:-------:|:---------:|:-------:|:--------:|:------:|
+    | 262/384 |           |         |          |        |
+    | 287     |           |         |          | X      |
+    | 300     |           |         | X        |        |
+    | 309     |           |         | X        | X      |
+    | 330     |           | X       |          |        |
+    | 339     |           | X       |          | X      |
+    | 352     |           | X       | X        |        |
+    | 377     |           | X       | X        | X      |
+    | 390     | X         |         |          |        |
+    | 415     | X         |         |          | X      |
+    | 428     | X         |         | X        |        |
+    | 437     | X         |         | X        | X      |
+    | 458     | X         | X       |          |        |
+    | 467     | X         | X       |          | X      |
+    | 480     | X         | X       | X        |        |
+    | 505     | X         | X       | X        | X      |
+
+- Units: _none_
 - Min: 0
 - Max: 65535???
 
@@ -119,7 +119,7 @@ Notes on Mode 4: This mode does not seem to be usable. When switching to this mo
 - Number of measured values: 2
 - Value 0: ???
 - Value 1: ???
-- Units: <none>
+- Units: _none_
 - Min: 0
 - Max: 1023
 

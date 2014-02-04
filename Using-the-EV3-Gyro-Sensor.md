@@ -27,8 +27,6 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Units: <none>
 - Min: -2000
 - Max: 2000
-- LED state: Rapidly cycles red green and blue. Appears white or "rainbow".
-
 
 ### Mode 3
 - Name: GYRO-G&A

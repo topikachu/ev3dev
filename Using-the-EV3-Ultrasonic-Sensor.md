@@ -1,5 +1,3 @@
-IMPORTANT: This data has not been verified (because @dlech doesn't have one of these sensors!).
-
 ### General
 - Type ID: 30
 - Modes: 7
@@ -10,8 +8,8 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Value 0: Distance
 - Units: cm (centimeters)
 - Min: 0 (0 cm)
-- Max: 255 (255 cm)
-- Decimals: 0
+- Max: 2550 (255.0 cm)
+- Decimals: 1
 - LED state: On, steady
 
 ### Mode 1
@@ -20,17 +18,17 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Value 0: Distance
 - Units: in (inches)
 - Min: 0 (0.0 in)
-- Max: 1000 (100.0 in)
+- Max: 1003 (100.3 in)
 - Decimals: 1
 - LED state: On, steady
 
 ### Mode 2
 - Name: US-LISTEN
 - Number of measured values: 1
-- Value 0: Presence of another ultrasonic sensor???
+- Value 0: Presence of another ultrasonic sensor
 - Units: _none_
-- Min: 0 (no other sensors detected???)
-- Max: 1 (another ultrasonic sensor was detected???)
+- Min: 0 (no other sensors detected)
+- Max: 1 (another ultrasonic sensor was detected)
 - LED state: On, blinking
 
 ### Mode 3
@@ -41,7 +39,9 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Min: 0 (0.0 cm)
 - Max: 2550 (255.0 cm)
 - Decimals: 1
-- LED state: On, steady
+- LED state: Off
+
+Notes on Mode 3: SI means SIngle shot mode. The value is read only when the mode is set and does not change. To read a new value, set the mode again (e.g. ```echo US-SI-CM > mode```).
 
 ### Mode 4
 - Name: US-SI-IN
@@ -49,9 +49,11 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Value 0: Distance
 - Units: in (inches)
 - Min: 0 (0.0 in)
-- Max: 1000 (100.0 in)
+- Max: 1003 (100.3 in)
 - Decimals: 1
-- LED state: On, steady
+- LED state: Off
+
+Notes on Mode 4: SI means SIngle shot mode. The value is read only when the mode is set and does not change. To read a new value, set the mode again (e.g. ```echo US-SI-IN > mode```).
 
 ### Mode 5
 - Name: US-DC-CM
@@ -69,6 +71,6 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 - Value 0: Distance
 - Units: in (inches)
 - Min: 0 (0.0 in)
-- Max: 1000 (100.0 in)
+- Max: 1003 (100.3 in)
 - Decimals: 1
 - LED state: On, steady

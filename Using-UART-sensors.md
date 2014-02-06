@@ -7,6 +7,14 @@ Known issues:
     ev3-input-port: probe of in1 failed with error -22
     ```
 
+- Sensors on ports 3 or 4 may reset themselves. ```dmesg``` will show:
+
+    ```
+    tty ttySU1: Reconnected due to: No data since last keep-alive.
+    ```
+
+    This is due to the PRU soft-UART not interrupting when it has received data in a timely manor. We may have to figure out how to build our own PRU frimware to fix this.
+
 # Overview
 When you plug in a UART sensor, it will appear in ```/sys/bus/legoev3/devices/``` as ```ttySX:ev3-uart-sensor```.
 

@@ -62,9 +62,7 @@ Wherever possible, we'll provide links to other tutorials on the net for details
 ### Using the ev3dev Device Drivers
 This is the documentation on using the drivers in the upcoming [00.02.00 release](issues/milestones).
 
-- [[Using UART Sensors]]
-- [[Using I2C Sensors]]
-- [[Using Analog Sensors]]
+- [[Using Sensors]]
 - [[Using Motors]]
 - [[Using Sound]]
 - [[Using the LCD]]

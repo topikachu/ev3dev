@@ -43,3 +43,248 @@ I2C/S sensors are not autodetected because, well, there are just too many of the
 
 ## List of Sensors
 
+<table>
+  <tr>
+    <th>Manufacturer
+    <th>Mfg. P/N
+    <th>Name
+    <th>Connection Type
+    <th>Autodetected
+    <th>Driver Name
+  <tr>
+    <td rowspan="1"><a href="http://www.codatex.com//">CODATEX</a>
+    <td>
+    <td>Codatex RFID Sensor
+    <td>
+    <td>
+    <td>
+  <tr>
+    <td rowspan="1"><a href="http://www.dexterindustries.com/">Dexter Industries</a>
+    <td>
+    <td>
+    <td>
+    <td>
+    <td>
+  <tr>
+    <td rowspan="17"><a href="http://www.hitechnic.com/">HiTechnic</a>
+    <td>NAA1030
+    <td>NXT Angle Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-naa1030]]
+  <tr>
+    <td>NAC1040
+    <td>NXT Acceleration / Tilt Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nac1040]]
+  <tr>
+    <td>NBR1036
+    <td>NXT Barometric Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nbr1036]]
+  <tr>
+    <td>NCO1038
+    <td>NXT Color Sensor V2
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nco1038]]
+  <tr>
+    <td>NEO1048
+    <td>NXT EOPD
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>NFS1074
+    <td>NXT Force Sensor
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>NGY1044
+    <td>NXT Gyro Sensor
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>NIL1046
+    <td>NXT IRLink Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nil1046]]
+  <tr>
+    <td>NIS1070
+    <td>NXT PIR Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nis1070]]
+  <tr>
+    <td>NIR1032
+    <td>NXT IRReceiver Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nir1032]]
+  <tr>
+    <td>NMC1034
+    <td>NXT Compass Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nmc1034]]
+  <tr>
+    <td>NMS1035
+    <td>NXT Magnetic Sensor
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>NSK1042
+    <td>NXT IRSeeker V2
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nsk1042]]
+  <tr>
+    <td>NSX2020
+    <td>NXT Sensor Multiplexer
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nsx2020]]
+  <tr>
+    <td>NTX1060
+    <td>NXT Touch Sensor Multiplexer
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>SPR2010
+    <td>NXT SuperPro Prototype Board
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-spr2010]]
+  <tr>
+    <td>???
+    <td>NXT Color Sensor (v1)
+    <td>I2C/M
+    <td>Y
+    <td>[[ht-nco]]
+  <tr>
+    <td rowspan="12"><a href="http://lego.com">LEGO</a> / <a href="http://education.lego.com">LEGO&nbsp;Education</a>
+    <td>9668
+    <td>Energy Display
+    <td>I2C/M
+    <td>Y
+    <td>[[lego-9668]]
+  <tr>
+    <td>9694
+    <td>NXT Color Sensor
+    <td>Special
+    <td>Y
+    <td>[[nxt-color-sensor]]
+  <tr>
+    <td>9749
+    <td>NXT Temperature Sensor
+    <td>I2C/S
+    <td>N
+    <td>[[tmp275]]
+  <tr>
+    <td>9843
+    <td>NXT Touch Sensor
+    <td>Analog/NXT
+    <td>Y
+    <td>[[nxt-touch-sensor]]
+  <tr>
+    <td>9844
+    <td>NXT Light Sensor
+    <td>Analog/NXT
+    <td>Y
+    <td>
+  <tr>
+    <td>9845
+    <td>NXT Sound Sensor
+    <td>Analog/NXT
+    <td>Y*
+    <td>
+  <tr>
+    <td>9846
+    <td>NXT Ultrasonic Sensor
+    <td>I2C/M
+    <td>Y
+    <td>[[lego-9846]]
+  <tr>
+    <td>45504
+    <td>EV3 Ultrasonic Sensor
+    <td>UART
+    <td>Y
+    <td>[[legoev3-uart]]
+  <tr>
+    <td>45505
+    <td>EV3 Gyro Sensor
+    <td>UART
+    <td>Y
+    <td>[[legoev3-uart]]
+  <tr>
+    <td>45506
+    <td>EV3 Color Sensor
+    <td>UART
+    <td>Y
+    <td>[[legoev3-uart]]
+  <tr>
+    <td>45507
+    <td>EV3 Touch Sensor
+    <td>Analog/EV3
+    <td>Y
+    <td>[[ev3-touch-sensor]]
+  <tr>
+    <td>45509
+    <td>EV3 Infrared Sensor
+    <td>UART
+    <td>Y
+    <td>[[legoev3-uart]]
+  <tr>
+    <td rowspan="1"><a href="http://www.LogITNXT.com">LogIT</a>
+    <td>
+    <td>NXT Sensor Adapter
+    <td>
+    <td>
+    <td>
+  <tr>
+    <td rowspan="5"><a href="http://www.mindsensors.com">mindsensors.com</a>
+    <td>LightSensorArray
+    <td>Light Sensor Array
+    <td>I2C/M
+    <td>Y
+    <td>[[ms-light-array]]
+  <tr>
+    <td>MagicWand
+    <td>Magic Wand Kit
+    <td>I2C/S
+    <td>N
+    <td>[[pcf8574]]
+  <tr>
+    <td>PCF8574-Nx
+    <td>Sensor building kit for NXT with PCF8574 IC
+    <td>I2C/S
+    <td>N
+    <td>[[pcf8574]]
+  <tr>
+    <td>PCF8591-Nx
+    <td>Sensor building kit for NXT with PCF8591 IC
+    <td>I2C/S
+    <td>N
+    <td>[[pcf8591]]
+  <tr>
+    <td>RTC-Nx-v3
+    <td>Realtime Clock for NXT 
+    <td>I2C/S
+    <td>N
+    <td>[[ds1307]]
+  <tr>
+    <td rowspan="1"><a href="http://www.vernier.com">Vernier</a>
+    <td>
+    <td>NXT Sensor Adapter
+    <td>
+    <td>
+    <td>
+</table>
+\* Analog/NXT sensors are detected but cannot be differentiated, so a generic interface is provided. Additional drivers may be required (although none exist yet).

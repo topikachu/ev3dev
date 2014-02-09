@@ -40,11 +40,11 @@ These are a new type of sensor designed for the EV3 (they don't work with the NX
 
 ### The Mindstorms Sensor class
 
-Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```.
+Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```. The name of the node will have the format ```<port>:<type>```.
 
 For full details, see [[Using the Mindstorms Sensor Device Class]]. For the basics, keep going.
 
-For an example, I will be using the EV3 Color Sensor in input port 2.
+For an example, I will be using the EV3 Color Sensor in input port 2. It is a UART sensor, so it has a type of ```tty```, which is Linuxeze for anything serial port like.
 
 ```bash
 $ cd /sys/class/msensor

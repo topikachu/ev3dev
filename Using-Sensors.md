@@ -1,20 +1,34 @@
 NOTE: This documentation applies to code that has not been released.
 
+##Known issues
+
+- Input port 1 is disabled. You will see this error in ```dmesg```:
+
+    ```
+    ev3-input-port: probe of in1 failed with error -22
+    ```
+
+- UART sensors sometimes reset especially during high cpu usage and even more especially if it is on port 3 or 4. You will see an error like this in ```dmesg``` when this happens:
+
+    ```
+    tty ttySU1: Reconnected due to: No data since last keep-alive.
+    ```
+
 ## Overview
 
 One of the goals of ev3dev is to support as many sensors as possible. If you have a sensor that does not work, let us know about it.
 
-When dealing with sensors in ev3dev, it is useful to know how it communicates with the EV3. This determines what you need to do to read data from your sensor.
+When dealing with sensors in ev3dev, it is useful to know how it communicates with the EV3 brick. This influences what you need to do to read data from your sensor.
 
 ### Analog Sensors
 
-These are the simplest type of sensor. The measured value is converted to a voltage that is read by the EV3. There are actually two types of analog sensors. We call the first **Analog/EV3**. These are sensors that were designed specifically for the EV3 and will not work on the NXT. They contain an ID resistor so that the EV3 can tell different types of sensors apart. The second type is **Analog/NXT**. These sensors are designed for the NXT, but also work on the EV3. The EV3 cannot differentiate between these sensors though, so you have to tell it which one your have or just use a generic interface.
+These are the simplest type of sensor. The measured value is converted to a voltage (0-5VDC) that is read by the EV3. There are actually two types of analog sensors. We call the first **Analog/EV3**. These are sensors that were designed specifically for the EV3 and will not work on the NXT. They contain an ID resistor so that the EV3 can tell different types of sensors apart. The second type is **Analog/NXT**. These sensors are designed for the NXT, but also work on the EV3. The EV3 cannot differentiate between most of these sensors though, so you have to tell it which one your have or just use a generic interface.
 
 RCX sensors also fall into this category, but do not work with the EV3 - at least not with the converter cable described in the NXT Hardware Developers kit. This is due to a difference in the input port pins between the EV3 and the NXT. If someone wants to research the [LEGO 8528](http://shop.lego.com/en-US/Converter-Cables-for-LEGO-MINDSTORMS-NXT-8528/?domainredir=www.shop.lego.com) cable or design a new converter cable, we could probably make them work.
 
 ### I2C Sensors
 
-I2C sensors are sensors that communicate with the intelligent brick via the [I2C communication protocol](https://en.wikipedia.org/wiki/I2c). In the NXT documentation, they are referred to a "digital" sensors.
+I2C sensors are sensors that communicate with the intelligent brick via the [I2C protocol](https://en.wikipedia.org/wiki/I2c). In the NXT documentation, they are referred to a "digital" sensors.
 
 These sensors can be sorted into two categories as well: those that were designed using LEGO's guidelines and those that use an off the shelf I2C chip. ev3dev supports both kind of sensors, but only the first type is auto-detected. We will refer to the former as **I2C/M** (for Mindstorms) and the latter as **I2C/S** (for Standard).
 
@@ -28,18 +42,77 @@ These are a new type of sensor designed for the EV3 (they don't work with the NX
 
 Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```.
 
-TODO: copy and modify stuff from [[Using UART Sensors]]
+For full details, see [[Using the Mindstorms Sensor Device Class]]. For the basics, keep going.
+
+For an example, I will be using the EV3 Color Sensor in input port 2.
+
+```bash
+$ cd /sys/class/msensor
+$ ls
+in2:tty
+$ cd in2\:tty
+$ ls
+bin_data         dp          poll_ms    type_id  value1  value4  value7
+bin_data_format  mode        si_units   uevent   value2  value5
+device           num_values  subsystem  value0   value3  value6
+```
+
+Each sensor has a number of modes in which in can operate. You can view and change the modes using the ```mode``` attribute.
+
+```bash
+$ cat mode
+[COL-REFLECT] COL-AMBIENT COL-COLOR REF-RAW RGB-RAW COL-CAL
+$ echo COL-COLOR > mode
+$ cat mode
+COL-REFLECT COL-AMBIENT [COL-COLOR] REF-RAW RGB-RAW COL-CAL
+```
+
+The values measured by the sensor are read through the ```valueX``` attributes. The ```num_values``` attributes will tell you how many values there are. Values with an index >= num_values will return an error.
+
+```bash
+$ cat num_values # mode is still COL-COLOR
+1
+$ cat value*
+0
+cat: value1: No such device or address
+cat: value2: No such device or address
+cat: value3: No such device or address
+cat: value4: No such device or address
+cat: value5: No such device or address
+cat: value6: No such device or address
+cat: value7: No such device or address
+$ echo RGB-RAW > mode
+$ cat num_values
+3
+$ cat value*
+4
+6
+2
+cat: value3: No such device or address
+cat: value4: No such device or address
+cat: value5: No such device or address
+cat: value6: No such device or address
+cat: value7: No such device or address
+```
 
 ### I2C Sensor Considerations
 
-I2C/M sensors should be auto-detected (check the table below for the status of individual sensors). They will show up in ```/sys/class/msensors``` and have the same interface as other sensors. They also have a couple extra attributes.
+I2C/M sensors should be auto-detected. They will show up in ```/sys/class/msensors``` and have the same interface as other sensors. The sysfs node name includes the I2C address because it is possible to have multiple I2C sensors connected to a single input port. NOTE: the address will likely not be the same as what is in the documentation that came with the sensor - [[read about it|I2C Sensor Addressing]].
 
-- ```vendor_id```
-- ```product_id```
-- ```firmware_ver```
-- ```poll_ms```
+Example: NXT Ultrasonic Sensor connected to input port 3:
 
-I2C/S sensors are not autodetected because, well, there are just too many of them. But they are easy to load manually and you can write udev rules to load them automatically if you want. Most of these types of sensors do not use ```/sys/class/msensors``` because there are already existing drivers in the Linux kernel for many standard I2C chips. See the table below for the driver to use for each sensor.
+```bash
+$ cd /sys/class/msensor
+$ ls
+in3:i2c:01
+$ cd in3\:i2c\:01 # 01 is the hexadecimal I2C address of the sensor
+$ cat mode
+NXT-US-CM NXT-US-IN [NXT-US-SI-CM] NXT-US-SI-IN NXT-US-LIST
+```
+
+I2C/S sensors are not autodetected because there is no standard way to detect them. There are just too many possibilities. But, they are easy to load manually and you can write udev rules to load them automatically if you want. Most of these types of sensors do not use ```/sys/class/msensors``` because there are already existing drivers in the Linux kernel for many standard I2C chips.
+
+To learn how to manually load I2C devices and many more interesting things about I2C sensors, see [[Using I2C Sensors]]. Also be sure to look at the individual sensor documentation using the links in the table below.
 
 ## List of Sensors
 

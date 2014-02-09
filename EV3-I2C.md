@@ -17,7 +17,7 @@ Since there are not enough I2C controllers on the SoC, LEGO chose to implement t
 This Linux kernel has an existing GPIO i2c driver, but in order to get the performance needed, we have to use [fast interrupts](EV3 FIQ) (FIQs). (Be sure to follow the link for some interesting reading.) So, the really low level stuff is done in [arch/arm/mach-davinci/legoev3-fiq.c](blob/master/arch/arm/mach-davinci/legoev3-fiq.c) and the rest is in [drivers/i2c/busses/i2c-legoev3.c](blob/master/drivers/i2c/busses/i2c-legoev3.c).
 
 ## Sensor Addressing
-The I2C bus uses a 7-bit addressing scheme (there is also 10-bit addressing but we are not using it). When sending an address over the bus, the address is shifted to the left 1 bit and the LSB is used to indicate read or write. It is important to know this because LEGO and other 3rd-party sensor manufacturer use the shifted value as the address whereas the linux kernel uses the unshifted value as the address.
+ TODO: This was moved to [[I2C Sensor Addressing]]. Need to integrate this table somewhere or delete it.
 
 ### Know Sensors and Addresses
 <table border="1">

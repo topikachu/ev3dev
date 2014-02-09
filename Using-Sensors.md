@@ -107,7 +107,7 @@ $ ls
 in3:i2c:01
 $ cd in3\:i2c\:01 # 01 is the hexadecimal I2C address of the sensor
 $ cat mode
-NXT-US-CM NXT-US-IN [NXT-US-SI-CM] NXT-US-SI-IN NXT-US-LIST
+[NXT-US-CM] NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
 ```
 
 I2C/S sensors are not autodetected because there is no standard way to detect them. There are just too many possibilities. But, they are easy to load manually and you can write udev rules to load them automatically if you want. Most of these types of sensors do not use ```/sys/class/msensors``` because there are already existing drivers in the Linux kernel for many standard I2C chips.

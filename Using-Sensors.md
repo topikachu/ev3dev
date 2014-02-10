@@ -44,17 +44,17 @@ Most sensors are accessed using a device driver class especially for Mindstorms 
 
 For full details, see [[Using the Mindstorms Sensor Device Class]]. For the basics, keep going.
 
-For an example, I will be using the EV3 Color Sensor in input port 2. It is a UART sensor, so it has a type of ```tty```, which is Linuxeze for anything serial port like.
+For an example, I will be using the EV3 Color Sensor. If we plug the sensor into any input port, a new device will be added to the ```msensor``` class.
 
 ```bash
 $ cd /sys/class/msensor
 $ ls
-in2:tty
-$ cd in2\:tty
+sensor0
+$ cd sensor0
 $ ls
-bin_data         dp          poll_ms    type_id  value1  value4  value7
-bin_data_format  mode        si_units   uevent   value2  value5
-device           num_values  subsystem  value0   value3  value6
+bin_data         dp          num_values  subsystem  value0  value3  value6
+bin_data_format  fw_version  port_name   type_id    value1  value4  value7
+device           mode        si_units    uevent     value2  value5
 ```
 
 Each sensor has a number of modes in which in can operate. You can view and change the modes using the ```mode``` attribute.
@@ -97,15 +97,15 @@ cat: value7: No such device or address
 
 ### I2C Sensor Considerations
 
-I2C/M sensors should be auto-detected. They will show up in ```/sys/class/msensors``` and have the same interface as other sensors. The sysfs node name includes the I2C address because it is possible to have multiple I2C sensors connected to a single input port. NOTE: the address will likely not be the same as what is in the documentation that came with the sensor - [[read about it|I2C Sensor Addressing]].
+I2C/M sensors should be auto-detected. They will show up in ```/sys/class/msensors``` and have the same interface as other sensors.
 
-Example: NXT Ultrasonic Sensor connected to input port 3:
+Example: If we connect an NXT Ultrasonic Sensor to another input port, we should see something like this:
 
 ```bash
 $ cd /sys/class/msensor
 $ ls
-in3:i2c:01
-$ cd in3\:i2c\:01 # 01 is the hexadecimal I2C address of the sensor
+sensor0 sensor1
+$ cd sensor2
 $ cat mode
 [NXT-US-CM] NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
 ```

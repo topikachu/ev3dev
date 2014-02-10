@@ -1,18 +1,18 @@
 ## Kinds of I2C Devices
 
-The I2C standards only specify how data is sent from device to device. It does not specify the layout of the registers of a device. LEGO, however, has guidelines for 3rd party manufactures so that they can provide sensors with (fairly) uniform register layout.
+The I2C standards only specify how data is sent from device to device. It does not specify the layout of the registers of a device. LEGO, however, has guidelines for 3rd party manufactures so that they can provide sensors with a (fairly) uniform register layout.
 
-We call sensors that were designed following LEGO's guidelines **I2C/M** sensors (M is for Mindstorms). This common register layout lets us autodetect the type of sensor and proved access to the sensor via the ```msensor``` class.
+We call sensors that were designed following LEGO's guidelines **I2C/M** sensors (M is for Mindstorms). This common register layout lets us autodetect the type of sensor and proves access to the sensor via the ```msensor``` class.
 
 We refer to sensors that do not conform to LEGO's specifications as **I2C/S** sensors (S is for Standard). There are so many types of I2C chips in the wild that are already supported on Linux, that we do not attempt to autodetect them. To use them, we just need to find a compatible driver and manually load it.
 
 ## Addressing
 
-The I2C address that is used in ev3dev is different from the other EV3/NXT programming languages/environments. See [[I2C Sensor Addressing]] to find out how and why. Since most sensors are autodetected, you don't usually have to worry about the address. However, for manually loading devices, you need to know what the address is. Also, if you had multiple sensors connected to a single port using a port splitter, you would need to know the address to make sure your are using the correct ```sensorN``` device node. NOTE: A [port splitter](http://mindsensors.com/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=79) is not the same as a [sensor MUX](http://mindsensors.com/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=179).
+The I2C address that is used in ev3dev is different from the other EV3/NXT programming languages/environments. See _[[I2C Sensor Addressing]]_ to find out how and why. Since most sensors are autodetected, you don't usually have to worry about the address. However, for manually loading devices, you need to know what the address is. Also, if you had multiple sensors connected to a single port using a port splitter, you would need to know the address to make sure your are using the correct ```sensorN``` device node. NOTE: A [port splitter](http://mindsensors.com/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=79) is not the same as a [sensor MUX](http://mindsensors.com/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=179).
 
 ## Using I2C/M Sensors
 
-See [[Using the Mindstorms Sensor Device Class]] for general usage. This is the I2C specific usage.
+See _[[Using the Mindstorms Sensor Device Class]]_ for general usage. This is the I2C specific usage.
 
 ### Polling
 
@@ -35,7 +35,7 @@ This writes the ascii character 'W' to register 0x41
 
 ### The ```nxt-i2c-sensor``` Module
 
-All of the I2C/M drivers are part of the ```nxt-i2c-sensor``` module. It allows control over some of its behaviors via module parameters.
+All of the I2C/M drivers are part of the ```nxt-i2c-sensor``` module. This module allows control over some of its behaviors via module parameters.
 
 | Parameter        | Default | Description
 |------------------|---------|------------
@@ -46,7 +46,7 @@ You can change the values at any time using ```/sys/module/nxt_i2c_sensor/parame
 
 ### Manually Loading Devices
 
-If you have autodetection disabled or if you have managed to change the I2C address of your sensor to something other than the default, you will have to manually load a device in order to be able to use your sensor. We just have to tell the I2C adapter which driver to use and what address it is at. (You read the [addressing](./Using-I2C-Sensors#addressing) section didn't you?)
+If you have autodetection disabled or if you have managed to change the I2C address of your sensor to something other than the default, you will have to manually load a device in order to be able to use your sensor. We just have to tell the I2C adapter which driver to use and the address of the device. (You read the [addressing](./Using-I2C-Sensors#addressing) section didn't you?)
 
 The I2C adapter device nodes are at ```/sys/bus/i2c/devices/i2c-N``` where N is the number of the input port plus 2. To load a device, we write to the ```new_device``` attribute. NOTE: These nodes only exist when you have an I2C sensor plugged into an input port.
 
@@ -88,7 +88,7 @@ $ ls /dev/i2c-in*
 /dev/i2c-in2  /dev/i2c-in3
 ```
 
-You can use the ```i2c-tools``` package or an I2C library in your programming language of choice to communicate with I2C devices this way. You don't want to do this if a device is already loaded so you will want to disable autodetection first if the sensor is the autodetected type. Beware that many sensors, including the NXT Ultrasonic Sensor use an address of 0x01, which is illegal according to the I2C standards. ```i2c-tools``` and any library that does some error checking may prevent you from accessing the sensor. If you find a need for this, let us know. We (that includes you!) can patch the packages to make the work.
+You can use the ```i2c-tools``` package or an I2C library in your programming language of choice to communicate with I2C devices this way. You don't want to do this if a device is already loaded so you will want to disable autodetection first if the sensor is the autodetected type. Beware that many sensors, including the NXT Ultrasonic Sensor use an address of 0x01, which is illegal according to the I2C standards. ```i2c-tools``` and any library that does some error checking may prevent you from accessing the sensor. If you find a need to get around these limitations, let us know. We (that includes you!) can patch the packages to make the work.
 
 ## Practical examples
 
@@ -160,9 +160,12 @@ $ cat value0 # move the sensor and try again
 #options nxt-i2c-sensor allow_autodetect=N
 ```
 
-### Other ways to find the I2C adapter node
+### How to find the I2C adapter node without adding 2
 
 ```bash
+$ IN2_I2C_ADAP=$(udevadm info -q path -n /dev/i2c-in2)"/../.."
+$ echo $IN2_I2C_ADAP 
+/devices/platform/legoev3-ports/in2/in2:nxt-i2c-host/i2c-legoev3.4/i2c-4/i2c-dev/i2c-4/../..
 ```
 
 ### Using ```i2c-tools```
@@ -193,7 +196,7 @@ d0: 78 e3 2d 4e 92 6e c7 69 25 61 6b 5b 04 34 15 05    x?-N?n?i%ak[?4??
 e0: cc 3e 4e 4b 41 8a 59 09 1b f3 1a 2a 7c 47 a7 90    ?>NKA?Y????*|G??
 f0: 20 6a 95 7a 3b da 5b de 73 31 a2 3a 6e 59 ed f8     j?z;?[?s1?:nY??
 $ i2cget -y 4 0x68 0x01 | sed s/0x// # read minutes
-43
+35
 $ i2cset -y 4 0x68 0x08 0x46 0x72 0x65 0x65 0x20 0x72 0x61 0x6d 0x20 0x73 0x70 0x61 0x63 0x65 0x21 i
 $ i2cdump -y -r 0x08-0x16 4 0x68 
 No size specified (using byte-data access)

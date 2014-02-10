@@ -21,6 +21,24 @@ graphics   mem          power_supply  scsi_host     usbmon
 
 Whenever you connect a sensor, assuming that it is autodetected and that it implements the ```msensor``` class, it will show up in ```/sys/class/msensor```. See the [individual sensor documentation](Using-Sensors#wiki-list-of-sensors) to find out if a sensor works with the ```msensor``` class.
 
-Sensors are listed by the port that they are connected to.
+### Naming
 
-TODO: To be continued...
+Sensors are enumerated as ```sensorN``` where N is incremented each time a sensor is attached. This means that if plug a sensor into input port 4 first, it will be named ```sensor0```. Then if you plug a sensor into input port 1, it will be named ```sensor1```. If you unplug the sensor from port 4 and plug it back in to the same port it will now be named ```sensor2```.
+
+### Attributes
+
+| Name                  | R/W | Description |
+|-----------------------|-----|-------------|
+| ```bin_data```        | R/W | Reading the file will give the same values in the ```valueN``` attributes. Use ```bin_data_format``` and ```num_values``` to determine how to interpret the data. Writing will write data to the sensor (I2C, UART and NXT Color sensors only).
+| ```bin_data_format``` | RO  | The format of the values in ```bin_data``` for the current mode.<ul><li>```u8```: Unsigned 8-bit integer (byte)</li><li>```s8```: Signed 8-bit integer (sbyte)<li>```u16```: Unsigned 16-bit integer (ushort)</li></li><li>```s16```: Signed 16-bit integer (short)</li><li>```s16_be```: Signed 16-bit integer, big endian</li><li>```s32```: Signed 32-bit integer (int)</li><li>```float```: IEEE 754 32-bit floating point (float)</li></ul>
+| ```dp```              | RO  | The number of decimal places for the values in the ```valueN``` attributes of the current mode.
+| ```fw_version```      | RO  | I2C/M sensors only. The firmware version of the sensor.
+| ```i2c_addr```        | RO  | I2C sensors only. The I2C address of the sensor. See [[I2C Sensor Addressing]].
+| ```mode```            | R/W | Reading lists the available modes and indicates the current mode by surrounding it with brackets (```[...]```). Writing one of the listed values sets the mode.
+| ```num_values```      | RO  | Number of ```valueN``` attributes that will return a valid value for the current mode.
+| ```poll_ms```         | R/W | I2C sensors only. Polling period of the sensor in milliseconds. Set to 0 to disable polling. Minimum value is hard coded as 50 msec.
+| ```port_name```       | RO  | The name of the port that the sensor is connected to.
+| ```si_units```        | RO  | The units of the measured value for the current mode.
+| ```type_id```         | RO  | A unique identifier for the type of sensor. See the [individual sensor documentation](Using-Sensors#wiki-list-of-sensors) for what this should be.
+| ```value0``` ... ```value7``` | RO | The value or values measured by the sensor. Check ```num_values``` to see how many values there are. These are fixed point numbers, so check ```dp``` to see if you need to divide to get the actual value.
+__R/W__: read/write, __RO__: read only, __WO__: write only

@@ -16,9 +16,20 @@ See [[Using the Mindstorms Sensor Device Class]] for general usage. This is the 
 
 ### Polling
 
-By default, I2C sensors are polled every 100 milliseconds. This value can be changed via a module parameter. More on that later.
+By default, I2C/M sensors are polled every 100 milliseconds. This value can be changed via a module parameter. More on that later.
 
 When we say "polled", we just mean that the EV3 brick initiates a read command to read data from the sensor. The data that is read depends on the current mode that is selected. You can change the polling rate using the ```poll_ms```. You can also disable polling by setting ```poll_ms``` to ```0```. When polling is disabled, you can initiate a data read by setting the mode again.
+
+### Writing to the Sensor
+
+We can write data to I2C sensors using the ```bin_data``` attribute. The first byte is the address of the register you want to write to and the following bytes are the data that is written to that register.
+
+Example: Sending a "calibrate white" command to the mindsensor.com Light Sensor Array.
+
+```bash
+$ echo -e -n "\x41W" > bin_data
+```
+This writes the ascii character 'W' to register 0x41
 
 ### The ```nxt-i2c-sensor``` Module
 
@@ -31,7 +42,19 @@ All of the I2C/M drivers are part of the ```nxt-i2c-sensor``` module. It allows 
 
 You can change the values at any time using ```/sys/module/nxt_i2c_sensor/parameters/*``` or you can make the changes permanent by adding a [.conf](http://manpages.debian.net/cgi-bin/man.cgi?query=modprobe.d&apropos=0&sektion=0&manpath=Debian+7.0+wheezy&format=html&locale=en) file to ```/etc/modprobe.d```.
 
+### Manually Loading Devices
+
+If you have autodetection disabled or if you have managed to changed the I2C address of your sensor to something other than the default, you will have to manually load a device in order to be able to use your sensor. We just have to tell the I2C adapter which driver to use and what address it is at. (You read the [addressing](./Using-I2C-Sensors#addressing) section didn't you?)
+
+The I2C adapter device nodes are at ```/sys/bus/i2c/devices/i2c-N``` where N is the number of the input port plus 2. To load a device, we write to the ```new_device``` attribute.
+
+```bash
+$ echo nxt-i2c-sensor 0x15 > /sys/bus/i2c/devices/i2c-5/new_device
+```
+
 ## Using I2C/S Sensors
+
+As we already discussed, I2C/S sensors generally have an existing Linux driver that you can use. This means that each sensor will work a bit differently.
 
 
 

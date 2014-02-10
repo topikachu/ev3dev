@@ -40,7 +40,7 @@ These are a new type of sensor designed for the EV3 (they don't work with the NX
 
 ### The Mindstorms Sensor class
 
-Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```. The name of the node will have the format ```<port>:<type>```.
+Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```. The name of the node will be ```sensorN``` where N is incremented for each sensor that is plugged in.
 
 For full details, see [[Using the Mindstorms Sensor Device Class]]. For the basics, keep going.
 

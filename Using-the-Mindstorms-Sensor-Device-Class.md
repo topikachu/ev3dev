@@ -38,7 +38,48 @@ Sensors are enumerated as ```sensorN``` where N is incremented each time a senso
 | ```num_values```      | RO  | Number of ```valueN``` attributes that will return a valid value for the current mode.
 | ```poll_ms```         | R/W | I2C sensors only. Polling period of the sensor in milliseconds. Set to 0 to disable polling. Minimum value is hard coded as 50 msec.
 | ```port_name```       | RO  | The name of the port that the sensor is connected to.
-| ```si_units```        | RO  | The units of the measured value for the current mode.
+| ```units```           | RO  | The units of the measured value for the current mode.
 | ```type_id```         | RO  | A unique identifier for the type of sensor. See the [individual sensor documentation](Using-Sensors#wiki-list-of-sensors) for what this should be.
-| ```value0``` ... ```value7``` | RO | The value or values measured by the sensor. Check ```num_values``` to see how many values there are. These are fixed point numbers, so check ```dp``` to see if you need to divide to get the actual value.
+| ```value0``` ... ```value7``` | RO | The value or values measured by the sensor. Check ```num_values``` to see how many values there are. Values with N >= num_values will return an error. The values are fixed point numbers, so check ```dp``` to see if you need to divide to get the actual value.
 __R/W__: read/write, __RO__: read only, __WO__: write only
+
+## Practical Examples
+
+Also see [[Using I2C Sensors]]
+
+### Viewing and Setting the Mode
+
+```bash
+$ cat mode
+[NXT-US-CM] NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
+$ echo NXT-US-IN > mode
+$ cat mode
+NXT-US-CM [NXT-US-IN] NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
+```
+
+### Reading values
+
+```bash
+$ cat num_values
+1
+$ cat dp
+1
+$ cat units
+in
+$ cat value0
+101
+$ cat value1
+cat: value1: No such device or address
+```
+Actual value is 10.1 inches.
+
+### Viewing Binary Data
+
+```bash
+$ cat bin_data_format
+u8
+$ hexdump -e '8/1 "%02X " "\n"' < bin_data
+19 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+*
+```

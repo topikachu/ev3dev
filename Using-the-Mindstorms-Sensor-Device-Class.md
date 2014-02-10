@@ -83,3 +83,41 @@ $ hexdump -e '8/1 "%02X " "\n"' < bin_data
 00 00 00 00 00 00 00 00
 *
 ```
+
+### Find Sensor Connected to Input Port 3
+
+```bash
+$ echo '#!/bin/bash
+for f in /sys/class/msensor/*
+do
+    if [ `cat $f/port_name` == "$1" ]
+    then
+        echo $f
+        exit 0
+    fi
+   done
+   exit 1
+' > get_sensor_on_port
+$ chmod +x get_sensor_on_port
+$ ./get_sensor_on_port in3
+/sys/class/msensor/sensor2
+```
+
+### Find First EV3 Color Sensor on Any Port
+
+```bash
+$ echo '#!/bin/bash
+for f in /sys/class/msensor/*
+do
+    if [ `cat $f/type_id` == "$1" ]
+    then
+        echo $f
+        exit 0
+    fi
+   done
+   exit 1
+' > get_sensor_with_type
+$ chmod +x get_sensor_with_type
+$ ./get_sensor_with_type 29
+/sys/class/msensor/sensor1
+```

@@ -105,7 +105,7 @@ Example: If we connect an NXT Ultrasonic Sensor to another input port, we should
 $ cd /sys/class/msensor
 $ ls
 sensor0 sensor1
-$ cd sensor2
+$ cd sensor1
 $ cat mode
 [NXT-US-CM] NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
 ```

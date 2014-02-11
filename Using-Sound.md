@@ -99,7 +99,7 @@ Year:    1989                            Genre:  Swing
 
 ```
 $ sudo apt-get install espeak
-$ espeak -a 100 "hello, I am an EV3.
+$ espeak "hello, I am an EV3.
 > I like to talk because I am a robot.
 > Did you know that robots like to make sounds?
 > Beep. Boop. Dit. Dit. Meep.

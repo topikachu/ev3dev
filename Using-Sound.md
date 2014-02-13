@@ -4,7 +4,7 @@ Robots like to make sounds. They told me so.
 
 ## Introduction
 
-The EV3 uses pulse width modulation (PWM) to drive an amplifier that produces the sounds that you hear through the speaker. It has two modes of operation. The first, we call **Tone** mode. In Tone mode, the PWM is set to a frequency in the audible range<sup>[1]</sup>. The sound you hear is a square wave. The second mode is called **PCM Playback** mode. In this mode, the PWM is operated at a higher frequency. The high frequencies are (mostly) filtered out and we are able to reproduce a recorded sound.
+The EV3 uses pulse width modulation (PWM) to drive an amplifier that produces the sounds that you hear through the speaker. It has two modes of operation. The first, we call **Tone** mode (aka **Beep** mode). In Tone mode, the PWM is set to a frequency in the audible range<sup>[1]</sup>. The sound you hear is a square wave. The second mode is called **PCM Playback** mode. In this mode, the PWM is operated at a higher frequency. The high frequencies are (mostly) filtered out and we are able to reproduce a recorded sound.
 
 If you are interested in the science of how this works or want to know more about some of the other neat things we did to improve the sound on the EV3, check out the _[[EV3 Sound]]_ page of the _[[ev3dev Kernel Hackers Notebook]]_
 
@@ -58,7 +58,66 @@ Playing WAVE 'my-file.wav' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
 
 ## Volume control
 
-Again, there are a couple of ways to do this. ```alsamixer``` gives you graphical volume controls. You can also use ```/sys/devices/platform/snd-legoev3/volume```.
+Again, there are a number of ways to do this. Currently, there is only a master volume control that controls both Tone mode and PCM Playback mode.
+
+### ```amixer``` Command
+
+Documentation:
+* [man page](http://manpages.debian.net/cgi-bin/man.cgi?query=amixer&apropos=0&sektion=0&manpath=Debian+7.0+wheezy&format=html&locale=en)
+
+Example:
+
+```
+$ amixer get Playback,0 # get current volume
+Simple mixer control 'Playback',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 256
+  Mono: 255 [100%]
+$ amixer set Playback,0 50% # set volume to 50%
+Simple mixer control 'Playback',0
+  Capabilities: volume volume-joined penum
+  Playback channels: Mono
+  Capture channels: Mono
+  Limits: 0 - 256
+  Mono: 128 [50%]
+```
+
+### ```alsamixer``` Command
+
+Graphical volume controls.
+
+```
+┌───────────────────────────── AlsaMixer v1.0.25 ──────────────────────────────┐
+│ Card: LEGO Mindstorms EV3 speaker                    F1:  Help               │
+│ Chip:                                                F2:  System information │
+│ View: F3:[Playback] F4: Capture  F5: All             F6:  Select sound card  │
+│ Item: Playback                                       Esc: Exit               │
+│                                                                              │
+│                                     ┌──┐                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │  │                                     │
+│                                     │▒▒│                                     │
+│                                     │▒▒│                                     │
+│                                     │▒▒│                                     │
+│                                     │▒▒│                                     │
+│                                     │▒▒│                                     │
+│                                     └──┘                                     │
+│                                      40                                      │
+│                                  <Playback>                                  │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### sysfs Attribute
+
+You can also use ```/sys/devices/platform/snd-legoev3/volume```.
 
 ## sysfs Attributes and Module Parameters
 
@@ -75,6 +134,31 @@ We have mentioned a couple of the attributes already. They are located at ```/sy
 If you are not using rechargeable batteries, you will want to take the CPU usage required by sound playback into consideration. If you are playing back compressed sound files, like ogg or mp3, then you are wasting battery power because of high CPU usage in decompressing the files. It is best to use uncompressed .wav files. Also, higher sample rates result in higher CPU usage. There is not really any noticeable improvement in sound quality above 22050 Hz anyway.
 
 ## More Fun!
+
+### Text-To-Speech
+
+```
+$ espeak "hello, I am an EV3.
+> I like to talk because I am a robot.
+> Did you know that robots like to make sounds?
+> Beep. Boop. Dit. Dit. Meep.
+> I am just such a chatterbox." --stdout | aplay
+Playing WAVE 'stdin' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
+```
+
+Tip: Add a function like this to your ```~/.bashrc``` file.
+
+```
+speak(){
+    espeak -a 200 -s 130 -v la --stdout "$@" | aplay
+}
+```
+
+Then you can simply use:
+
+```
+$ speak "Thanks to GeeKDude for this idea!" # @G33kDude
+```
 
 ### MP3 player
 
@@ -95,14 +179,3 @@ Comment:                                 Album:  Minnie the Moocher [Universal]
 Year:    1989                            Genre:  Swing
 ```
 
-### Text-To-Speech
-
-```
-$ sudo apt-get install espeak
-$ espeak "hello, I am an EV3.
-> I like to talk because I am a robot.
-> Did you know that robots like to make sounds?
-> Beep. Boop. Dit. Dit. Meep.
-> I am just such a chatterbox." --stdout | aplay
-Playing WAVE 'stdin' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
-```

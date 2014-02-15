@@ -122,8 +122,8 @@ To learn how to manually load I2C devices and many more interesting things about
     <th>Mfg. P/N
     <th>Name
     <th>Connection Type
-    <th>Autodetected
-    <th>Driver Name
+    <th>Auto-<br>detected
+    <th>Driver (Module)
   <tr>
     <td rowspan="1"><a href="http://www.codatex.com//">CODATEX</a>
     <td>
@@ -141,179 +141,179 @@ To learn how to manually load I2C devices and many more interesting things about
   <tr>
     <td rowspan="17"><a href="http://www.hitechnic.com/">HiTechnic</a>
     <td>NAA1030
-    <td>NXT Angle Sensor
+    <td>[[NXT Angle Sensor|HiTechnic NXT Angle Sensor (NAA1030)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-naa1030]]
+    <td>ht&#8209;naa1030 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NAC1040
-    <td>NXT Acceleration / Tilt Sensor
+    <td>[[NXT Acceleration / Tilt Sensor|HiTechnic NXT Acceleration / Tilt Sensor (NAC1040)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nac1040]]
+    <td>ht&#8209;nac1040 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NBR1036
-    <td>NXT Barometric Sensor
+    <td>[[NXT Barometric Sensor|HiTechnic NXT Barometric Sensor (NBR1036)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nbr1036]]
+    <td>ht&#8209;nbr1036 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NCO1038
-    <td>NXT Color Sensor V2
+    <td>[[NXT Color Sensor V2|HiTechnic NXT Color Sensor V2 (NCO1038)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nco1038]]
+    <td>ht&#8209;nco1038 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NEO1048
-    <td>NXT EOPD
+    <td>[[NXT EOPD|HiTechnic NXT EOPD (NEO1048)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>NFS1074
-    <td>NXT Force Sensor
+    <td>[[NXT Force Sensor|HiTechnic NXT Force Sensor (NFS1074)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>NGY1044
-    <td>NXT Gyro Sensor
+    <td>[[NXT Gyro Sensor|HiTechnic NXT Gyro Sensor (NGY1044)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>NIL1046
-    <td>NXT IRLink Sensor
+    <td>[[NXT IRLink Sensor|HiTechnic NXT IRLink Sensor (NIL1046)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nil1046]]
+    <td>ht&#8209;nil1046 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NIS1070
-    <td>NXT PIR Sensor
+    <td>[[NXT PIR Sensor|HiTechnic NXT PIR Sensor (NIS1070)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nis1070]]
+    <td>ht&#8209;nis1070 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NIR1032
-    <td>NXT IRReceiver Sensor
+    <td>[[NXT IRReceiver Sensor|HiTechnic NXT IRReceiver Sensor (NIR1032)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nir1032]]
+    <td>ht&#8209;nir1032 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NMC1034
-    <td>NXT Compass Sensor
+    <td>[[NXT Compass Sensor|HiTechnic NXT Compass Sensor (NMC1034)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nmc1034]]
+    <td>ht&#8209;nmc1034 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NMS1035
-    <td>NXT Magnetic Sensor
+    <td>[[NXT Magnetic Sensor|HiTechnic NXT Magnetic Sensor (NM1035)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>NSK1042
-    <td>NXT IRSeeker V2
+    <td>[[NXT IRSeeker V2|HiTechnic NXT IRSeeker V2 (NSK1042)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nsk1042]]
+    <td>ht&#8209;nsk1042 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NSX2020
-    <td>NXT Sensor Multiplexer
+    <td>[[NXT Sensor Multiplexer|HiTechnic NXT Sensor Multiplexer (NSX2020)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nsx2020]]
+    <td>ht&#8209;nsx2020 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>NTX1060
-    <td>NXT Touch Sensor Multiplexer
+    <td>[[NXT Touch Sensor Multiplexer|HiTechnic NXT Touch Sensor Multiplexer (NTX1060)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>SPR2010
-    <td>NXT SuperPro Prototype Board
+    <td>[[NXT SuperPro Prototype Board|HiTechnic NXT SuperPro Prototype Board (SPR2010)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-spr2010]]
+    <td>ht&#8209;spr2010 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>???
-    <td>NXT Color Sensor (v1)
+    <td>[[NXT Color Sensor (v1)|HiTechnic NXT Color Sensor (v1)]]
     <td>I2C/M
     <td>Y
-    <td>[[ht-nco]]
+    <td>ht&#8209;nco (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td rowspan="12"><a href="http://lego.com">LEGO</a> / <a href="http://education.lego.com">LEGO&nbsp;Education</a>
     <td>9668
-    <td>Energy Display
+    <td>[[Energy Display| LEGO Energy Display (9668)]]
     <td>I2C/M
     <td>Y
-    <td>[[lego-9668]]
+    <td>lego&#8209;9668 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>9694
-    <td>NXT Color Sensor
+    <td>[[NXT Color Sensor|LEGO NXT Color Sensor (9694)]]
     <td>Special
     <td>Y
-    <td>[[nxt-color-sensor]]
+    <td>nxt&#8209;color&#8209;sensor
   <tr>
     <td>9749
-    <td>NXT Temperature Sensor
+    <td>[[NXT Temperature Sensor|LEGO NXT Temperature Sensor (9749)]]
     <td>I2C/S
     <td>N
-    <td>[[tmp275]]
+    <td>tmp275 (lm75)
   <tr>
     <td>9843
-    <td>NXT Touch Sensor
+    <td>[[NXT Touch Sensor|LEGO NXT Touch Sensor (9843)]]
     <td>Analog/NXT
     <td>Y
-    <td>[[nxt-touch-sensor]]
+    <td>nxt&#8209;touch&#8209;sensor
   <tr>
     <td>9844
-    <td>NXT Light Sensor
+    <td>[[NXT Light Sensor|LEGO NXT Light Sensor (9844)]]
     <td>Analog/NXT
     <td>Y
     <td>
   <tr>
     <td>9845
-    <td>NXT Sound Sensor
+    <td>[[NXT Sound Sensor|LEGO NXT Sound Sensor (9845)]]
     <td>Analog/NXT
     <td>Y*
     <td>
   <tr>
     <td>9846
-    <td>NXT Ultrasonic Sensor
+    <td>[[NXT Ultrasonic Sensor|LEGO NXT Ultrasonic Sensor (9846)]]
     <td>I2C/M
     <td>Y
-    <td>[[lego-9846]]
+    <td>lego&#8209;9846 (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>45504
-    <td>EV3 Ultrasonic Sensor
+    <td>[[EV3 Ultrasonic Sensor|LEGO EV3 Ultrasonic Sensor (45504)]]
     <td>UART
     <td>Y
-    <td>[[legoev3-uart]]
+    <td>
   <tr>
     <td>45505
-    <td>EV3 Gyro Sensor
+    <td>[[EV3 Gyro Sensor|LEGO EV3 Gyro Sensor (45505)]]
     <td>UART
     <td>Y
-    <td>[[legoev3-uart]]
+    <td>
   <tr>
     <td>45506
-    <td>EV3 Color Sensor
+    <td>[[EV3 Color Sensor|LEGO EV3 Color Sensor (45506)]]
     <td>UART
     <td>Y
-    <td>[[legoev3-uart]]
+    <td>
   <tr>
     <td>45507
-    <td>EV3 Touch Sensor
+    <td>[[EV3 Touch Sensor|LEGO EV3 Touch Sensor (45507)]]
     <td>Analog/EV3
     <td>Y
-    <td>[[ev3-touch-sensor]]
+    <td>ev3&#8209;touch&#8209;sensor
   <tr>
     <td>45509
-    <td>EV3 Infrared Sensor
+    <td>[[EV3 Infrared Sensor|LEGO EV3 Infrared Sensor (45509)]]
     <td>UART
     <td>Y
-    <td>[[legoev3-uart]]
+    <td>
   <tr>
     <td rowspan="1"><a href="http://www.LogITNXT.com">LogIT</a>
     <td>
@@ -324,34 +324,34 @@ To learn how to manually load I2C devices and many more interesting things about
   <tr>
     <td rowspan="5"><a href="http://www.mindsensors.com">mindsensors.com</a>
     <td>LightSensorArray
-    <td>Light Sensor Array
+    <td>[[Light Sensor Array|mindsensors.com Light Sensor Array (LightSensorArray)]]
     <td>I2C/M
     <td>Y
-    <td>[[ms-light-array]]
+    <td>ms&#8209;light&#8209;array (nxt&#8209;i2c&#8209;sensor)
   <tr>
     <td>MagicWand
-    <td>Magic Wand Kit
+    <td>[[Magic Wand Kit|PCF8574 IC]]
     <td>I2C/S
     <td>N
-    <td>[[pcf8574]]
+    <td>pcf8574 (gpio&#8209;pcf857x)
   <tr>
     <td>PCF8574-Nx
-    <td>Sensor building kit for NXT with PCF8574 IC
+    <td>[[Sensor building kit for NXT with PCF8574 IC|PCF8574 IC]]
     <td>I2C/S
     <td>N
-    <td>[[pcf8574]]
+    <td>pcf8574 (gpio&#8209;pcf857x)
   <tr>
     <td>PCF8591-Nx
-    <td>Sensor building kit for NXT with PCF8591 IC
+    <td>[[Sensor building kit for NXT with PCF8591 IC|PCF8591 IC]]
     <td>I2C/S
     <td>N
-    <td>[[pcf8591]]
+    <td>pcf8591 (pcf8591)
   <tr>
     <td>RTC-Nx-v3
-    <td>Realtime Clock for NXT 
+    <td>[[Realtime Clock for NXT|DS1307 IC]]
     <td>I2C/S
     <td>N
-    <td>[[ds1307]]
+    <td>ds1307 (rtc&#8209;ds1307)
   <tr>
     <td rowspan="1"><a href="http://www.vernier.com">Vernier</a>
     <td>

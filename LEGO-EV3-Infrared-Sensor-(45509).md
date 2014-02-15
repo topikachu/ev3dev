@@ -2,10 +2,11 @@
 
 This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
 
-|              | Value    |
-|:------------:|:--------:|
-|```type_id``` | ```33``` |
-| # Modes      | 6        |
+|               | Value    |
+|:-------------:|:--------:|
+| ```type_id``` | ```33``` |
+| # Modes       | 6        |
+| Connection    | UART     |
 
 ### Mode 0
 <table>

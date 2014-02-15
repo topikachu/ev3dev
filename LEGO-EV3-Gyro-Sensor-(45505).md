@@ -1,49 +1,27 @@
 IMPORTANT: This data has not been verified (because @dlech doesn't have one of these sensors!).
 
 ### General
-- Type ID: 32
-- Modes: 5
 
-### Mode 0
-- Name: GYRO-ANG
-- Number of measured values: 1
-- Value 0: Angle
-- Units: deg (degrees)
-- Min: -180
-- Max: 180
+Uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
 
-### Mode 1
-- Name: GYRO-RATE
-- Number of measured values: 1
-- Value 0: Rotational Speed
-- Units: d/s (degrees/second)
-- Min: -440
-- Max: 440
+|         | Value |
+|:-------:|:-----:|
+|```type_id``` | ```32```
+| # Modes | 5
 
-### Mode 2
-- Name: GYRO-FAS
-- Number of measured values: 1
-- Value 0: ???
-- Units: _none_
-- Min: -2000
-- Max: 2000
+### Modes
 
-### Mode 3
-- Name: GYRO-G&A
-- Number of measured values: 2
-- Value 0: ???
-- Value 1: ???
-- Units: _none_
-- Min: -180
-- Max: 180
-
-### Mode 4
-- Name: GYRO-CAL
-- Number of measured values: 4
-- Value 0: ???
-- Value 1: ???
-- Value 2: ???
-- Value 3: ???
-- Units: _none_
-- Min: 0
-- Max: 65535
+|   | Mode 0 | Mode 1 | Mode 2 | Mode 3 | Mode 4 |
+|---|--------|--------|--------|--------|--------|
+| ```mode``` | ```GYRO-ANG``` | ```GYRO-RATE``` | ```GYRO-FAS``` | ```GYRO-G&A``` | ```GYRO-CAL``` |
+| Description | Angle | Rotational Speed | ??? | Angle and Rotational Speed | Calibration??? |
+| ```num_values``` | ```1``` | ```1``` | ```1``` | ```2``` | ```4```
+| ```value0``` | Angle | Rotational Speed | ??? | Angle | |
+| &emsp;Min | | ```-180``` | ```-440```  | ```-2000```??? | ```-180``` | |
+| &emsp;Max | | ```180``` | ```440``` | ```2000```??? | ```180``` | |
+| ```value1``` | | | | Rotational Speed | |
+| &emsp;Min | | | | | ```-440``` | |
+| &emsp;Max | | | | | ```440``` | |
+| ```units``` | ```deg``` (degrees) | ```d/s``` (degrees/second) | _none_ | _none_ | _none_
+| ```dp``` (decimal places) | ```0``` | ```0``` | ```0``` | ```0``` | ```0```
+Values in the tables that look like ```this``` are the names of sysfs attributes or values returned by said attributes.

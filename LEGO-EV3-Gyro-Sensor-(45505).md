@@ -4,24 +4,97 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 
 This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
 
-|              | Value |
-|:------------:|:-----:|
-|```type_id``` | ```32```
-| # Modes      | 5
+|               | Value    |
+|:-------------:|:--------:|
+| ```type_id``` | ```32``` |
+| # Modes       | 5        |
 
 ### Modes
 
-|   | Mode 0 | Mode 1 | Mode 2 | Mode 3 | Mode 4 |
-|---|--------|--------|--------|--------|--------|
-| ```mode``` | ```GYRO-ANG``` | ```GYRO-RATE``` | ```GYRO-FAS``` | ```GYRO-G&A``` | ```GYRO-CAL``` |
-| Description | Angle | Rotational Speed | ??? | Angle and Rotational Speed | Calibration??? |
-| ```num_values``` | ```1``` | ```1``` | ```1``` | ```2``` | ```4```
-| ```value0``` | Angle | Rotational Speed | ??? | Angle | |
-| &emsp;Min | | ```-180``` | ```-440```  | ```-2000```??? | ```-180``` | |
-| &emsp;Max | | ```180``` | ```440``` | ```2000```??? | ```180``` | |
-| ```value1``` | | | | Rotational Speed | |
-| &emsp;Min | | | | | ```-440``` | |
-| &emsp;Max | | | | | ```440``` | |
-| ```units``` | ```deg``` (degrees) | ```d/s``` (degrees/second) | _none_ | _none_ | _none_
-| ```dp``` (decimal places) | ```0``` | ```0``` | ```0``` | ```0``` | ```0```
+<table>
+  <tr>
+    <th>
+    <th>Mode 0
+    <th>Mode 1
+    <th>Mode 2
+    <th>Mode 3
+    <th>Mode 4
+  <tr>
+    <td><code>mode</code>
+    <td><code>GYRO-ANG</code>
+    <td><code>GYRO-RATE</code>
+    <td><code>GYRO-FAS</code>
+    <td><code>GYRO-G&A</code>
+    <td><code>GYRO-CAL</code>
+  <tr>
+    <td>Description
+    <td>Angle
+    <td>Rotational Speed
+    <td>???
+    <td>Angle and Rotational Speed
+    <td>Calibration???
+  <tr>
+    <td><code>num_values</code>
+    <td><code>1</code>
+    <td><code>1</code>
+    <td><code>1</code>
+    <td><code>2</code>
+    <td><code>4</code>
+  <tr>
+    <td><code>value0</code>
+    <td>Angle
+    <td>Rotational Speed
+    <td>???
+    <td>Angle
+    <td>
+  <tr>
+    <td>&emsp;Min
+    <td><code>-180</code>
+    <td><code>-440</code>
+    <td><code>-2000</code>???
+    <td><code>-180</code>
+    <td>
+  <tr>
+    <td>&emsp;Max
+    <td><code>180</code>
+    <td><code>440</code>
+    <td><code>2000</code>???
+    <td><code>180</code>
+    <td>
+  <tr>
+    <td><code>value1</code>
+    <td>
+    <td>
+    <td>
+    <td>Rotational Speed
+    <td>
+  <tr>
+    <td>&emsp;Min
+    <td>
+    <td>
+    <td>
+    <td><code>-440</code>
+    <td>
+  <tr>
+    <td>&emsp;Max
+    <td>
+    <td>
+    <td>
+    <td><code>440</code>
+    <td>
+  <tr>
+    <td><code>units</code>
+    <td><code>deg</code> (degrees)
+    <td><code>d/s</code> (degrees/second)
+    <td><i>none</i>
+    <td><i>none</i>
+    <td><i>none</i>
+  <tr>
+    <td><code>dp</code> (decimal places)
+    <td><code>0</code>
+    <td><code>0</code>
+    <td><code>0</code>
+    <td><code>0</code>
+    <td><code>0</code>
+</table>
 Values in the tables that look like ```this``` are the names of sysfs attributes or values returned by said attributes.

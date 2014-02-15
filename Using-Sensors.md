@@ -1,4 +1,4 @@
-NOTE: This documentation applies to code that has not been released.
+NOTE: This documentation is for a kernel that has not been officially released. If you want to try it out, see this [issue](https://github.com/mindboards/ev3dev-kernel/pull/19).
 
 ##Known issues
 

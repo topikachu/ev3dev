@@ -58,9 +58,9 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
   <tr>
     <td>&emsp;Max
     <td><code>2550</code> (255.0&nbsp;cm)
-    <td><code>1003</code> (100.0&nbsp;in)
+    <td><code>1000</code> (100.0&nbsp;in)
     <td><code>2550</code> (255.0&nbsp;cm)
-    <td><code>1003</code> (100.0&nbsp;in)
+    <td><code>1000</code> (100.0&nbsp;in)
     <td><code>1</code> (another ultrasonic sensor was detected)
   <tr>
     <td><code>units</code>

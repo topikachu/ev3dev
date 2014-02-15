@@ -6,6 +6,7 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 |:------------:|:--------:|
 |```type_id``` | ```30``` |
 | # Modes      | 7        |
+| Connection   | UART     |
 
 ### Modes
 

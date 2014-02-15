@@ -8,6 +8,7 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 |:-------------:|:--------:|
 | ```type_id``` | ```32``` |
 | # Modes       | 5        |
+| Connection    | UART     |
 
 ### Modes
 

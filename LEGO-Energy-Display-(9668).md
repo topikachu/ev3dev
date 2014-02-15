@@ -285,5 +285,3 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td><code>3</code>
 </table>
 Values in the tables that look like ```this``` are the names of sysfs attributes or values returned by said attributes.
-
-<a name="note1" />[1]: The value is read when the mode is set and does not change - even when polling is enabled. To read a new value, set the mode again (e.g. ```echo NXT-US-SI-CM > mode```).

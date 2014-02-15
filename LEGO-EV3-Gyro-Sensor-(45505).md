@@ -2,12 +2,12 @@ IMPORTANT: This data has not been verified (because @dlech doesn't have one of t
 
 ### General
 
-Uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
+This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
 
-|         | Value |
-|:-------:|:-----:|
+|              | Value |
+|:------------:|:-----:|
 |```type_id``` | ```32```
-| # Modes | 5
+| # Modes      | 5
 
 ### Modes
 

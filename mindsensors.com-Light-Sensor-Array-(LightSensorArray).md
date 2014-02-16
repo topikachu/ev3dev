@@ -92,7 +92,7 @@ Values in the tables that look like ```this``` are the names of sysfs attributes
 | ```E``` | Configure for African/Asian/European region (50 Hz electrical mains)
 | ```U``` | Configure for universal frequency (default)
 
-Commands are performed by writing the ascii character value to register 0x41
+Commands are performed by writing the ASCII character value to register 0x41
 
 Example:
 

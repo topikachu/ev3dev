@@ -1,3 +1,7 @@
+***
+THIS PAGE IS GOING AWAY SOON. SEE [mindboards/ev3dev-kernel#19](https://github.com/mindboards/ev3dev-kernel/pull/19) FOR MORE UP TO DATE INFORMATION.
+***
+
 @dlech has been working on UART sensor support. It is now ready for testing. Please see [mindboards/ev3dev-kernel issue #15](https://github.com/mindboards/ev3dev-kernel/pull/15) for the steps required to install the kernel and packages. Report any issues or suggestions there as well.
 
 Known issues:

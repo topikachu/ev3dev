@@ -106,12 +106,12 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
   <tr>
     <td><code>units</code>
     <td><i>none</i><sup><a href="#wiki-note1">1</a></sup>
-    <td>
-    <td>
-    <td>
-    <td>
-    <td>
-    <td>
+    <td><i>none</i>
+    <td><i>none</i>
+    <td><i>none</i>
+    <td><i>none</i>
+    <td><i>none</i>
+    <td><i>none</i>
   <tr>
     <td><code>dp</code> (decimal places)
     <td><code>0</code>

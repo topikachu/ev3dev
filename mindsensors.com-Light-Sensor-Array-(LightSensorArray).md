@@ -82,6 +82,8 @@ Values in the tables that look like ```this``` are the names of sysfs attributes
 
 ### Commands
 
+Commands are performed by writing the ASCII character value to register 0x41
+
 | Value   | Description
 |---------|------------
 | ```W``` | Calibrate to white
@@ -91,8 +93,6 @@ Values in the tables that look like ```this``` are the names of sysfs attributes
 | ```A``` | Configure for American region (60 Hz electrical mains)
 | ```E``` | Configure for African/Asian/European region (50 Hz electrical mains)
 | ```U``` | Configure for universal frequency (default)
-
-Commands are performed by writing the ASCII character value to register 0x41
 
 Example:
 

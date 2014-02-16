@@ -35,12 +35,12 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>X-axis acceleration (most significant byte)
   <tr>
     <td>&emsp;Min
-    <td><code>???</code>
-    <td><code>???</code>
+    <td>???
+    <td>???
   <tr>
     <td>&emsp;Max
-    <td><code>???</code>
-    <td><code>???</code>
+    <td>???
+    <td>???
   <tr>
     <td><code>value1</code>
     <td>

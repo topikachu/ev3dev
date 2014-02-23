@@ -3,9 +3,9 @@ The [AM1808 SoC](EV3 Processor) has 2 hardware [Inter-Integrated Circuit](https:
 ## Usage
 __I2C0__: [Boot EEPROM](EV3 EEPROM) @400kHz
 
-__I2C0__: Not used/connected
+__I2C1__: Not used/connected
 
-__[FIQ](EV3 FIQ) I2C__: Input ports 1-4 @10kHz
+__[FIQ](EV3 FIQ) (software/bit-banging) I2C__: Input ports 1-4 @10kHz
 
 ## Device Drivers
 The Linux kernel has a well established [framework for I2C drivers](https://www.kernel.org/doc/Documentation/i2c/).

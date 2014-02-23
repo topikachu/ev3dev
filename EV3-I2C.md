@@ -16,13 +16,5 @@ Since there are not enough I2C controllers on the SoC, LEGO chose to implement t
 
 This Linux kernel has an existing GPIO i2c driver, but in order to get the performance needed, we have to use [fast interrupts](EV3 FIQ) (FIQs). (Be sure to follow the link for some interesting reading.) So, the really low level stuff is done in [arch/arm/mach-davinci/legoev3-fiq.c](blob/master/arch/arm/mach-davinci/legoev3-fiq.c) and the rest is in [drivers/i2c/busses/i2c-legoev3.c](blob/master/drivers/i2c/busses/i2c-legoev3.c).
 
-## Sensor Addressing
- TODO: This was moved to [[I2C Sensor Addressing]]. Need to integrate this table somewhere or delete it.
-
-### Know Sensors and Addresses
-<table border="1">
-<tr><th colspan="2">Address<th rowspan="2">Sensor<th rowspan="2">Notes
-<tr><th>Shifted<th>Unshifted
-<tr><td>0x02<td>0x01<td>LEGO NXT Ultrasonic sensor<td>This address is illegal according to the I2C spec, so we had to patch the kernel driver to make it work.
-<tr><td>0x14<td>0x0A<td>Mindsensors Light Sensor Array<td>The address can be changed programatically
-</table>
+## I2C Addressing
+See [[I2C Sensor Addressing]].

@@ -120,7 +120,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>8
     <td>GPIO&nbsp;0-5
     <td>BTCLKDIS
-    <td>???
+    <td>Pull down bluetooth "slow clock" signal
   <tr>
     <td>4
     <td>GPIO&nbsp;0-6

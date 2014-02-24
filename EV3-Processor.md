@@ -433,7 +433,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>20
     <td>GPIO&nbsp;4-10
     <td>HWID3
-    <td>
+    <td>Hardware ID (not used) 
   <tr>
     <td>16
     <td>

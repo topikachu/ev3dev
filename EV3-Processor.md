@@ -751,32 +751,32 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>28
     <td>BOOT2
     <td>BOOT2
-    <td>
+    <td>Select boot device
   <tr>
     <td>24
     <td>BOOT3
     <td>BOOT3
-    <td>
+    <td>Select boot device
   <tr>
     <td>20
     <td>BOOT4
     <td>BOOT4
-    <td>
+    <td>Select boot device
   <tr>
     <td>16
     <td>BOOT5
     <td>BOOT5
-    <td>
+    <td>Select boot device
   <tr>
     <td>12
     <td>BOOT6
     <td>BOOT6
-    <td>
+    <td>Select boot device
   <tr>
     <td>8
     <td>BOOT7
     <td>BOOT7
-    <td>
+    <td>Select boot device
   <tr>
     <td>4
     <td>GPIO&nbsp;7-8
@@ -822,12 +822,12 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>4
     <td>BOOT0
     <td>BOOT0
-    <td>
+    <td>Select boot device
   <tr>
     <td>0
     <td>BOOT1
     <td>BOOT1
-    <td>
+    <td>Select boot device
   <tr>
     <td rowspan="8">19
     <td>28

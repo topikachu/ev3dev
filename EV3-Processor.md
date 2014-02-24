@@ -536,7 +536,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>12
     <td>GPIO&nbsp;6-12
     <td>DIODE3
-    <td>LED 0 (right, red)
+    <td>LED 3 (right, red)
   <tr>
     <td>8
     <td>
@@ -545,7 +545,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>8
     <td>GPIO&nbsp;6-13
     <td>DIODE0
-    <td>LED 2 (left, green)
+    <td>LED 0 (left, red)
   <tr>
     <td>4
     <td>
@@ -554,7 +554,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>4
     <td>GPIO&nbsp;6-14
     <td>DIODE2
-    <td>LED 1 (left, red)
+    <td>LED 2 (right, green)
   <tr>
     <td>0
     <td>GPIO&nbsp;5-7
@@ -633,7 +633,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>0
     <td>GPIO&nbsp;6-7
     <td>DIODE1
-    <td>LED 3 (right, red)
+    <td>LED 1 (left, green)
     <td>0
     <td>
     <td><i>N/C</i>

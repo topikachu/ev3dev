@@ -4,7 +4,7 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 
 |              | Value      |
 |:------------:|:----------:|
-|```type_id``` | 16         |
+|```type_id``` | ```16```   |
 | # Modes      | 1          |
 | Connection   | Analog/EV3 |
 

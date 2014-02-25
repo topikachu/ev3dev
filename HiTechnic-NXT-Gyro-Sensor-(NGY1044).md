@@ -6,7 +6,7 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 |:------------:|:----------:|
 |```type_id``` | _N/A_      |
 | # Modes      | 1          |
-| Connection   | NXT Analog |
+| Connection   | Analog/NXT |
 
 ### Modes
 

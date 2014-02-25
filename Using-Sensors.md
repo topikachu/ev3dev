@@ -1,4 +1,4 @@
-NOTE: This documentation is for a kernel that has not been officially released. If you want to try it out, see this [issue](https://github.com/mindboards/ev3dev-kernel/pull/19).
+NOTE: This documentation is for a kernel that has not been officially released. If you want to try it out, see this [issue](https://github.com/mindboards/ev3dev-kernel/pull/19). Note: The kernel and modules in the package in that issue do not include the Analog or Touch sensors as documented here.
 
 ##Known issues
 
@@ -94,6 +94,12 @@ cat: value5: No such device or address
 cat: value6: No such device or address
 cat: value7: No such device or address
 ```
+
+### Analog Sensor Considerations
+
+NXT Analog sensors, for the most part, cannot be autodetected. The exceptions are the LEGO NXT Light Sensor and the LEGO NXT Touch Sensor. The remaining sensors use a common ```msensor``` interface. There are two modes ```NXT-ANALOG-0``` and ```NXT-ANALOG-1```. The only difference between the two is that when you set the mode to ```NXT-ANALOG-1```, the GPIO connected to pin 5 will be set high. Some sensors use this to measure a different value. See the individual sensor documentation below to see if a sensor supports more than one mode.
+
+The sensor value is read using the ```value0``` attribute. By default, it will be the voltage read by the analog/digital converter in mV. You can change the scaling using the ```raw_min```, ```raw_max```, ```scaled_min``` and ```scaled_max``` attributes.
 
 ### I2C Sensor Considerations
 

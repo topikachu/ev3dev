@@ -26,6 +26,10 @@ These are the simplest type of sensor. The measured value is converted to a volt
 
 RCX sensors also fall into this category, but do not work with the EV3 - at least not with the converter cable described in the NXT Hardware Developers kit. This is due to a difference in the input port pins between the EV3 and the NXT. If someone wants to research the [LEGO 8528](http://shop.lego.com/en-US/Converter-Cables-for-LEGO-MINDSTORMS-NXT-8528/?domainredir=www.shop.lego.com) cable or design a new converter cable, we could probably make them work.
 
+### LEGO NXT Color Sensor
+
+The LEGO NXT Color Sensor is in a class of its own. We don't have a driver for it yet.
+
 ### I2C Sensors
 
 I2C sensors are sensors that communicate with the intelligent brick via the [I2C protocol](https://en.wikipedia.org/wiki/I2c). In the NXT documentation, they are referred to a "digital" sensors.

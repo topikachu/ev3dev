@@ -174,19 +174,19 @@ To learn how to manually load I2C devices and many more interesting things about
     <td>[[NXT EOPD|HiTechnic NXT EOPD (NEO1048)]]
     <td>Analog/NXT
     <td>Y*
-    <td>
+    <td>(nxt&#8209;analog&#8209;sensor)
   <tr>
     <td>NFS1074
     <td>[[NXT Force Sensor|HiTechnic NXT Force Sensor (NFS1074)]]
     <td>Analog/NXT
     <td>Y*
-    <td>
+    <td>(nxt&#8209;analog&#8209;sensor)
   <tr>
     <td>NGY1044
     <td>[[NXT Gyro Sensor|HiTechnic NXT Gyro Sensor (NGY1044)]]
     <td>Analog/NXT
     <td>Y*
-    <td>
+    <td>(nxt&#8209;analog&#8209;sensor)
   <tr>
     <td>NIL1046
     <td>[[NXT IRLink Sensor|HiTechnic NXT IRLink Sensor (NIL1046)]]
@@ -216,7 +216,7 @@ To learn how to manually load I2C devices and many more interesting things about
     <td>[[NXT Magnetic Sensor|HiTechnic NXT Magnetic Sensor (NM1035)]]
     <td>Analog/NXT
     <td>Y*
-    <td>
+    <td>(nxt&#8209;analog&#8209;sensor)
   <tr>
     <td>NSK1042
     <td>[[NXT IRSeeker V2|HiTechnic NXT IRSeeker V2 (NSK1042)]]
@@ -271,19 +271,19 @@ To learn how to manually load I2C devices and many more interesting things about
     <td>[[NXT Touch Sensor|LEGO NXT Touch Sensor (9843)]]
     <td>Analog/NXT
     <td>Y
-    <td>nxt&#8209;touch&#8209;sensor
+    <td>nxt#8209;touch&#8209;sensor (touch&#8209;sensor)
   <tr>
     <td>9844
     <td>[[NXT Light Sensor|LEGO NXT Light Sensor (9844)]]
     <td>Analog/NXT
     <td>Y
-    <td>
+    <td>nxt&#8209;light&#8209;sensor (nxt&#8209;light&#8209;sensor)
   <tr>
     <td>9845
     <td>[[NXT Sound Sensor|LEGO NXT Sound Sensor (9845)]]
     <td>Analog/NXT
     <td>Y*
-    <td>
+    <td>(nxt&#8209;analog&#8209;sensor)
   <tr>
     <td>9846
     <td>[[NXT Ultrasonic Sensor|LEGO NXT Ultrasonic Sensor (9846)]]
@@ -313,7 +313,7 @@ To learn how to manually load I2C devices and many more interesting things about
     <td>[[EV3 Touch Sensor|LEGO EV3 Touch Sensor (45507)]]
     <td>Analog/EV3
     <td>Y
-    <td>ev3&#8209;touch&#8209;sensor
+    <td>ev3#8209;analog&#8209;sensor (touch&#8209;sensor)
   <tr>
     <td>45509
     <td>[[EV3 Infrared Sensor|LEGO EV3 Infrared Sensor (45509)]]

@@ -4,7 +4,7 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 
 |              | Value      |
 |:------------:|:----------:|
-|```type_id``` | ```125```  |
+|```type_id``` | ```3```    |
 | # Modes      | 2          |
 | Connection   | Analog/NXT |
 
@@ -33,19 +33,19 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>Intensity
   <tr>
     <td>&emsp;Min
-    <td><code>0</code> (default scaling)
-    <td><code>0</code> (default scaling)
+    <td><code>0</code>
+    <td><code>0</code>
   <tr>
     <td>&emsp;Max
-    <td><code>5000</code> (default scaling)
-    <td><code>5000</code> (default scaling)
+    <td><code>5000</code> (5.000 V)
+    <td><code>5000</code> (5.000 V)
   <tr>
     <td><code>units</code>
-    <td><i>none</i>
-    <td><i>none</i>
+    <td><code>V</code>
+    <td><code>V</code>
   <tr>
     <td><code>dp</code> (decimal places)
-    <td><code>0</code>
-    <td><code>0</code>
+    <td><code>3</code>
+    <td><code>3</code>
 </table>
 Values in the tables that look like ```this``` are the names of sysfs attributes or values returned by said attributes.

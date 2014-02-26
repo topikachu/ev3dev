@@ -4,9 +4,10 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
 
 |              | Value      |
 |:------------:|:----------:|
-|```type_id``` | ```3```    |
+|```type_id``` | ```3```*   |
 | # Modes      | 2          |
 | Connection   | Analog/NXT |
+\* Not unique
 
 ### Modes
 

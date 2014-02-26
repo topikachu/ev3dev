@@ -275,13 +275,13 @@ To learn how to manually load I2C devices and many more interesting things about
     <td>[[NXT Touch Sensor|LEGO NXT Touch Sensor (9843)]]
     <td>Analog/NXT
     <td>Y
-    <td>nxt&#8209;touch&#8209;sensor (touch&#8209;sensor)
+    <td>nxt&#8209;analog&#8209;sensor (touch&#8209;sensor)
   <tr>
     <td>9844
     <td>[[NXT Light Sensor|LEGO NXT Light Sensor (9844)]]
     <td>Analog/NXT
     <td>Y
-    <td>nxt&#8209;light&#8209;sensor (nxt&#8209;light&#8209;sensor)
+    <td>nxt&#8209;analog&#8209;sensor (nxt&#8209;light&#8209;sensor)
   <tr>
     <td>9845
     <td>[[NXT Sound Sensor|LEGO NXT Sound Sensor (9845)]]

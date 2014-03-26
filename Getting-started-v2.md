@@ -25,7 +25,7 @@ Select the image that matches the size of your SD card. For example if you have 
 There are a vast number of ways to do this, so pick the one from the list that sounds the easiest to you:
 
 * [[Writing an Image to a SD Card Using Command Line Tools on Linux|Linux (command line)]]
-* [[Writing an Image to a SD Card Using Graphical Interface Tools on Linux|Linux (graphical interface)]]
+* [[Writing an Image to a SD Card Using Graphical Interface Tools on Linux Mint|Linux Mint (graphical interface)]]
 * [[Writing an Image to a SD Card Using Command Line Tools on Mac OS X|Mac OS X (command line)]]
 * [[Writing an Image to a SD Card Using Graphical Interface Tools on Mac OS X|Mac OS X (graphical interface)]]
 * [[Writing an Image to a SD Card Using Graphical Interface Tools on Windows|Windows (graphical interface)]]

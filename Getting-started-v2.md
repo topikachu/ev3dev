@@ -22,6 +22,8 @@ Select the image that most closely matches the size of your SD card. Due to vari
 
 ## Step 3: Copy the Image on to the SD Card
 
+**IMPORTANT:** THIS WILL ERASE EVERYTHING ON YOUR SD CARD! BACKUP YOUR FILES IF YOU DO NOT WANT TO LOOSE THEM!
+
 There are a vast number of ways to do this, so pick the one from the list that sounds the easiest to you:
 
 * **Linux**

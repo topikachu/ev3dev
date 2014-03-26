@@ -35,7 +35,7 @@ There are a vast number of ways to do this, so pick the one from the list that s
 * **Windows**
     * [[Win32DiskImager (graphical interface)|Writing an Image to a SD Card Using Win32DiskImager on Windows]]
 
-For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Most of the information there is applicable to ev3dev.
+**TIP:** For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Most of the information there is applicable to ev3dev.
 
 ## Step 4: Enable USB Networking
 

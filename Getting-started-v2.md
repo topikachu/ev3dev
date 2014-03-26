@@ -16,7 +16,7 @@ You will also need a host computer with an adapter for the SD card.
 
 In the future, this will be available [here](https://github.com/mindboards/ev3dev/releases), however for testing purposes, download the one from [here](https://github.com/dlech/ev3dev/releases).
 
-Select the image that matches the size of your SD card. For example if you have a 4GB SD card, then choose `ev3dev.4G.img.zip`. 
+Select the image that matches the size of your SD card. For example if you have a 4GB SD card, then choose `ev3dev.4GB.img.zip`. 
 
 **NOTE:** If you want a smaller download, you can select the `.xz` file instead of the `.zip` file, however, this requires that you have additional software installed to decompress it (such as [7-Zip](http://www.7-zip.org/) on Windows). Any recent Linux distro probably has `xz` installed already.
 

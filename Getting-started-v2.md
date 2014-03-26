@@ -27,14 +27,13 @@ Select the image that most closely matches the size of your SD card. Due to vari
 There are a vast number of ways to do this, so pick the one from the list that sounds the easiest to you:
 
 * **Linux**
-    * [[Writing an Image to a SD Card Using Command Line Tools on Linux|Command Line]]
-    * [[Writing an Image to a SD Card Using Graphical Interface Tools on Linux Mint|Linux Mint (graphical interface)]]
-    * [[Writing an Image to a SD Card Using Graphical Interface Tools on Ubuntu|Ubuntu (graphical interface)]]
+    * [[Command Line|Writing an Image to a SD Card Using Command Line Tools on Linux]]
+    * [[Ubuntu (graphical interface)|Writing an Image to a SD Card Using Graphical Interface Tools on Ubuntu|]]
 * **Mac OS X**
-    * [[Writing an Image to a SD Card Using Command Line Tools on Mac OS X|Command Line]]
-    * [[Writing an Image to a SD Card Using Graphical Interface Tools on Mac OS X|Mac OS X (graphical interface)]]
+    * [[Command Line|Writing an Image to a SD Card Using Command Line Tools on Mac OS X]]
+    * [[Mac OS X (graphical interface)|Writing an Image to a SD Card Using Graphical Interface Tools on Mac OS X|]]
 * **Windows**
-    * [[Writing an Image to a SD Card Using Win32DiskImager on Windows|Win32DiskImager (graphical interface)]]
+    * [[Win32DiskImager (graphical interface)|Writing an Image to a SD Card Using Win32DiskImager on Windows]]
 
 ## Step 4: Enable USB Networking
 

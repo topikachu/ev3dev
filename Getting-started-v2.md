@@ -36,6 +36,7 @@ There are a vast number of ways to do this, so pick the one from the list that s
     * [[Win32DiskImager (graphical interface)|Writing an Image to a SD Card Using Win32DiskImager on Windows]]
 
 **TIP:** If you have partitioning software that can handle resizing ext3 partitions (such as gparted on Linux), you can install the smallest image on your SD card and then resize the ext3 partition to fill up the entire SD card. This is faster than writing the gigabytes of zeros that are the free space in the larger image files.
+
 **TIP:** For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Most of the information there is applicable to ev3dev.
 
 ## Step 4: Enable USB Networking

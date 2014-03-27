@@ -29,9 +29,9 @@
 
 4. This is the dangerous part. If you pick the wrong device, you could wipe out your hard drive, so BE CAREFUL!. When specifying the device, don't include the partition number.
 
-    In this example we downloaded the compressed disk image file to `~/Download/` and our SD card is `/dev/sdb`. Adjust these values as needed.
+    In this example we downloaded the compressed disk image file to `~/Download/` and our SD card is `/dev/sdb`. Adjust these values as needed. This will take a long time.
 
-        user@host ~ $ xzcat ~/Download/ev3dev.1900MB.img.xz | sudo dd bs=64M of=/dev/sdb
+        user@host ~ $ xzcat ~/Download/ev3dev.1900MB.img.xz | sudo dd bs=4M of=/dev/sdb
         [sudo] password for user:
 
     **TIP:** You can monitor the progress of this by running the following in another terminal. On some systems, the signal may need to be `INFO` instead of `USR1`. This will cause the status to be printed periodically in the first terminal.

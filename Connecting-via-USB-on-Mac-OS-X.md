@@ -8,13 +8,38 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
     ![AddNewDevice](images/OSXRNDIS/AddNewDevice.png)
 
-3. Click *Apply* to save your changes. The ev3dev entry (or whatever you named it) should show connected after a second. The *Router* address is the address of the EV3. We will be using this momentarily.
+3. Click *Apply* to save your changes. After a short time, \tThe ev3dev entry (or whatever you named it) should show connected and have a Self-Assigned IP address
 
     ![CDC-Connected](images/OSXRNDIS/CDC-Connected.png)
 
-4. For `ssh` access to the EV3 under OS X, you can use the good old `ssh` program from the terminal window. I'm sure there are other solutions, and if you send me your suggestions I'll add them to a list.
+4. Now, we need to share our internet connection with the EV3. Go back to *System Preferences* and select *Sharing*.
 
-        host:~ user$ ssh root@192.168.3.1
+    ![System Preferences Sharing](images/OSXRNDIS/SystemPreferencesSharing.png)
+
+    Click *Internet Connection* on the left, but don't check the box yet. On the right, *Share your connection from:* will be *Wi-Fi* (or *Ethernet* if you have a wired connection). Also check the box next to *CDC Composite Gadget*
+
+    ![Internet Sharing](images/OSXRNDIS/Sharing-Internet-Connection.png)
+
+    Now check the box next to *Internet Connection* on the left to enable it. Read the warning and then click *Start*.
+
+    ![Internet Sharing Warning](images/OSXRNDIS/Sharing-Internet-Connection-Warning.png)
+
+5. Next, we need to find the IP address that was assigned to the EV3. You can do this in *Console* and filter for *bootpd*, but since we are going to be using the terminal in a moment anyway, we will just show you how to do it there.
+
+        host:~ user$ cat /var/log/system.log | grep bootpd
+        Mar 27 16:50:12 host.domain bootpd[27463]: server name host.domain
+        Mar 27 16:50:12 host.domain bootpd[27463]: interface en0: ip 192.168.0.100 mask 255.255.255.0
+        Mar 27 16:50:12 host.domain bootpd[27463]: interface bridge100: ip 192.168.2.1 mask 255.255.255.0
+        Mar 27 16:50:12 host.domain bootpd[27463]: DHCP REQUEST [bridge100]: 1,66:11:22:33:44:55 <ev3dev>
+        Mar 27 16:50:12 host.domain bootpd[27463]: ACK sent ev3dev 192.168.2.2 pktsize 300
+
+    The line with `ACK` has the IP address that was assigned to the EV3. 1921.68.2.2 in this case.
+
+6. For `ssh` access to the EV3 under OS X, you can use the good old `ssh` program from the terminal window. I'm sure there are other solutions, and if you send me your suggestions I'll add them to a list.
+
+    In a terminal, run the following command. Replace 192.168.2.2 with the IP address you found in the system log.
+
+        host:~ user$ ssh root@192.168.2.2
 
    If you have never connected before, you will prompted to confirm the authenticity of the host, so type `yes` when prompted.
 
@@ -43,4 +68,4 @@ If you have not already, make sure you have followed the instructions in [Gettin
         permitted by applicable law.
         root@ev3dev:~# 
 
-5. Now check out the list of "first things" you should do with ev3dev.
+7. Now check out the list of [first things](Getting-started-v2#step-7-first-things-to-do-with-ev3dev) you should do with ev3dev.

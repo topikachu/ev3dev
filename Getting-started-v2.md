@@ -91,3 +91,73 @@ This depends on the OS of your host computer, so choose the one that applies:
 * Linux
 * [[Mac OS X|Connecting via USB on Mac OS X]]
 * Windows
+
+## Step 7: First Things to do with ev3dev
+
+Here are some suggestions of some things you should do to get your EV3 setup.
+
+### Change your root password
+
+    root@ev3dev:~# passwd
+    Enter new UNIX password: 
+    Retype new UNIX password: 
+    passwd: password updated successfully
+
+### Set up a new user
+
+Replace `user` with your actual user name and `First Last` with your real name (if you want it on the EV3 - you can leave it blank too). Don't miss the command to assign groups hiding at the end.
+
+    root@ev3dev:~# adduser user
+    Adding user `user' ...
+    Adding new group `user' (1001) ...
+    Adding new user `user' (1001) with group `user' ...
+    Creating home directory `/home/user' ...
+    Copying files from `/etc/skel' ...
+    Enter new UNIX password: 
+    Retype new UNIX password: 
+    passwd: password updated successfully
+    Changing the user information for user
+    Enter the new value, or press ENTER for the default
+    	Full Name []: First Last
+    	Room Number []:    
+    	Work Phone []: 
+    	Home Phone []: 
+    	Other []: 
+    Is the information correct? [Y/n] y
+    root@ev3dev:~# usermod -a -G sudo,plugdev,audio,video user
+
+### Set the time zone
+
+    root@ev3dev:~# dpkg-reconfigure tzdata
+
+Then just follow the instructions on the screen.
+
+### Set the locale
+
+You can skip this if en-US is OK.
+
+**WARNING:** This runs out of memory and fails without setting up a swap file. More on that later.
+
+    root@ev3dev:~# dpkg-reconfigure locales
+
+### Update packages
+
+Make sure your EV3 is connected to the internet first. Updating the package list the first time will take a long time.
+
+    root@ev3dev:~# apt-get update
+    root@ev3dev:~# apt-get upgrade
+    root@ev3dev:~# apt-get dist-upgrade
+
+If a new kernel package is installed, you will want to reboot.
+
+    root@ev3dev:~# reboot
+
+## Step 8: Do Something Awesome
+
+This will be where we tell you how to use sensors and motors and whatnot.
+
+## Step 9: Calling It a Day
+
+When you are ready to wish your EV3 goodnight, turn if off by running:
+
+    root@ev3dev:~# poweroff

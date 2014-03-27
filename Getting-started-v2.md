@@ -27,7 +27,7 @@ Select the image that most closely matches the size of your SD card. Due to vari
 There are a vast number of ways to do this, so pick the one from the list that sounds the easiest to you:
 
 * **Linux**
-    * [[Command Line|Writing an Image to a SD Card Using Command Line Tools on Linux]]
+    * [[Command Line|Writing an ev3dev Image to SD Using Command Line Tools on Linux]]
     * [[Ubuntu (graphical interface)|Writing an ev3dev Image file to SD Using Graphical Interface Tools on Ubuntu]]
 * **Mac OS X**
     * [[Command Line|Writing an Image to a SD Card Using Command Line Tools on Mac OS X]]

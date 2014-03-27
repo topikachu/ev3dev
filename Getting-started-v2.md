@@ -40,9 +40,49 @@ There are a vast number of ways to do this, so pick the one from the list that s
 
 ## Step 4: Enable USB Networking
 
-Once you have flashed your SD Card, you will need to eject it and then plug it back into your host computer so that we can edit a file.
+In order to communicate with the EV3, we need a network connection. We are going to setup a TCP/IP connection over USB since USB is the one type of connection that **everyone** has. If you want to use a WiFi dongle or some other type of connection, will will get to that, but we need to set up USB first.
 
-The SD card has 2 partitions, although you will only see the second one on Linux.
+You should still have your SD card plugged in to your host computer. In your file browser/manager/finder/whaterver-you-call-it, there should be a removeable drive called EV3_BOOT. Open it.
 
-## Step 5: Put the SD Card in your EV3 and Power It On
+There is a file called `ev3dev.rc.local`. Open it in a text editor. **IMPORTANT**: Windows users - do not use Notepad. It will change the line endings and corrupt the file. Use Wordpad or a 3rd party editor such as Notepad++.
+
+Follow the instructions in the file. Uncomment means "delete the `#` at the front of the line.
+
+Windows users should have:
+
+    export EV3_GADGET="g_ether"
+    ...
+    #export EV3_GADGET="g_cdc"
+
+And Linux/Mac users should have:
+
+    #export EV3_GADGET="g_ether"
+    ...
+    export EV3_GADGET="g_cdc"
+
+Save and close the file when you are done.
+
+## Step 5: Boot ev3dev
+
+Be sure to safely eject your SD card from you host computer first, then put the SD Card in your EV3 and power it on.
+
+At first, you will see the mindstorms boot splash and the red LEDs will be on. This is immediatly followed by the ev3dev boot splash and the LEDs changing to amber. The left LED indicates CPU activity and the right LED indicates disk (SD card) activity.
+
+Shortly after the ev3dev boot splash, the screen will go blank and then evenually say `"Debian GNU/Linux 7 (wheezy)"`. After the screen goes blank, you can press any of the buttons - except the middle one - to toggle the sysv init messages.
+
+The first boot will take a little longer that subsequent boots because the EV3 has to create a unique SSH host ID.
+
+When the boot is complete, the LEDs will turn green and you will see this on the screen:
+
+                 _____     _
+       _____   _|___ /  __| | _____   __
+      / _ \ \ / / |_ \ / _` |/ _ \ \ / /
+     |  __/\ V / ___) | (_| |  __/\ V /
+      \___| \_/ |____/ \__,_|\___| \_/
+    
+    Debian #OSNAME# 7 on LEGO MINDSTORMS EV3!
+    ev3dev tty1
+    ev3dev login: _
+
+## Step 6: Use SSH to connect over the USB network interface
 

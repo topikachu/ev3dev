@@ -86,3 +86,8 @@ When the boot is complete, the LEDs will turn green and you will see this on the
 
 ## Step 6: Use SSH to connect over the USB network interface
 
+This depends on the OS of your host computer, so choose the one that applies:
+
+* Linux
+* [[Mac OS X|Connecting via USB on Mac OS X]]
+* Windows

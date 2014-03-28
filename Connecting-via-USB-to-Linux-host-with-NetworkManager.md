@@ -23,15 +23,15 @@ If you have not already, make sure you have followed the instructions in [Gettin
     You should see something like this:
 
         Mar 27 19:00:38 host dnsmasq-dhcp[14783]: DHCP, IP range 10.42.0.10 -- 10.42.0.100, lease time 1h
-        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPOFFER(usb0) 10.42.0.41 66:f3:da:74:b5:62 
-        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPREQUEST(usb0) 10.42.0.41 66:f3:da:74:b5:62 
-        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPACK(usb0) 10.42.0.41 66:f3:da:74:b5:62 ev3dev
+        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPOFFER(usb0) 10.42.0.52 66:f3:da:74:b5:62 
+        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPREQUEST(usb0) 10.42.0.52 66:f3:da:74:b5:62 
+        Mar 27 19:05:03 host dnsmasq-dhcp[14783]: DHCPACK(usb0) 10.42.0.52 66:f3:da:74:b5:62 ev3dev
 
-    This means that our EV3 is at 10.42.0.41.
+    This means that our EV3 is at 10.42.0.52.
 
-6. Now we are going to connect to the EV3 using ssh. Replace 10.42.0.41 with the IP address you found in the system log.
+6. Now we are going to connect to the EV3 using ssh. Replace 10.42.0.52 with the IP address you found in the system log.
 
-        user@host:~$ ssh root@110.42.0.41
+        user@host:~$ ssh root@110.42.0.52
 
    If you have never connected before, you will prompted to confirm the authenticity of the host, so type `yes` when prompted.
 

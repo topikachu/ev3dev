@@ -90,7 +90,7 @@ This depends on the OS of your host computer, so choose the one that applies:
 
 * [[Linux (NetworkManager)|Connecting via USB to Linux host with NetworkManager]]
 * [[Mac OS X|Connecting via USB on Mac OS X]]
-* Windows
+* [[Windows|Connecting via USB on Windows]]
 
 ## Step 7: First Things to do with ev3dev
 

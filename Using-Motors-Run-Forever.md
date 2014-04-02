@@ -8,18 +8,16 @@ This page introduces the fundamental `run_forever` mode of the `ev3dev` motor dr
 
 ### Table of Contents
 
-- [Known Issues](#Known Issues)
+- [Known Issues](#KnownIssues)
 - [Overview](#Overview)
-- [Tacho Motor `run_mode`](#Known Issues)
-- [Tacho Motor `speed_setpoint`](#TachoMotorSpeedSetpoint)
-- [Tacho Motor `run`](#TachoMotorRun)
-- [Tacho Motor `regulation_mode`](#TachoMotorRegulationMode)
-- [Tacho Motor `brake_mode`](#TachoMotorBrakeMode)
-- [Tacho Motor `hold_mode`](#TachoMotorHoldMode)
+- [`run_mode`](#TachoMotorRunMode)
+- [`speed_setpoint`](#TachoMotorSpeedSetpoint)
+- [`run`](#TachoMotorRun)
+- [`regulation_mode`](#TachoMotorRegulationMode)
+- [`brake_mode`](#TachoMotorBrakeMode)
+- [`hold_mode`](#TachoMotorHoldMode)
 
-For the kernel hackers among you, please have a look at the [ev3dev Kernel Hacker's Notebook][KernelHackersNotebook] that @dlech was good enough to merge into this repository. This kind of co-operation is what makes Open Source awesome!
-
-### <a name="Known Issues"/> Known issues
+### <a name="KnownIssues"/> Known issues
 
 No known Issues at this time
 
@@ -38,7 +36,9 @@ forever
 
 ### <a name="TachoMotorSpeedSetpoint"/>Tacho Motor `speed_setpoint`
 
-The `speed_setpoint` attribute can range from -100 to +100, values outside this range result in an error when you try to write. Here's an example of valid and invalid writes to the `speed_setpoint` attribute:
+The `speed_setpoint` attribute can range from -100 to +100, values outside this range result in an error when you try to write. As mentioned in the [Using Motors](https://github.com/mindboards/ev3dev/wiki/Using-Motors) wiki page, the `speed_setpoint` does not actually represent the speed of the motor. Think of it more in terms of a percentage of the theoretical maximum speed.
+
+Here's an example of valid and invalid writes to the `speed_setpoint` attribute:
 
 ```
 user@ev3dev:~$ echo -10 > /sys/class/tacho-motor/outB:motor:tacho/speed_setpoint

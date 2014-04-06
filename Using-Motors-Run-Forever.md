@@ -5,6 +5,7 @@ This page introduces the fundamental `run_forever` mode of the `ev3dev` motor dr
 
 -  [Using Motors](https://github.com/mindboards/ev3dev/wiki/Using-Motors)
 -  [Using Motors - Run Forever](https://github.com/mindboards/ev3dev/wiki/Using-Motors-Run-Forever)
+-  [Using Motors - Run Limited](https://github.com/mindboards/ev3dev/wiki/Using-Motors-Run-Limited)
 
 ### Table of Contents
 
@@ -19,7 +20,7 @@ This page introduces the fundamental `run_forever` mode of the `ev3dev` motor dr
 
 ### <a name="KnownIssues"/> Known issues
 
-No known Issues at this time
+- Sync operation is not yet implemented
 
 ### <a name="Overview"/> Overview
 

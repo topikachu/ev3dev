@@ -44,7 +44,7 @@ In order to communicate with the EV3, we need a network connection. We are going
 
 You should still have your SD card plugged in to your host computer. In your file browser/manager/finder/whaterver-you-call-it, there should be a removeable drive called EV3_BOOT. Open it.
 
-There is a file called `ev3dev.rc.local`. Open it in a text editor. **IMPORTANT**: Windows users - do not use Notepad. It will change the line endings and corrupt the file. Use Wordpad or a 3rd party editor such as Notepad++.
+There is a file called `ev3dev.rc.local`. Open it in a text editor. **IMPORTANT**: Windows users - do not use Notepad or Wordpad. They will change the line endings and corrupt the file. A 3rd party editor that can handle Unix line endings, such as [Notepad++](http://www.notepad-plus-plus.org/).
 
 Follow the instructions in the file. Uncomment means "delete the `#` at the front of the line.
 

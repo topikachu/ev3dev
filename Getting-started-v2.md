@@ -1,5 +1,7 @@
 Major changes are afoot. @dlech is trying out some new things and would like your feedback.
 
+This information only applies to the latest [test release](https://github.com/dlech/ev3dev/releases) - or possibly a yet-to-be-released test release.
+
 ## Introduction
 
 By the time you get to this page, you probably already know that ev3dev is Debian Linux for the LEGO Mindstorms EV3. If you have more basic questions, check out the [[FAQ|Frequently Asked Questions]].
@@ -34,17 +36,17 @@ There are a vast number of ways to do this, so pick the one from the list that s
 * **Windows**
     * [[Win32DiskImager (graphical interface)|Writing an Image to a SD Card Using Win32DiskImager on Windows]]
 
-**TIP:** If you have partitioning software that can handle resizing ext3 partitions (such as gparted on Linux), you can reclaim the last few MB of your SD card by resizing the ext3 partition.
-
 **TIP:** For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Most of the information there is applicable to ev3dev.
 
 ## Step 4: Enable USB Networking
 
 In order to communicate with the EV3, we need a network connection. We are going to setup a TCP/IP connection over USB since USB is the one type of connection that **everyone** has. If you want to use a WiFi dongle or some other type of connection, will will get to that, but we need to set up USB first.
 
-You should still have your SD card plugged in to your host computer. In your file browser/manager/finder/whaterver-you-call-it, there should be a removeable drive called EV3_BOOT. Open it.
+You should still have your SD card plugged in to your host computer. In your file browser/manager/finder/whaterver-you-call-it, there should be a removable drive called EV3_BOOT. Open it.
 
-There is a file called `ev3dev.rc.local`. Open it in a text editor. **IMPORTANT**: Windows users - do not use Notepad or Wordpad. They will change the line endings and corrupt the file. A 3rd party editor that can handle Unix line endings, such as [Notepad++](http://www.notepad-plus-plus.org/).
+There is a file called `ev3dev.rc.local`. Open it in a text editor.
+
+**IMPORTANT: Windows users - do not use Notepad or Wordpad.** They will change the line endings and corrupt the file. Use a 3rd party editor that can handle Unix line endings, such as [Notepad++](http://www.notepad-plus-plus.org/).
 
 Follow the instructions in the file. Uncomment means "delete the `#` at the front of the line.
 
@@ -66,9 +68,9 @@ Save and close the file when you are done.
 
 Be sure to safely eject your SD card from you host computer first, then put the SD Card in your EV3 and power it on.
 
-At first, you will see the mindstorms boot splash and the red LEDs will be on. This is immediatly followed by the ev3dev boot splash and the LEDs changing to amber. The left LED indicates CPU activity and the right LED indicates disk (SD card) activity.
+At first, you will see the Mindstorms boot splash and the red LEDs will be on. This is immediately followed by the ev3dev boot splash and the LEDs changing to amber. The left LED indicates CPU activity and the right LED indicates disk (SD card) activity.
 
-Shortly after the ev3dev boot splash, the screen will go blank and then evenually say `"Debian GNU/Linux 7 (wheezy)"`. After the screen goes blank, you can press any of the buttons - except the middle one - to toggle the sysv init messages.
+Shortly after the ev3dev boot splash, the screen will go blank and then eventually say `"Debian GNU/Linux 7 (wheezy)"`. After the screen goes blank, you can press any of the buttons - except the middle one - to toggle the sysv init messages.
 
 The first boot will take a little longer that subsequent boots because the EV3 has to create a unique SSH host ID.
 
@@ -136,13 +138,17 @@ Then just follow the instructions on the screen.
 
 You can skip this if en-US is OK.
 
-**WARNING:** This runs out of memory and fails without setting up a swap file. More on that later.
-
     root@ev3dev:~# dpkg-reconfigure locales
+
+### Grow your file system to use the entire SD card
+
+The ev3dev image is only 500MB so that you don't have to wait so long while writing the image to the SD card (and also so it will fit on a 512MB card). This means that you have some unused space on your SD card that you can reclaim. When you have some time to kill, run this command (it takes 10-11 minutes on my 2GB SD card). It will expand the root file system partition to use the rest of the free space on your SD card.
+
+    root@ev3dev:~# lvextend --extents +100%FREE --resizefs /dev/vg0/lv0 /dev/mmcblk0p3
 
 ### Update packages
 
-Make sure your EV3 is connected to the internet first. Updating the package list the first time will take a long time.
+Make sure your EV3 is connected to the Internet first. Updating the package list the first time will take a long time.
 
     root@ev3dev:~# apt-get update
     root@ev3dev:~# apt-get upgrade
@@ -155,6 +161,14 @@ If a new kernel package is installed, you will want to reboot.
 ## Step 8: Do Something Awesome
 
 This will be where we tell you how to use sensors and motors and whatnot.
+
+- [[Using Sensors]]
+- [[Using Motors]]
+- [[Using Sound]]
+- [[Using the LCD]]
+- [[Using the Buttons]]
+- [[Using the LEDs]]
+- [[Using Bluetooth]]
 
 ## Step 9: Calling It a Day
 

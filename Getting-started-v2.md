@@ -132,6 +132,8 @@ Replace `user` with your actual user name and `First Last` with your real name (
 
     root@ev3dev:~# dpkg-reconfigure tzdata
 
+**NOTE:** The EV3 does not have a battery backup for the realtime clock. Whenever you remove the batteries, the clock will be reset. If the EV3 is connected to the Internet, the clock will be automatically set via NTP, otherwise, you can manually set the date/time with the `date` command.
+
 Then just follow the instructions on the screen.
 
 ### Set the locale

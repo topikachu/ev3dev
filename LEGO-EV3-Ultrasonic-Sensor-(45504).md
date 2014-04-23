@@ -97,8 +97,8 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>On, steady
     <td>On, steady
     <td>On, blinking
-    <td>Off
-    <td>Off
+    <td>On momentarily when mode is set, then off
+    <td>On momentarily when mode is set, then off
     <td>On, steady
     <td>On, steady
 </table>

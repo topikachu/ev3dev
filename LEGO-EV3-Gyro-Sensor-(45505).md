@@ -50,14 +50,14 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>&emsp;Min
     <td><code>-32768</code>
     <td><code>-440</code>
-    <td><code>-1503</code>???
+    <td><code>-1464</code>???
     <td><code>-32768</code>
     <td>
   <tr>
     <td>&emsp;Max
     <td><code>32767</code>
     <td><code>440</code>
-    <td><code>1470</code>???
+    <td><code>1535</code>???
     <td><code>32767</code>
     <td>
   <tr>
@@ -101,5 +101,6 @@ Values in the tables that look like ```this``` are the names of sysfs attributes
 ### Notes
 
 * Clockwise is positive when looking at the side of the sensor with the arrows.
+* If the sensor is moving when changing modes, the calibration will be off.
 * If you spin around too many times in GYRO-ANG or GYRO-G&A mode, it will get stuck at 32767.
 * The angle in GYRO-ANG or GYRO-G&A modes can be reset by changing to a different mode and changing back.

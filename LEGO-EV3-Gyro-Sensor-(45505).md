@@ -1,5 +1,3 @@
-IMPORTANT: This data has not been verified (because @dlech doesn't have one of these sensors!).
-
 ### General
 
 This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device class.
@@ -31,9 +29,9 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>Description
     <td>Angle
     <td>Rotational Speed
-    <td>???
+    <td>Raw sensor value ???
     <td>Angle and Rotational Speed
-    <td>Calibration???
+    <td>Calibration ???
   <tr>
     <td><code>num_values</code>
     <td><code>1</code>
@@ -50,17 +48,17 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td>
   <tr>
     <td>&emsp;Min
-    <td><code>-180</code>
+    <td><code>-32768</code>
     <td><code>-440</code>
-    <td><code>-2000</code>???
-    <td><code>-180</code>
+    <td><code>-1503</code>???
+    <td><code>-32768</code>
     <td>
   <tr>
     <td>&emsp;Max
-    <td><code>180</code>
+    <td><code>32767</code>
     <td><code>440</code>
-    <td><code>2000</code>???
-    <td><code>180</code>
+    <td><code>1470</code>???
+    <td><code>32767</code>
     <td>
   <tr>
     <td><code>value1</code>
@@ -99,3 +97,9 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td><code>0</code>
 </table>
 Values in the tables that look like ```this``` are the names of sysfs attributes or values returned by said attributes.
+
+### Notes
+
+* Clockwise is positive when looking at the side of the sensor with the arrows.
+* If you spin around too many times in GYRO-ANG or GYRO-G&A mode, it will get stuck at 32767.
+* The angle in GYRO-ANG or GYRO-G&A modes can be reset by changing to a different mode and changing back.

@@ -79,7 +79,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>8
     <td>GPIO&nbsp;0-13
     <td>DIGIB1
-    <td>Input Port 2 Pin 6 I/O
+    <td>Input Port 2 Pin 6 I/O / I2C Data
   <tr>
     <td>4
     <td>GPIO&nbsp;0-14
@@ -89,7 +89,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>0
     <td>GPIO&nbsp;0-15
     <td>DIGIA1
-    <td>Input Port 1 Pin 6 I/O
+    <td>Input Port 1 Pin 6 I/O / I2C Data
   <tr>
     <td rowspan="8">1
     <td>28
@@ -151,12 +151,12 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>16
     <td>AXR3/<br>GPIO&nbsp;1-11
     <td>TXIND
-    <td>Input Port 4 Pin 5 UART TXD/I2C Clock
+    <td>Input Port 4 Pin 5 UART TXD / I2C Clock
   <tr>
     <td>12
     <td>AXR4/<br>GPIO&nbsp;1-12
     <td>TXINC
-    <td>Input Port 3 Pin 5 UART TXD/I2C Clock
+    <td>Input Port 3 Pin 5 UART TXD / I2C Clock
   <tr>
     <td>8
     <td>GPIO&nbsp;1-13
@@ -166,12 +166,12 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>4
     <td>GPIO&nbsp;1-14
     <td>DIGIC1
-    <td>Input Port 3 Pin 6 I/O
+    <td>Input Port 3 Pin 6 I/O / I2C Data
   <tr>
     <td>0
     <td>GPIO&nbsp;1-15
     <td>DIGID1
-    <td>Input Port 4 Pin 6 I/O
+    <td>Input Port 4 Pin 6 I/O / I2C Data
   <tr>
     <td rowspan="8">3
     <td>28
@@ -187,7 +187,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>20
     <td>UART0&nbsp;TXD/<br>GPIO&nbsp;8-3
     <td>TXINB
-    <td>Input Port 2 Pin 5 UART TXD/I2C Clock
+    <td>Input Port 2 Pin 5 UART TXD / I2C Clock
   <tr>
     <td>16
     <td>UART0&nbsp;RXD
@@ -218,7 +218,7 @@ This is based on the lms2012 code and hardware schematic revision J. Both are no
     <td>28
     <td>UART1&nbsp;TXD/<br>GPIO&nbsp;1-0
     <td>TXINA
-    <td>Input Port 1 Pin 5 UART TXD/I2C Clock
+    <td>Input Port 1 Pin 5 UART TXD / I2C Clock
   <tr>
     <td>24
     <td>UART1&nbsp;RXD

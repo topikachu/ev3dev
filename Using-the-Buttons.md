@@ -2,7 +2,60 @@ The buttons on the EV3 are mapped as regular keyboard keys. UP, DOWN, LEFT, RIGH
 
 TODO: add photo.
 
+## Polling Key States
 
+If you would rather poll the button states instead of using regular keyboard input methods, you can do that via the EVIOCGKEY ioctl on `/dev/input/eventX`. Key codes and ioctl definitions are in [linux/input.h](https://github.com/mindboards/ev3dev-kernel/blob/master/include/linux/input.h).
+
+Here is an example using python:
+
+```python
+#!/usr/bin/env python
+
+import array
+import fcntl
+import sys
+
+# from linux/input.h
+
+KEY_UP = 103
+KEY_DOWN = 108
+KEY_LEFT = 105
+KEY_RIGHT = 106
+KEY_ENTER = 28
+KEY_ESC = 1
+
+KEY_MAX = 0x2ff
+
+def EVIOCGKEY(length):
+    return 2 << (14+8+8) | length << (8+8) | ord('E') << 8 | 0x18
+
+# end of stuff from linux/input.h
+
+BUF_LEN = (KEY_MAX + 7) / 8
+
+def test_bit(bit, bytes):
+    # bit in bytes is 1 when released and 0 when pressed
+    return not bool(bytes[bit / 8] & 1 << bit % 8)
+
+def main():
+    buf = array.array('B', [0] * BUF_LEN)
+    with open('/dev/input/by-path/platform-gpio-keys.0-event', 'r') as fd:
+        ret = fcntl.ioctl(fd, EVIOCGKEY(len(buf)), buf)
+
+    if ret < 0:
+        print "ioctl error", ret
+        sys.exit(1)
+
+    for key in ['UP', 'DOWN', 'LEFT', 'RIGHT', 'ENTER', 'ESC']:
+        key_code = globals()['KEY_' + key]
+        key_state = test_bit(key_code, buf) and "pressed" or "released"
+        print '%s:' % key, key_state
+
+if __name__ == "__main__":
+    main()
+```
+
+# Directly Reading the Event Device
 
 If you want your program to be event driven, you can read the ```/dev/input/by-path/platform-gpio-keys.0-event``` file. It will block until a key is pressed. The data is in 16 byte blocks. The first 8 bytes are the time stamp (2 unsigned 64-bit integers, seconds and microseconds), the next 2 bytes are the type (unsigned 16-bit integer), the next 2 bytes are the code (unsigned 16-bit integer) and the last 4 bytes are the value (unsigned 32-bit integer).
 

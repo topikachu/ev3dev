@@ -37,16 +37,16 @@ This sensor uses the [[msensor|Using the Mindstorms Sensor Device Class]] device
     <td><code>0</code> (no ambient light)
   <tr>
     <td>&emsp;Max
-    <td><code>100</code>
-    <td><code>100</code>
+    <td><code>1000</code> (100.0%)
+    <td><code>1000</code> (100.0%)
   <tr>
     <td><code>units</code>
     <td><code>pct</code>
     <td><code>pct</code>
   <tr>
     <td><code>dp</code> (decimal places)
-    <td><code>0</code>
-    <td><code>0</code>
+    <td><code>1</code>
+    <td><code>1</code>
   <tr>
     <td>LED State
     <td>On

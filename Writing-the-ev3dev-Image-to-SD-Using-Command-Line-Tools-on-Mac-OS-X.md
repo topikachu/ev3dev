@@ -17,7 +17,7 @@
 
 3. Now insert you SD card and run `diskutil` again. The new entry (`/dev/disk1`) is your SD card. Your actual device may be named something different.
 
-        host:~ user$ diskutil
+        host:~ user$ diskutil list
         /dev/disk0
            #:                       TYPE NAME                    SIZE       IDENTIFIER
            0:      GUID_partition_scheme                        *250.1 GB   disk0

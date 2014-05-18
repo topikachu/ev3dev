@@ -7,7 +7,7 @@
 
 2. Now, we find our SD card. Make sure that you SD card is **unplugged**. Then run `diskutil`. You should see something like this:
 
-        host:~ user$ diskutil
+        host:~ user$ diskutil list
         /dev/disk0
           #:                       TYPE NAME                    SIZE       IDENTIFIER
           0:      GUID_partition_scheme                        *250.1 GB   disk0

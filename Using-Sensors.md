@@ -1,18 +1,4 @@
-NOTE: This documentation is for a kernel that has not been officially released. If you want to try it out, see this [issue](https://github.com/mindboards/ev3dev-kernel/pull/19). Note: The kernel and modules in the package in that issue do not include the Analog or Touch sensors as documented here.
-
-##Known issues
-
-- Input port 1 is disabled. You will see this error in ```dmesg```:
-
-    ```
-    ev3-input-port: probe of in1 failed with error -22
-    ```
-
-- UART sensors sometimes reset especially during high cpu usage and even more especially if it is on port 3 or 4. You will see an error like this in ```dmesg``` when this happens:
-
-    ```
-    tty ttySU1: Reconnected due to: No data since last keep-alive.
-    ```
+NOTE: This documentation is for a kernel that has not been officially released. If you want to try it out, grab the latest [test image](https://github.com/dlech/ev3dev/releases).
 
 ## Overview
 
@@ -44,39 +30,37 @@ These are a new type of sensor designed for the EV3 (they don't work with the NX
 
 ### The Mindstorms Sensor class
 
-Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to ```/sys/class/msensor```. The name of the node will be ```sensorN``` where N is incremented for each sensor that is plugged in.
+Most sensors are accessed using a device driver class especially for Mindstorms sensors. When you plug a sensor in (assuming it is the auto-detectable type) a sysfs node will be added to `/sys/class/msensor`. The name of the node will be `sensorN` where N is incremented for each sensor that is plugged in.
 
 For full details, see [[Using the Mindstorms Sensor Device Class]]. For the basics, keep going.
 
-For an example, I will be using the EV3 Color Sensor. If we plug the sensor into any input port, a new device will be added to the ```msensor``` class.
+For an example, I will be using the EV3 Color Sensor. If we plug the sensor into any input port, a new device will be added to the `msensor` class.
 
-```bash
-$ cd /sys/class/msensor
-$ ls
-sensor0
-$ cd sensor0
-$ ls
-bin_data         dp          num_values  subsystem  value0  value3  value6
-bin_data_format  fw_version  port_name   type_id    value1  value4  value7
-device           mode        si_units    uevent     value2  value5
+```
+root@ev3dev:/sys/class/msensor/sensor0# ls
+bin_data	 dp	num_values  type_id  value0  value3  value6
+bin_data_format  mode	port_name   uevent   value1  value4  value7
+device		 modes	subsystem   units    value2  value5
 ```
 
-Each sensor has a number of modes in which in can operate. You can view and change the modes using the ```mode``` attribute.
+Each sensor has a number of modes in which in can operate. You can view the available modes with the `modes` attribute and view/change the current mode using the `mode` attribute.
 
-```bash
-$ cat mode
-[COL-REFLECT] COL-AMBIENT COL-COLOR REF-RAW RGB-RAW COL-CAL
-$ echo COL-COLOR > mode
-$ cat mode
-COL-REFLECT COL-AMBIENT [COL-COLOR] REF-RAW RGB-RAW COL-CAL
+```
+root@ev3dev:/sys/class/msensor/sensor0# cat modes
+COL-REFLECT COL-AMBIENT COL-COLOR REF-RAW RGB-RAW COL-CAL
+root@ev3dev:/sys/class/msensor/sensor0# cat mode
+COL-REFLECT
+root@ev3dev:/sys/class/msensor/sensor0# echo COL-COLOR > mode
+root@ev3dev:/sys/class/msensor/sensor0# cat mode
+COL-COLOR
 ```
 
-The values measured by the sensor are read through the ```valueX``` attributes. The ```num_values``` attributes will tell you how many values there are. Values with an index >= num_values will return an error.
+The values measured by the sensor are read through the ```valueN``` attributes. The ```num_values``` attributes will tell you how many values there are. Values with an index >= num_values will return an error.
 
 ```bash
-$ cat num_values # mode is still COL-COLOR
+root@ev3dev:/sys/class/msensor/sensor0# cat num_values # mode is still COL-COLOR
 1
-$ cat value*
+root@ev3dev:/sys/class/msensor/sensor0# cat value*
 0
 cat: value1: No such device or address
 cat: value2: No such device or address
@@ -85,10 +69,10 @@ cat: value4: No such device or address
 cat: value5: No such device or address
 cat: value6: No such device or address
 cat: value7: No such device or address
-$ echo RGB-RAW > mode
-$ cat num_values
+root@ev3dev:/sys/class/msensor/sensor0# echo RGB-RAW > mode
+root@ev3dev:/sys/class/msensor/sensor0# cat num_values
 3
-$ cat value*
+root@ev3dev:/sys/class/msensor/sensor0# cat value*
 4
 6
 2
@@ -101,26 +85,25 @@ cat: value7: No such device or address
 
 ### Analog Sensor Considerations
 
-NXT Analog sensors, for the most part, cannot be autodetected. The exceptions are the LEGO NXT Light Sensor and the LEGO NXT Touch Sensor. The remaining sensors use a common ```msensor``` interface. There are two modes ```NXT-ANALOG-0``` and ```NXT-ANALOG-1```. The only difference between the two is that when you set the mode to ```NXT-ANALOG-1```, the GPIO connected to pin 5 will be set high. Some sensors use this to measure a different value. See the individual sensor documentation below to see if a sensor supports more than one mode.
+NXT Analog sensors, for the most part, cannot be autodetected. The exceptions are the LEGO NXT Light Sensor and the LEGO NXT Touch Sensor. The remaining sensors use a common `msensor` interface. There are two modes `NXT-ANALOG-0` and `NXT-ANALOG-1`. The only difference between the two is that when you set the mode to `NXT-ANALOG-1`, the GPIO connected to pin 5 will be set high. Some sensors use this to measure a different value. See the individual sensor documentation below to see if a sensor supports more than one mode.
 
-The sensor value is read using the ```value0``` attribute. It reads the voltage from the analog/digital converter (0..5V). User programs will have to be told what sensor is attached and how to scale the voltage to a usable value.
+The sensor value is read using the `value0` attribute. It reads the voltage from the analog/digital converter (0..5V). User programs will have to be told what sensor is attached and how to scale the voltage to a usable value.
 
 ### I2C Sensor Considerations
 
-I2C/M sensors should be auto-detected. They will show up in ```/sys/class/msensors``` and have the same interface as other sensors.
+I2C/M sensors should be auto-detected. They will show up in `/sys/class/msensors` and have the same interface as other sensors.
 
 Example: If we connect an NXT Ultrasonic Sensor to another input port, we should see something like this:
 
-```bash
-$ cd /sys/class/msensor
-$ ls
+```
+root@ev3dev:/sys/class/msensor# ls
 sensor0 sensor1
-$ cd sensor1
-$ cat mode
-[NXT-US-CM] NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
+root@ev3dev:/sys/class/msensor# cd sensor1
+root@ev3dev:/sys/class/msensor/sensor1# cat modes
+NXT-US-CM NXT-US-IN NXT-US-SI-CM NXT-US-SI-IN NXT-US-LIST
 ```
 
-I2C/S sensors are not autodetected because there is no standard way to detect them. There are just too many possibilities. But, they are easy to load manually and you can write udev rules to load them automatically if you want. Most of these types of sensors do not use ```/sys/class/msensors``` because there are already existing drivers in the Linux kernel for many standard I2C chips.
+I2C/S sensors are not autodetected because there is no standard way to detect them. There are just too many possibilities. But, they are easy to load manually and you can write udev rules to load them automatically if you want. Most of these types of sensors do not use `/sys/class/msensors` because there are already existing drivers in the Linux kernel for many standard I2C chips.
 
 To learn how to manually load I2C devices and many more interesting things about I2C sensors, see [[Using I2C Sensors]]. Also be sure to look at the individual sensor documentation using the links in the table below.
 

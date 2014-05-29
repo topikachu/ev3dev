@@ -146,7 +146,7 @@ You can skip this if en-US is OK.
 
 The ev3dev image is only 500MB so that you don't have to wait so long while writing the image to the SD card (and also so it will fit on a 512MB card). This means that you have some unused space on your SD card that you can reclaim. When you have some time to kill, run this command (it takes 10-11 minutes on my 2GB SD card). It will expand the root file system partition to use the rest of the free space on your SD card.
 
-    root@ev3dev:~# lvextend --extents +100%FREE --resizefs /dev/vg0/lv0 /dev/mmcblk0p3
+    root@ev3dev:~# lvextend --extents +100%FREE --resizefs /dev/ev3devVG/root /dev/mmcblk0p3
 
 ### Update packages
 

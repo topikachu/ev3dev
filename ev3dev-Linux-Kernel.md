@@ -11,7 +11,7 @@ Be sure to check out the [hardware](ev3dev-kernel-hackers-notebook#hardware) pag
 ##LMS2012 sources
 Most of the EV3 specific drivers are based on the source code for the official LEGO firmware (aka LMS2012). The following table shows the relation of ev3dev drivers to LMS2012 drivers. 
 
-<table border="1">
+<table>
     <tr>
         <th>lms2012
         <th>ev3dev
@@ -51,7 +51,7 @@ Most of the EV3 specific drivers are based on the source code for the official L
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_uart/Linuxmod_AM1808/d_uart_mod.c">d_uart_mod.c</a>
         <td>
-        <td>Using standard kernel drivers<hr>Not working yet
+        <td>Using standard kernel drivers for the SoC UARTs. Ported [omapl_pru](https://github.com/mindboards/ev3dev-kernel/tree/master/drivers/tty/serial/omapl_pru) from LEGO firmware for PRU UARTs.
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_ui/Linuxmod_AM1808/d_ui.c">d_ui.c</a>
         <td>

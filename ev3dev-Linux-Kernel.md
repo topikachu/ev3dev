@@ -1,7 +1,7 @@
 The ev3dev kernel is based on [Davinci PSP 03.22.00.02](http://processors.wiki.ti.com/index.php/DaVinci_PSP_03.22.00.02_Release_Notes) from TI.
 
 
-The bleeding edge upstream development for linux-davinci is hosted at [gitorious](https://gitorious.org/linux-davinci/linux-davinci).
+The bleeding edge upstream development for linux-davinci is hosted at [kernel.org](https://git.kernel.org/cgit/linux/kernel/git/nsekhar/linux-davinci.git).
 
 #Kernel Drivers
 Most, if not all, of the customization of the ev3dev kernel is the addition and patching of hardware drivers for the EV3 specific hardware. TODO: add more about the ev3dev device driver philosophy - particularly in regard to attributes.

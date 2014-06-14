@@ -38,12 +38,12 @@ Most of the EV3 specific drivers are based on the source code for the official L
         <td>Using standard linux kernel i2c
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_power/Linuxmod_AM1808/d_power.c">d_power.c</a>
-        <td><a href="ev3dev-kernel/blob/master/drivers/power/legoev3_battery.c">legoev3_battery.c</a>
+        <td><a href="../../ev3dev-kernel/blob/master/drivers/power/legoev3_battery.c">legoev3_battery.c</a>
         <td>ev3dev power off is done in <a href="../../ev3dev-kernel/blob/master/arch/arm/mach-davinci/board-legoev3.c">board-legoev3.c</a>
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_pwm/Linuxmod_AM1808/d_pwm.c">d_pwm.c</a>
+        <td><a href="../../ev3dev-kernel/blob/master/drivers/legoev3/ev3_tacho_motor.c">ev3_tacho_motor.c</a><br /><a href="../../ev3dev-kernel/blob/master/drivers/legoev3/tacho_motor_class.c">tacho_motor_class.c</a>
         <td>
-        <td>Not done yet
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_sound/Linuxmod_AM1808/d_sound.c">d_sound.c</a>
         <td><a href="../../ev3dev-kernel/blob/master/sound/pwm/legoev3.c">legoev3.c</a>
@@ -51,7 +51,8 @@ Most of the EV3 specific drivers are based on the source code for the official L
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_uart/Linuxmod_AM1808/d_uart_mod.c">d_uart_mod.c</a>
         <td>
-        <td>Using standard kernel drivers for the SoC UARTs. Ported [omapl_pru](https://github.com/mindboards/ev3dev-kernel/tree/master/drivers/tty/serial/omapl_pru) from LEGO firmware for PRU UARTs.
+        <td>Using standard kernel drivers for the SoC UARTs. Ported <a href=
+https://github.com/mindboards/ev3dev-kernel/tree/master/drivers/tty/serial/omapl_pru">omapl_pru</a> from LEGO firmware for PRU UARTs.
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/lms2012/d_ui/Linuxmod_AM1808/d_ui.c">d_ui.c</a>
         <td>
@@ -72,11 +73,12 @@ Most of the EV3 specific drivers are based on the source code for the official L
         <td>
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/extra/linux-03.20.00.13/arch/arm/mach-davinci/davinci-iic.c">davinci-iic.c</a>
-        <td><a href="ev3dev-kernel/blob/master/arch/arm/mach-davinci/legoev3-fiq.c">legoev3-fiq.c</a>
+        <td><a href="../../ev3dev-kernel/blob/master/arch/arm/mach-davinci/legoev3-fiq.c">legoev3-fiq.c</a>
         <td>lsm2012 just uses this for i2c, ev3dev uses it for i2c and sound
     <tr>
         <td><a href="https://github.com/mindboards/ev3sources/blob/7357369b6ebae4ee62001f3964f0f5fd0cce3c32/extra/linux-03.20.00.13/drivers/video/st7586fb.c">st7586fb.c</a>
         <td><a href="../../ev3dev-kernel/blob/master/drivers/video/st7586fb.c">st7586fb.c</a>
+        <td>
 </table>
 
 

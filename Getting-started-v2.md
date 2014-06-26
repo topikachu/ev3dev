@@ -162,7 +162,7 @@ If a new kernel package is installed, you will want to reboot.
 
 ## Step 8: Do Something Awesome
 
-This will be where we tell you how to use sensors and motors and whatnot.
+This will be where we tell you how to use sensors and motors and whatnot...
 
 - [[Using Sensors]]
 - [[Using Motors]]
@@ -171,6 +171,13 @@ This will be where we tell you how to use sensors and motors and whatnot.
 - [[Using the Buttons]]
 - [[Using the LEDs]]
 - [[Using Bluetooth]]
+
+...and how to write programs. We are still leaning. Everything here should be considered experimental and subject to major changes.
+
+- Python [Rubik's cube solver](https://github.com/mindboards/ev3dev/issues/63#issuecomment-42717732) and [balancing robot](https://gist.github.com/dlech/11098915)
+- [Google Go](https://github.com/mattrajca/GoEV3)
+- [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)
+- [[Using brickstrap to cross compile and debug]]
 
 ## Step 9: Calling It a Day
 

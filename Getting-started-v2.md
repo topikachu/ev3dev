@@ -6,23 +6,21 @@ This information only applies to the latest [test release](https://github.com/dl
 
 By the time you get to this page, you probably already know that ev3dev is Debian Linux for the LEGO Mindstorms EV3. If you have more basic questions, check out the [[FAQ|Frequently Asked Questions]].
 
-## Step 1: Get a Micro SD Card
+## Step 1: Get a microSD dard
 
-You need a Micro [SD](https://en.wikipedia.org/wiki/Secure_Digital#SD) or [SDHC](https://en.wikipedia.org/wiki/Secure_Digital#SDHC) card. [SDXC](https://en.wikipedia.org/wiki/Secure_Digital#SDXC) is not supported (you might be able to get it to work, but it will operate at reduced capacity and speed).
+You need a [microSD](https://en.wikipedia.org/wiki/Secure_Digital#SD) or [microSDHC](https://en.wikipedia.org/wiki/Secure_Digital#SDHC) card. [microSDXC](https://en.wikipedia.org/wiki/Secure_Digital#SDXC) is not supported (you might be able to get it to work, but it will operate at reduced capacity and speed).
 
 Also look at the [speed class rating](https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating). Class 10 is the fastest, but slower speeds will work just fine. Ultra High Speed (UHS) classes are not supported (again, they should work, but not at the rated speed).
 
 You will also need a host computer with an adapter for the SD card.
 
-## Step 2: Download the Latest ev3dev Disk Image
+## Step 2: Download the latest ev3dev image file
 
 In the future, this will be available [here](https://github.com/mindboards/ev3dev/releases), however for testing purposes, download the one from [here](https://github.com/dlech/ev3dev/releases).
 
-Select the image that most closely matches the size of your SD card. Due to variance in SD card capacity, we make the images just a little smaller than the rated capacity. For example if you have a 4GB SD card, then choose `ev3dev.3900MB.img.zip`. 
-
 **NOTE:** Downloading the `.zip` file is recommended for Windows/Mac and the `.xz` file is recommended for Linux. `.xz` requires that you have additional software installed on Windows/Mac to decompress it (such as [7-Zip](http://www.7-zip.org/) on Windows).
 
-## Step 3: Copy the Image on to the SD Card
+## Step 3: Copy the image on to the SD card
 
 **IMPORTANT:** THIS WILL ERASE EVERYTHING ON YOUR SD CARD! BACKUP YOUR FILES IF YOU DO NOT WANT TO LOOSE THEM!
 
@@ -36,9 +34,9 @@ There are a vast number of ways to do this, so pick the one from the list that s
 * **Windows**
     * [[Win32DiskImager (graphical interface)|Writing an Image to a SD Card Using Win32DiskImager on Windows]]
 
-**TIP:** For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Most of the information there is applicable to ev3dev.
+**TIP:** For more detailed information and more alternatives, check out [this page for RaspberryPi](http://elinux.org/RPi_Easy_SD_Card_Setup). Much of the information there is applicable to ev3dev.
 
-## Step 4: Enable USB Networking
+## Step 4: Enable USB networking
 
 In order to communicate with the EV3, we need a network connection. We are going to setup a TCP/IP connection over USB since USB is the one type of connection that **everyone** has. If you want to use a WiFi dongle or some other type of connection, will will get to that, but we need to set up USB first.
 
@@ -70,9 +68,9 @@ Be sure to safely eject your SD card from you host computer first, then put the 
 
 At first, you will see the Mindstorms boot splash and the red LEDs will be on. This is immediately followed by the ev3dev boot splash and the LEDs changing to amber. The left LED indicates CPU activity and the right LED indicates disk (SD card) activity.
 
-Shortly after the ev3dev boot splash, the screen will go blank and then eventually say `"Debian GNU/Linux 7 (wheezy)"`. After the screen goes blank, you can press any of the buttons - except the middle one - to toggle the sysv init messages.
+Shortly after the ev3dev boot splash, the screen will go blank and then eventually say `"Debian GNU/Linux 7 (wheezy)"`. Any time after the screen goes blank, you can press any of the directional buttons (up, down, left, right) to toggle displaying boot messages.
 
-The first boot will take a little longer that subsequent boots because the EV3 has to create a unique SSH host ID.
+The first boot will take a little longer that subsequent boots because the EV3 has to create a unique SSH host ids and take care of a few other housekeeping items.
 
 When the boot is complete, the LEDs will turn green and you will see this on the screen:
 
@@ -82,7 +80,7 @@ When the boot is complete, the LEDs will turn green and you will see this on the
      |  __/\ V / ___) | (_| |  __/\ V /
       \___| \_/ |____/ \__,_|\___| \_/
     
-    Debian #OSNAME# 7 on LEGO MINDSTORMS EV3!
+    Debian GNU/Linux 7 on LEGO MINDSTORMS EV3!
     ev3dev tty1
     ev3dev login: _
 
@@ -94,7 +92,7 @@ This depends on the OS of your host computer, so choose the one that applies:
 * [[Mac OS X|Connecting via USB on Mac OS X]]
 * [[Windows|Connecting via USB on Windows]]
 
-## Step 7: First Things to do with ev3dev
+## Step 7: First things to do with ev3dev
 
 Here are some suggestions of some things you should do to get your EV3 setup.
 
@@ -132,9 +130,10 @@ Replace `user` with your actual user name and `First Last` with your real name (
 
     root@ev3dev:~# dpkg-reconfigure tzdata
 
+Then just follow the instructions on the screen.
+
 **NOTE:** The EV3 does not have a battery backup for the realtime clock. Whenever you remove the batteries, the clock will be reset. If the EV3 is connected to the Internet, the clock will be automatically set via NTP, otherwise, you can manually set the date/time with the `date` command.
 
-Then just follow the instructions on the screen.
 
 ### Set the locale
 
@@ -148,19 +147,21 @@ The ev3dev image is only 500MB so that you don't have to wait so long while writ
 
     root@ev3dev:~# lvextend --extents +100%FREE --resizefs /dev/ev3devVG/root /dev/mmcblk0p3
 
+**IMPORTANT**: Don't wait until you get an error that your disk is full before doing this. You need some free disk space available in order to run this command.
+
 ### Update packages
 
-Make sure your EV3 is connected to the Internet first. Updating the package list the first time will take a long time.
+Make sure your EV3 is connected to the Internet first. Updating the package list the first time will take a few minutes.
 
     root@ev3dev:~# apt-get update
     root@ev3dev:~# apt-get upgrade
     root@ev3dev:~# apt-get dist-upgrade
 
-If a new kernel package is installed, you will want to reboot.
+If a new kernel package is installed, you will need to reboot.
 
     root@ev3dev:~# reboot
 
-## Step 8: Do Something Awesome
+## Step 8: Do something awesome
 
 This will be where we tell you how to use sensors and motors and whatnot...
 
@@ -179,7 +180,7 @@ This will be where we tell you how to use sensors and motors and whatnot...
 - [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)
 - [[Using brickstrap to cross compile and debug]]
 
-## Step 9: Calling It a Day
+## Step 9: Calling it a day
 
 When you are ready to wish your EV3 goodnight, turn if off by running:
 

@@ -1,5 +1,7 @@
 If you have not already, make sure you have followed the instructions in [Getting Started Step 4](Getting-started-v2#step-4-enable-usb-networking).
 
+**IMPORTANT: There seem to be issues with Internet Connection Sharing and Windows 8: See issue #48 before wasting your time.**
+
 1. On your host computer, open up the *Network and Sharing Center* either using the notification tray icon or using *Control Panel > Network and Internet > Network and Sharing Center*. Click on *Change adapter settings*.
 
     ![Network and Sharing Center Image](images/WindowsRNDIS/Network-and-Sharing-Center-Change-adapter-settings.png)

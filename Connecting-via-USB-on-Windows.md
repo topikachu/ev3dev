@@ -6,7 +6,7 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
 2. You should see a connection that says *USB Ethernet/RNDIS Connection*. If you don't see it... TODO: Add link to troubleshooting tips from existing wiki page.
 
-**IMPORTANT: It seems that windows installs the wrong driver, so even if you do see the network connection, you need to follow the steps on the [old version](Setting-Up-Windows-USB-Ethernet-Networking#-connecting-to-a-windows-host) of this page to install the correct driver, then come back here.**
+    **IMPORTANT: It seems that windows installs the wrong driver, so even if you do see the network connection, you need to follow the steps on the [old version](Setting-Up-Windows-USB-Ethernet-Networking#-connecting-to-a-windows-host) of this page to install the correct driver, then come back here.**
 
     ![AddNewDevice](images/WindowsRNDIS/Network-Connections.png)
 

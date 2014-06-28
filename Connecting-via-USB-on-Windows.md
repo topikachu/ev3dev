@@ -48,7 +48,7 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
     ![AddNewDevice](images/WindowsRNDIS/Network-Connections-Rename.png)
 
-4. Now, we need to share our Internet connection with the EV3. Double-click the other network connection. This will show the connection status. If you have more than one other connection, you will want to verify that this connection is indeed the Internet connection.
+4. Now, we need to share our Internet connection with the EV3. Double-click the other network connection (**not** the one we just renamed). This will show the connection status. If you have more than one other connection, you will want to verify that this connection is indeed the Internet connection.
 
     ![CDC-Connected](images/WindowsRNDIS/Local-Area-Connection-Status.png)
 

@@ -1,12 +1,46 @@
 If you have not already, make sure you have followed the instructions in [Getting Started Step 4](Getting-started-v2#step-4-enable-usb-networking).
 
-1. On your host computer, open up the *Network and Sharing Center* either using the notification tray icon or using *Control Panel > Network and Internet > Network and Sharing Center*. Click on *Change adapter settings*.
+1. When you plug in your EV3 via USB while ev3dev is running Windows will automatically install a driver for it. **It installs the wrong driver!** We need to fix this. Open up *Control Panel > Hardware and Sound* and select *Device Manager*
+
+    ![Control Panel > Hardware and Sound > Device Manager](images/WindowsRNDIS/control-panel-hard-and-sound-device-manager.png)
+
+2. In *Device Manager*, find your EV3's RNDIS device. It is under *Network Adapters > USB Ethernet/RNDIS Gadget*.
+
+    ![Device Manager > Network Adapters > USB Ethernet/RNDIS Gadget](images/WindowsRNDIS/device-manager-ethernet-usb-rndis-gadget.png)
+
+3. Double-click it and select the *Drivers* tab. It says that it is using an Acer driver, which doesn't work properly with ev3dev. Click *Update driver...* to change the driver.
+
+    ![USB Ethernet/RNDIS Gadget Properties (Acer)](images/WindowsRNDIS/usb-ethernt-rndis-gadget-properties-acer.png)
+
+4. Select *Browse my computer for driver software*.
+
+    ![Update Driver Software - USB Ethernet/RNDIS Gadget > Browse my computer for driver software](images/WindowsRNDIS/update-driver-software-usb-ethernet-rndis-gadget.png)
+
+5. Then *Let me pick from a list of device drivers on my computer*.
+
+    ![Update Driver Software - USB Ethernet/RNDIS Gadget > Let me pick from a list of device drivers on my computer](images/WindowsRNDIS/update-driver-software-usb-ethernet-rndis-gadget-2.png)
+
+6. Uncheck the box that says *Show compatible hardware*. In the *Manufacturer* list, pick *Microsoft Corporation* (in Windows 8, pick *Microsoft*). In the *Network Adapter* list, pick *Remote NDIS Compatible Device*. Then click *Next*.
+
+    ![Update Driver Software - USB Ethernet/RNDIS Gadget > Select Network Adapter](images/WindowsRNDIS/update-driver-software-usb-ethernet-rndis-gadget-3.png)
+
+7. Windows thinks we don't know what we are doing, but really we do, so click *Yes*.
+
+    ![Update Driver Warning](images/WindowsRNDIS/update-driver-warning.png)
+
+8. When it is done installing, click *Close*.
+
+    ![Update Driver Software - USB Ethernet/RNDIS Gadget > Windows has successfully updated your driver software](images/WindowsRNDIS/update-driver-software-usb-ethernet-rndis-gadget-4.png)
+
+8. Yea! We have the right driver now! Click *Close* again. You can close the *Device Manager* too. We are done with it.
+
+    ![USB Ethernet/RNDIS Gadget Properties (Microsoft)](images/WindowsRNDIS/usb-ethernt-rndis-gadget-properties-microsoft.png)
+
+1. Now, open up the *Network and Sharing Center* either using the notification tray icon or using *Control Panel > Network and Internet > Network and Sharing Center*. Click on *Change adapter settings*.
 
     ![Network and Sharing Center Image](images/WindowsRNDIS/Network-and-Sharing-Center-Change-adapter-settings.png)
 
 2. You should see a connection that says *USB Ethernet/RNDIS Connection*. If you don't see it... TODO: Add link to troubleshooting tips from existing wiki page.
-
-    **IMPORTANT: It seems that windows installs the wrong driver, so even if you do see the network connection, you need to follow the steps on the [old version](Setting-Up-Windows-USB-Ethernet-Networking#-connecting-to-a-windows-host) of this page to install the correct driver, then come back here.**
 
     ![AddNewDevice](images/WindowsRNDIS/Network-Connections.png)
 
@@ -26,8 +60,6 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
 4. Now, we need to find out what IP address our EV3 has. Windows is not very nice and will not tell us what it is. So, you have can do one of these two options.
 
-
-
     * You can plug a USB keyboard into the EV3 and log in. Run ifconfig to show the network status. Use Shift+PgUp if you need to scroll. Look for usb0. It should have an address assigned of 192.168.137.?.
 
     * We know the address starts will 192.168.137., so we can just try pinging all 253 possible addresses. On a command prompt in Windows, run:
@@ -35,7 +67,6 @@ If you have not already, make sure you have followed the instructions in [Gettin
             C:\>for /l %x in (2,1,254) do ping -n 1 -w 10 192.168.137.%x | find "Reply"
 
         Watch for the line that has a reply and that is the address of your EV3.
-
 
 6. Now we are going to connect to the EV3 using ssh. To do this, you need a program call [PuTTY](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/).
 

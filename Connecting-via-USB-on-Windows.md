@@ -40,7 +40,7 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
     ![Network and Sharing Center Image](images/WindowsRNDIS/Network-and-Sharing-Center-Change-adapter-settings.png)
 
-2. There will be a connection that says *USB Ethernet/RNDIS Connection*.
+2. There will be a connection that says *USB Ethernet/RNDIS Gadget*.
 
     ![AddNewDevice](images/WindowsRNDIS/Network-Connections.png)
 

@@ -1,12 +1,12 @@
 If you have not already, make sure you have followed the instructions in [Getting Started Step 4](Getting-started-v2#step-4-enable-usb-networking).
 
-**IMPORTANT: There seem to be issues with Internet Connection Sharing and Windows 8: See issue #48 before wasting your time.**
-
 1. On your host computer, open up the *Network and Sharing Center* either using the notification tray icon or using *Control Panel > Network and Internet > Network and Sharing Center*. Click on *Change adapter settings*.
 
     ![Network and Sharing Center Image](images/WindowsRNDIS/Network-and-Sharing-Center-Change-adapter-settings.png)
 
-2. You should see a connection that says *USB Ethernet/RNDIS Connection*. If you don't see it... TODO: Add link to troubleshooting tips from exiting wiki page.
+2. You should see a connection that says *USB Ethernet/RNDIS Connection*. If you don't see it... TODO: Add link to troubleshooting tips from existing wiki page.
+
+**IMPORTANT: It seems that windows installs the wrong driver, so even if you do see the network connection, you need to follow the steps on the [old version](Setting-Up-Windows-USB-Ethernet-Networking#-connecting-to-a-windows-host) of this page to install the correct driver, then come back here.**
 
     ![AddNewDevice](images/WindowsRNDIS/Network-Connections.png)
 

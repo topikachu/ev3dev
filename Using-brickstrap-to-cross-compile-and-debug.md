@@ -15,6 +15,18 @@ Once you have trusty up and running, run the following commands to install the `
     user@host:~$ sudo apt-get update
     user@host:~$ sudo apt-get install brickstrap
 
+Next, there are a few things we need to take care of. `brickstrap` uses a library called `libguestfs` to build the disk image. There is some setup required to use this.
+
+    # create a supermin appliance
+    sudo update-guestfs-appliance
+    # add yourself to the kvm group
+    # need to log out and back in for this to take effect
+    sudo usermod -a -G kvm <username>
+    # fix permissions on /boot/vmlinuz*
+    sudo chmod +r /boot/vmlinuz*
+
+**Note:** The official `libguestfs` package in trusty is broken. We have a patached version in the ev3dev.org package repository. Please make some noise on [this bug](https://bugs.launchpad.net/ubuntu/+source/libguestfs/+bug/1320590) by clicking the link that says "Does this affect you too?" (or leave a comment if you have something useful to say, besides "me too"). Same thing with the official `multistrap` package in ubuntu. It is broken too and we have our own version. So, make some noise on [this bug](https://bugs.launchpad.net/ubuntu/+source/multistrap/+bug/1313787) too. If we can get ubuntu folks to update the packages, then there are 2 less packages that we have to maintain.
+
 Now, create an empty directory to work in. You can name it whatever you like. I am calling it `work`.
 
     user@host:~$ mkdir work

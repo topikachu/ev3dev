@@ -6,7 +6,7 @@ This information only applies to the latest [test release](https://github.com/dl
 
 By the time you get to this page, you probably already know that ev3dev is Debian Linux for the LEGO Mindstorms EV3. If you have more basic questions, check out the [[FAQ|Frequently Asked Questions]].
 
-## Step 1: Get a microSD dard
+## Step 1: Get a microSD card
 
 You need a [microSD](https://en.wikipedia.org/wiki/Secure_Digital#SD) or [microSDHC](https://en.wikipedia.org/wiki/Secure_Digital#SDHC) card. [microSDXC](https://en.wikipedia.org/wiki/Secure_Digital#SDXC) is not supported (you might be able to get it to work, but it will operate at reduced capacity and speed).
 
@@ -163,8 +163,10 @@ If a new kernel package is installed, you will need to reboot.
 
 ## Step 8: Do something awesome
 
-This will be where we tell you how to use sensors and motors and whatnot...
+This will be where we tell you how to use the EV3's main functions, and how to write programs. We are still learning, so everything here should be considered experimental and subject to major changes.
 
+### Using the EV3 hardware drivers
+Here are some guides for using each of the major components.
 - [[Using Sensors]]
 - [[Using Motors]]
 - [[Using Sound]]
@@ -173,13 +175,16 @@ This will be where we tell you how to use sensors and motors and whatnot...
 - [[Using the LEDs]]
 - [[Using Bluetooth]]
 
-...and how to write programs. We are still leaning. Everything here should be considered experimental and subject to major changes.
+### Writing programs
+There are a number of programming languages available to use. The brick can run almost all languages that any other Linux distro can, so your favorite language is probably supported. Language bindings have already been written for some languages:
 
 - [[Using brickstrap to cross compile and debug]]
 - [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)
 - [Google Go](https://github.com/mattrajca/GoEV3)
 - [Node.js](https://github.com/WasabiFan/ev3dev-NodeJS)
 - Python [Rubik's cube solver](https://github.com/mindboards/ev3dev/issues/63#issuecomment-42717732) and [balancing robot](https://gist.github.com/dlech/11098915)
+
+If the language you want isn't listed, you still can use it, but you'll have to do more of the heavy lifting yourself using the guides above. Once you get the hang of it, you can even write your own interface library and have it listed here!
 
 ## Step 9: Calling it a day
 

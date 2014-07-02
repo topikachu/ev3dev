@@ -52,23 +52,28 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
     ![CDC-Connected](images/WindowsRNDIS/Local-Area-Connection-Status.png)
 
-5. Click on the *Properties* button. In the window that opens, select the *Sharing* tab and check the box that says *Allow other network users to connect through this computer's Internet connection*.
+5. Click on the *Properties* button. In the window that opens, select the *Sharing* tab and check the box that says *Allow other network users to connect through this computer's Internet connection*.  
 
     ![CDC-Connected](images/WindowsRNDIS/Local-Area-Connection-Properties-Sharing.png)
     
+
+    If you have more than two network connections, it will ask for a "Home networking connection". If you see this, select your EV3's network adapter from the list (this will be called *EV3* if you renamed it earlier in the guide).
+
+    ![Extra-Options](images/WindowsRNDIS/Local-Area-Connection-Properties-Sharing-with-Extra-Selection.png)
+
     Click *OK* when you are done and close the status window as well. Windows will automatically reconfigure your other network connections.
 
 4. Now, we need to find out what IP address our EV3 has. Windows is not very nice and will not tell us what it is. So, you have can do one of these two options.
 
-    * You can plug a USB keyboard into the EV3 and log in. Run ifconfig to show the network status. Use Shift+PgUp if you need to scroll. Look for usb0. It should have an address assigned of 192.168.137.?.
+    * You can plug a USB keyboard into the EV3 and log in. Run `ifconfig` to show the network status. Use Shift+PgUp if you need to scroll. Look for usb0. It should have an address assigned of 192.168.137.*.
 
-    * We know the address starts will 192.168.137., so we can just try pinging all 253 possible addresses. On a command prompt in Windows, run:
+    * We know the address starts with "192.168.137.", so we can just try pinging all 253 possible addresses. On a command prompt in Windows, run:
 
             C:\>for /l %x in (2,1,254) do ping -n 1 -w 10 192.168.137.%x | find "Reply"
 
         Watch for the line that has a reply and that is the address of your EV3.
 
-6. Now we are going to connect to the EV3 using ssh. To do this, you need a program call [PuTTY](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/).
+6. Now we are going to connect to the EV3 using ssh. To do this, you need a program called [PuTTY](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/).
 
     Start PuTTY. In the *PuTTY Configuration* window, type the IP address that you found in the box that says *Host Name (or IP Address)*. It will be different from the one in the screenshot. Then click the *Open* button to connect.
 

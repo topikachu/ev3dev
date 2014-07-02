@@ -165,7 +165,7 @@ If a new kernel package is installed, you will need to reboot.
 
 This will be where we tell you how to use the EV3's main functions, and how to write programs. We are still learning, so everything here should be considered experimental and subject to major changes.
 
-### Using the EV3 functions 
+### Using the EV3 hardware drivers
 Here are some guides for using each of the major components.
 - [[Using Sensors]]
 - [[Using Motors]]
@@ -176,7 +176,7 @@ Here are some guides for using each of the major components.
 - [[Using Bluetooth]]
 
 ### Writing programs
-There are a number of propgraming languages available to use. The brick can run almost all languages that any other Linux distro can, so your favorite language is probably supported. Language bindings have already been written for some languages:
+There are a number of programming languages available to use. The brick can run almost all languages that any other Linux distro can, so your favorite language is probably supported. Language bindings have already been written for some languages:
 
 - [[Using brickstrap to cross compile and debug]]
 - [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)

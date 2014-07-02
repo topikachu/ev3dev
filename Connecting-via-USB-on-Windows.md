@@ -52,11 +52,15 @@ If you have not already, make sure you have followed the instructions in [Gettin
 
     ![CDC-Connected](images/WindowsRNDIS/Local-Area-Connection-Status.png)
 
-5. Click on the *Properties* button. In the window that opens, select the *Sharing* tab and check the box that says *Allow other network users to connect through this computer's Internet connection*. If you have more than two network connections, it will ask for a "Home networking connection". If you see this, select your EV3's network from the list (this will be called *EV3* if you renamed it earlier in the guide). 
+5. Click on the *Properties* button. In the window that opens, select the *Sharing* tab and check the box that says *Allow other network users to connect through this computer's Internet connection*.  
 
     ![CDC-Connected](images/WindowsRNDIS/Local-Area-Connection-Properties-Sharing.png)
     
     Click *OK* when you are done and close the status window as well. Windows will automatically reconfigure your other network connections.
+
+5. If you have more than two network connections, it will ask for a "Home networking connection". If you see this, select your EV3's network from the list (this will be called *EV3* if you renamed it earlier in the guide).
+
+    ![Extra-Options](images/WindowsRNDIS/Local-Area-Connection-Properties-Sharing-with-Extra-Selection.png)
 
 4. Now, we need to find out what IP address our EV3 has. Windows is not very nice and will not tell us what it is. So, you have can do one of these two options.
 

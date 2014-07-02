@@ -175,10 +175,11 @@ This will be where we tell you how to use sensors and motors and whatnot...
 
 ...and how to write programs. We are still leaning. Everything here should be considered experimental and subject to major changes.
 
-- Python [Rubik's cube solver](https://github.com/mindboards/ev3dev/issues/63#issuecomment-42717732) and [balancing robot](https://gist.github.com/dlech/11098915)
-- [Google Go](https://github.com/mattrajca/GoEV3)
-- [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)
 - [[Using brickstrap to cross compile and debug]]
+- [C++ language bindings/samples](https://github.com/fdetro/ev3dev-lang)
+- [Google Go](https://github.com/mattrajca/GoEV3)
+- [Node.js](https://github.com/WasabiFan/ev3dev-NodeJS)
+- Python [Rubik's cube solver](https://github.com/mindboards/ev3dev/issues/63#issuecomment-42717732) and [balancing robot](https://gist.github.com/dlech/11098915)
 
 ## Step 9: Calling it a day
 

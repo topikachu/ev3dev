@@ -1,7 +1,3 @@
-Major changes are afoot. @dlech is trying out some new things and would like your feedback.
-
-This information only applies to the latest [test release](https://github.com/dlech/ev3dev/releases) - or possibly a yet-to-be-released test release.
-
 ## Introduction
 
 By the time you get to this page, you probably already know that ev3dev is Debian Linux for the LEGO Mindstorms EV3. If you have more basic questions, check out the [[FAQ|Frequently Asked Questions]].

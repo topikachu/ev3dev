@@ -16,7 +16,7 @@ You will also need a host computer with an adapter for the SD card.
 
 ## Step 2: Download the latest ev3dev image file
 
-In the future, this will be available [here](https://github.com/mindboards/ev3dev/releases), however for testing purposes, download the one from [here](https://github.com/dlech/ev3dev/releases).
+Releases are [here](https://github.com/mindboards/ev3dev/releases).
 
 **NOTE:** Downloading the `.zip` file is recommended for Windows/Mac and the `.xz` file is recommended for Linux. `.xz` requires that you have additional software installed on Windows/Mac to decompress it (such as [7-Zip](http://www.7-zip.org/) on Windows).
 

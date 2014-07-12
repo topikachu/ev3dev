@@ -1,3 +1,9 @@
+-----
+
+**IMPORTATNT: THIS PAGE IS OUT OF DATE! FOR THE RECENTLY RELEASED v01.00.00 IMAGE, SEE [[GETTING STARTED V2]].**
+
+-----
+
 Watch this space for more detailed instructions than those in the individual README.md files in the repository.
 
 - [Default `root` password](#DefaultRootPassword) - First time login to `root`

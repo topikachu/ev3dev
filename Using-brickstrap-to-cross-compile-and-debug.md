@@ -32,15 +32,15 @@ Now, create an empty directory to work in. You can name it whatever you like. I 
     user@host:~$ mkdir work
     user@host:~$ cd work
 
-Then, build an image. Right now there are 2 *flavors* of ev3dev - ev3dev (wheezy) and ev3dev-next (jessie). The `-b` option is the "board" definition that is used to build the image. It should either be `ev3dev` (default) or `ev3dev-next`. You need to pick the one that matches what you have installed on your EV3. The `-d` option is the name of the directory that will be created. The `all` command tells brickstrap to build a complete image. This will take 20 to 30 minutes or longer depending on the speed of your machine.
+Then, build an image. Right now there are 2 *flavors* of ev3dev - ev3dev (wheezy) and ev3dev-next (jessie). The `-b` option is the "board" definition that is used to build the image. It should either be `ev3dev-wheezy` or `ev3dev-jessie` (default). You need to pick the one that matches what you have installed on your EV3. The `-d` option is the name of the directory that will be created. The `all` command tells brickstrap to build a complete image. This will take 20 to 30 minutes or longer depending on the speed of your machine.
 
-    user@host:~/work$ brickstrap -b ev3dev -d ev3dev-work all
+    user@host:~/work$ brickstrap -b ev3dev-jessie -d ev3dev-work all
 
 ## Working in the brickstrap shell
 
 Once brickstrap has finished, you can get a bash shell inside of the directory that was created. This is almost like working in a virtual machine except that qemu is used to run individual commands instead of the whole thing being run inside of a virtual environment.
 
-    user@host:~/work$ brickstrap -b ev3dev -d ev3dev-work shell
+    user@host:~/work$ brickstrap -b ev3dev-jessie -d ev3dev-work shell
 
 Now, you can install packages and run programs almost just as if you were on the actual EV3. For starters, you will want to install `build-essential`. If you want to use any extra libraries, most have `-dev` packages that you will need to install. We should probably setup a non-root user, but for now, we are going to do everything as (fake)root.
 

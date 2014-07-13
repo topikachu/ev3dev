@@ -14,6 +14,7 @@ auto lo
 iface lo inet loopback
  
 auto wlan0
+allow-hotplug wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant.conf
 ```

@@ -34,7 +34,7 @@ There are a vast number of ways to do this, so pick the one from the list that s
 
 ## Step 4: Enable USB networking
 
-In order to communicate with the EV3, we need a network connection. We are going to setup a TCP/IP connection over USB since USB is the one type of connection that **everyone** has. If you want to use a WiFi dongle or some other type of connection, will will get to that, but we need to set up USB first.
+In order to communicate with the EV3, we need a network connection. We are going to setup a TCP/IP connection over USB since USB is the one type of connection that *everyone* has. If you want to use a WiFi dongle or some other type of connection, we will get to that, but we need to set up USB first.
 
 You should still have your SD card plugged in to your host computer. In your file browser/manager/finder/whaterver-you-call-it, there should be a removable drive called EV3_BOOT. Open it.
 

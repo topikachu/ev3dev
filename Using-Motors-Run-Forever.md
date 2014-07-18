@@ -39,13 +39,13 @@ The standard LEGO firmware, and previous versions of `ev3dev` used `speed` as a 
 The `regulation_mode` attribute has two possible values `on` and `off` - the default is `off`. To turn on regulation, all you need to do is write `on` to the `regulation_mode` attribute, like this:
 
 ```
-user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulaton_mode
+user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulation_mode
 off
 user@ev3dev:~$ echo on > /sys/class/tacho-motor/tacho-motor2/regulation_mode
-user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulaton_mode
+user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulation_mode
 on
 user@ev3dev:~$ echo off > /sys/class/tacho-motor/tacho-motor2/regulation_mode
-user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulaton_mode
+user@ev3dev:~$ cat /sys/class/tacho-motor/tacho-motor2/regulation_mode
 off
 ```
 
@@ -199,7 +199,7 @@ user@ev3dev:~$ echo     0 > /sys/class/tacho-motor/tacho-motor2/run
 
 ```
 
-You can update the `brake_mode` even while the motor is running, but you won't see its effect until the motor stops. Also note that the motor driver is left in `brake` mode, and that the motor hub is harder to turn than when it's in `coast` mode.
+You can update the `stop_mode` even while the motor is running, but you won't see its effect until the motor stops. Also note that the motor driver is left in `brake` mode, and that the motor hub is harder to turn than when it's in `coast` mode.
 
 While the `stop_mode` attribute set to `brake` improves the ability of the motor to stop quickly, the `hold` value does it one better. This mode is used to tell the motor driver to hold its position after it has been turned off.
 

@@ -1,0 +1,68 @@
+NOTE: You currently have to be root to use the LEDs.
+
+### Basics
+The ev3 has a 178 x 128 pixels monochrome LCD. The ev3dev video driver provides a stand pixel buffer and it's possible to write pixel data into ```/dev/fb0``` directly.
+
+### The pixel buffer format
+Each byte in the buffer represents 8 pixels. Leftmost pixel is in the least significant bit, value 0 is white and value 1 is black.
+
+Each row need to be 4 bytes aligned. So it's (178+31)/32*4 = 24 bytes per row.
+The total buffer length is 24*128 = 3072 bytes
+
+Suppose the buffer likes below
+```
+    (76543210)(FEDCBA98)
+row0 01000100  00000000 00000000 ... (total 24 bytes)
+row1 01000100  00000000 00000000 ... (total 24 bytes)
+row2 01000100  00000000 00000000 ... (total 24 bytes)
+... (total 128 rows)
+```
+It draws two vertical lines at column 2(0 based index) and column 6 (also 0 based index).
+
+### Write buffer to device file
+I use python as example to draw something interesting
+```
+#!/usr/bin/env python
+
+SCREEN_WIDTH = 178
+SCREEN_HEIGHT = 128
+HW_MEM_WIDTH = int((SCREEN_WIDTH + 31) / 32) * 4
+SCREEN_MEM_WIDTH = int((SCREEN_WIDTH + 7) / 8)
+LCD_BUFFER_LENGTH = SCREEN_MEM_WIDTH * SCREEN_HEIGHT
+LCD_HW_BUFFER_LENGTH = HW_MEM_WIDTH * SCREEN_HEIGHT
+import os
+import array
+
+
+def main():
+    buf = [0] * LCD_HW_BUFFER_LENGTH
+    # draw a vertical line in column 100 (0 based index)
+    for row in range(0, SCREEN_HEIGHT):
+        buf[row * HW_MEM_WIDTH + int(100 / 8)] = 1 << (100 % 3)
+    # draw a horizontal line in row 64 (0 based index)
+    for col in range(0, SCREEN_MEM_WIDTH):
+        buf[64 * HW_MEM_WIDTH + col] = 0xff
+
+
+    import math
+    # draw a circle
+    for x in range(0, 20):
+        y = math.sqrt(20 * 20 - x * x)
+        buf[(40 + int(y)) * HW_MEM_WIDTH +
+            int((40 + x) / 8)] = (1 << ((40 + x) % 8))
+        buf[(40 - int(y)) * HW_MEM_WIDTH +
+            int((40 + x) / 8)] = (1 << ((40 + x) % 8))
+        buf[(40 + int(y)) * HW_MEM_WIDTH +
+            int((40 - x) / 8)] = (1 << ((40 - x) % 8))
+        buf[(40 - int(y)) * HW_MEM_WIDTH +
+            int((40 - x) / 8)] = (1 << ((40 - x) % 8))
+
+    f = os.open('/dev/fb0', os.O_RDWR)
+    s = array.array('B', buf).tostring()
+    os.write(f, s)
+    os.close(f)
+
+if __name__ == '__main__':
+    main()
+```
+

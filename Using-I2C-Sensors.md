@@ -88,7 +88,7 @@ $ ls /dev/i2c-in*
 /dev/i2c-in2  /dev/i2c-in3
 ```
 
-You can use the ```i2c-tools``` package or an I2C library in your programming language of choice to communicate with I2C devices this way. You don't want to do this if a device is already loaded so you will want to disable autodetection first if the sensor is the autodetected type. Beware that many sensors, including the NXT Ultrasonic Sensor use an address of 0x01, which is illegal according to the I2C standards. ```i2c-tools``` and any library that does some error checking may prevent you from accessing the sensor. If you find a need to get around these limitations, let us know. We (that includes you!) can patch the packages to make the work.
+You can use the `i2c-tools` package or an I2C library in your programming language of choice to communicate with I2C devices this way. You don't want to do this if a device is already loaded so you will want to disable autodetection first if the sensor is the autodetected type. Beware that many sensors, including the NXT Ultrasonic Sensor use an address of 0x01, which is illegal according to the I2C standards. `i2c-tools` and any library that does some error checking may prevent you from accessing the sensor. In ev3dev-jessie, the `i2c-tools` package has been patched to work around this.
 
 ## Practical examples
 

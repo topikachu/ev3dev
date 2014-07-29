@@ -19,8 +19,9 @@ row2 10000100  00000000 00000000 ... (total 24 bytes)
 ```
 It draws two vertical lines at column 2(0 based index) and column 7 (also 0 based index).
 
-### Write buffer to device file
-Use python to draw something interesting
+### POC
+Use python to draw something interesting.  
+**Below code only test on [ev3dev-jessie-2014-07-12](https://github.com/ev3dev/ev3dev/releases/tag/ev3dev-jessie-2014-07-12). ev3dev may change video driver in the future. We recommend developers getting your own console, activate it and set it to graphics mode before write to framebuffer. Plese see https://github.com/ev3dev/brickdm/blob/master/src/BrickDisplayManager.vala as an example**
 ```
 #!/usr/bin/env python
 
@@ -63,4 +64,3 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-

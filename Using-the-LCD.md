@@ -1,4 +1,4 @@
-NOTE: You need to be a member of the ```video``` to use the LCD.
+NOTE: You need to be a member of the ```video``` group to use the LCD.
 
 ### Basics
 The ev3 has a 178 x 128 pixels monochrome LCD. The ev3dev video driver provides [standard Linux framebuffer interface](https://www.kernel.org/doc/Documentation/fb/api.txt) and it's possible to write pixel data into ```/dev/fb0``` directly.
